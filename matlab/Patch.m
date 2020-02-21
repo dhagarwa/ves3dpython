@@ -4,6 +4,7 @@ classdef Patch
         v
         nodes 
         numPatch
+        numPatches
         neighbors
         numNodes
         h_u
@@ -29,7 +30,8 @@ classdef Patch
          obj.numNodes = m*n; %no of nodes on one patch in u-v coordinates
          obj.numPatch = numPatch;
          obj.neighbors = neighbors;
-         obj.R = R; 
+         obj.R = R;
+         obj.numPatches = 6;
       
       end
       
@@ -50,11 +52,15 @@ classdef Patch
          obj.x = obj.r(:, 1);
          obj.y = obj.r(:, 2);
          obj.z = obj.r(:, 3);
-         obj.pou = obj.spou(obj.numPatch, obj.r);
+         qk = zeros(obj.numNodes, 1);
+         for pp= 1:obj.numPatches
+             qk = qk+ obj.spou(pp, obj.r);
+         end
+         obj.pou = obj.spou(obj.numPatch, obj.r)./qk;
           
       end
 
-    function obj = spou(obj, patch, r)
+    function val = spou(obj, patch, r)
     [v1, u1, rho1] = cart2sph(r(:,1), r(:,2), r(:,3));
     %u = pi/2 - u;
     %u; v;
@@ -81,14 +87,14 @@ classdef Patch
     for ii=1:nn
         t = greatCircleDistance(u0, v0, u1(ii), v1(ii), obj.R)/d;
         if t>=1
-            val(ii) =0;
+            val(ii) = 0;
         elseif t ==0
             val(ii) = 1;
         else
             val(ii) = exp((2*exp(-1/t))/ (t-1));
         end
     end
-    obj.pou = val;
+    
     
     
     end

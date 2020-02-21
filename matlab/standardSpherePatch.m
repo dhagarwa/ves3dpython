@@ -22,7 +22,7 @@ p = Patch(m, n, R, numPatch, []);
     end
 
     
-p.update();    %updating x, y, z from r
+p = p.update();    %updating x, y, z from r
 p.J = abs(R^2*sin(p.u)); %Setting jacobian
 
 
