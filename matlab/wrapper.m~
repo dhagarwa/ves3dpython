@@ -10,22 +10,25 @@ function [] = wrapper()
     m = 8;
     n = 8;
     R = 1;
-    val = 0;
-    theta = pi/2;
-    phi = pi/3;
-    trg = 1*[R*sin(theta)*cos(phi) R*sin(theta)*sin(phi) R*cos(theta)]
+    
+    %theta = pi/2;
+    %phi = pi/3;
+    %trg = 1*[R*sin(theta)*cos(phi) R*sin(theta)*sin(phi) R*cos(theta)]
     patches = [];
     for i=1:6
        patch =  standardSpherePatch(m, n, i, R);
+       patch.q_dl = fooVec(patch.r);
        patches = [patches patch];
-       %f = fooVec(patch.r);
        %val = val + DLSmoothPatch(trg, patch, f);
         
     end
-    patches(1).r
+    S = Surface(patches);
+    val = DLSurface(S );
     %val = val + 0.5*fooVec([R*sin(theta)*cos(phi) R*sin(theta)*sin(phi) R*cos(theta)]);
 
    %(val - 4*pi*R^2)/(4*pi*R^2)
    %error = norm(val - 0.5*[0, -trg(3), trg(2)]) 
+   val
+   true_val = 
 end
 

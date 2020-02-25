@@ -17,6 +17,7 @@ function val = DLSmoothIntegrand(y, qx0,  x, q, delta, default)
         abs_r = sqrt(sum(r.^2,2));
         abs_r_delta = abs_r/delta;
         s3 = smoothfun3(abs_r_delta);
+        abs_r(abs_r == 0) = 1; %to avoid division by zero
         t4 = s3./(abs_r.^5);
         t12 = t1.*t2;
         t124 = t12.*t4;
