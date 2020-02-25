@@ -1,22 +1,23 @@
-function val = DLSmooth(y, x, q, default)
-    %Smoothened Stokes kernel for on surface evaluation
-    %y is target point, x is source points vector 
-    %On surface only
-    % q is surface density vector
-    if default == 1
-       %assume y = x, calculate potential on all the source points 
+function val = DLSmooth(y, S)
+    val = 0;
+    for ii=1:length(S.patches)
+       patch = S.patches(ii);
+       q = fooVec()
+       val = val + DLSmoothPatch(y, patch, q);
         
         
-    elseif default == 0   % y is given explicitly
-        q_y = [1 1 1]; %for now to check scheme we take 1, but need to modify for automatic value calculation
-        n = x/sqrt(sum(x.^2,2)) . %for now we know the normal but need to write code for it.
-        y = repmat(y, size(x, 1), 1);
-        q_y = repmat(q_y, size(x, 1), 1);
-        r = (y - x);
-        q_tilde = q - q_y;
-        t1 = dot(r, q_tilde, 2);
-        
-
     end
+    
+    
+    %Hard coded for on surface singularity correction
+    R = 1;
+    theta = pi/2;
+    phi = pi/3;
+    val = val + 0.5*fooVec([R*sin(theta)*cos(phi) R*sin(theta)*sin(phi) R*cos(theta)]);
+
+
+
+
+
 
 end

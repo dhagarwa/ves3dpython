@@ -7,24 +7,26 @@ function [] = wrapper()
 %     p5 = standardSpherePatch(16, 16, 5, 1);
 %     p6 = standardSpherePatch(16, 16, 6, 1);
     
-    m = 16;
-    n = 16;
+    m = 64;
+    n = 64;
     R = 1;
     val = 0;
-    theta = 0.5;
-    phi = 0.5;
-    trg = [1+sin(theta)*cos(phi) sin(theta)*sin(phi) cos(theta)];
+    theta = pi/2;
+    phi = pi/3;
+    trg = 1*[R*sin(theta)*cos(phi) R*sin(theta)*sin(phi) R*cos(theta)]
+    patches = [];
     for i=1:6
        patch =  standardSpherePatch(m, n, i, R);
-       %size(patch.x)
-       f = fooVec(patch.nodes);
-       %val = val + integratePatch(patch, f);
-       val = val + DLSmoothPatch(trg, patch, f);
+       patches = [patches patch];
+       patch.q_dl = fooVec(patch.r);
+       %val = val + DLSmoothPatch(trg, patch, f);
         
     end
-    val = val + 0.5*[1 1 1];
+    S = Surface(patches);
+    val = DLSmooth(trg, S );
+    %val = val + 0.5*fooVec([R*sin(theta)*cos(phi) R*sin(theta)*sin(phi) R*cos(theta)]);
 
    %(val - 4*pi*R^2)/(4*pi*R^2)
-   val
+   error = norm(val - 0.5*[0, -trg(3), trg(2)]) 
 end
 

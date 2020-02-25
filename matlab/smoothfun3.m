@@ -5,4 +5,5 @@ function val = smoothfun3(x)
     c = - (2/9)*x.*b.*exp(-1*x.^2) *(1/sqrt(pi));
     val = a + c;
 
+    %val = ones(size(x, 1), 1); %uncomment only for inside or outside surface
 end

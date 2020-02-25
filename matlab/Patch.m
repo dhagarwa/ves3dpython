@@ -16,6 +16,8 @@ classdef Patch
         J
         pou
         R
+        q_dl %density double layer
+        q_sl %density single layer
    end
    
    methods

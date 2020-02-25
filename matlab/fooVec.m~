@@ -1,0 +1,7 @@
+function y  = fooVec(x)
+    
+    y = [0 x(:, 3) ]
+
+
+
+end

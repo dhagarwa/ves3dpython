@@ -1,6 +1,6 @@
 function y  = fooVec(x)
     
-    y = ones(size(x, 1), 3);
+    y = [zeros(size(x, 1), 1), -x(:, 3), x(:, 2)];
 
 
 
