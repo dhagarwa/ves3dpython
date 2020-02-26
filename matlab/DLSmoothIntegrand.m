@@ -1,4 +1,4 @@
-function val = DLSmoothIntegrand(y, qx0,  x, q, delta, default)
+function val = DLSmoothIntegrand(y, qx0,  x, q, n, delta, default)
     %Smoothened Stokes kernel for on surface evaluation
     %y is target point, x is source points vector 
     %On surface only
@@ -7,7 +7,7 @@ function val = DLSmoothIntegrand(y, qx0,  x, q, delta, default)
     if default == 1
        %assume y is the target calculate potential on all the source points 
         q_y = qx0; %density value at trg point,for now to check scheme we take 1, but need to modify for automatic value calculation
-        n = x; %for now we know the normal is x for unit sphere but need to write code for it.
+        %n = x; %for now we know the normal is x for unit sphere but need to write code for it.
         y = repmat(y, size(x, 1), 1);
         q_y = repmat(q_y, size(x, 1), 1);
         r = (y - x);
@@ -28,7 +28,7 @@ function val = DLSmoothIntegrand(y, qx0,  x, q, delta, default)
         phi = pi/3;
         R = 1;
         q_y = fooVec([R*sin(theta)*cos(phi) R*sin(theta)*sin(phi) R*cos(theta)]); %density value at trg point,for now to check scheme we take 1, but need to modify for automatic value calculation
-        n = x; %for now we know the normal is x for unit sphere but need to write code for it.
+        %n = x; %for now we know the normal is x for unit sphere but need to write code for it.
         y = repmat(y, size(x, 1), 1);
         q_y = repmat(q_y, size(x, 1), 1);
         r = (y - x);

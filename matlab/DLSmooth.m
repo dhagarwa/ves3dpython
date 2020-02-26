@@ -1,4 +1,4 @@
-function val = DLSmooth(y, qx0, S) % y is index of source point which is target point
+function val = DLSmooth(y, qx0, S) % y is  target point
     val = 0;
     for ii=1:length(S.patches)
        patch = S.patches(ii);

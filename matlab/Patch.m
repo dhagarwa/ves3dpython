@@ -18,6 +18,7 @@ classdef Patch
         R
         q_dl %density double layer
         q_sl %density single layer
+        n %unit normal
    end
    
    methods
@@ -34,6 +35,7 @@ classdef Patch
          obj.neighbors = neighbors;
          obj.R = R;
          obj.numPatches = 6;
+          
       
       end
       
@@ -54,6 +56,7 @@ classdef Patch
          obj.x = obj.r(:, 1);
          obj.y = obj.r(:, 2);
          obj.z = obj.r(:, 3);
+         obj.n = obj.r/obj.R;
          qk = zeros(obj.numNodes, 1);
          for pp= 1:obj.numPatches
              qk = qk+ obj.spou(pp, obj.r);
