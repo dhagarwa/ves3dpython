@@ -7,6 +7,8 @@ classdef Patch
         numPatches
         neighbors
         numNodes
+        Nu %# of u nodes
+        Nv %# of v nodes
         h_u
         h_v
         x
@@ -23,7 +25,8 @@ classdef Patch
    
    methods
       function obj = Patch(m, n, R, numPatch, neighbors)
-         obj.numNodes = n;
+         obj.Nu = m;
+         obj.Nv = n;
          [obj.u,obj.v]=ndgrid(pi*(1:m)/(m+1),pi*(1:n)/(n+1)); %u and v both are m x n matrices
          obj.u = obj.u(:);
          obj.v = obj.v(:);
@@ -104,6 +107,17 @@ classdef Patch
     
     end
     
+    function [f_du, f_dv] = grad(obj, f)
+        f = 0.5*f; %0.5 for scaling due to transformation [0, pi]->[-pi, pi]
+        f_mat = reshape(f, [obj.Nu obj.Nv]); %u varies column wise, v rowwise
+        f_mat = [zeros(1, obj.Nv);f_mat];
+        f_mat = [zeros(obj.Nu+1, 1) f_mat];
+        [f_du, f_dv] = deriv(f_mat'); 
+        f_du = f_du';
+        f_dv = f_dv';
+        
+        
+    end
     
    end
 end

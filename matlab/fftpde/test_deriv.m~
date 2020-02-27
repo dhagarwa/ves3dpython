@@ -1,0 +1,13 @@
+function [] = test_deriv()
+
+    Nx = 96;
+    Ny = Nx;
+    o = calc2([Nx, Ny]');
+    %o.use_hou_filtering;
+    o.use_twothirds_filtering;
+    X=o.regulargrid;
+    f = sin(X(:, :, 1));
+    true_grad = 
+
+
+end

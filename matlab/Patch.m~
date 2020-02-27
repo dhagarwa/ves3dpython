@@ -4,8 +4,11 @@ classdef Patch
         v
         nodes 
         numPatch
+        numPatches
         neighbors
         numNodes
+        Nu %# of u nodes
+        Nv %# of v nodes
         h_u
         h_v
         x
@@ -15,11 +18,15 @@ classdef Patch
         J
         pou
         R
+        q_dl %density double layer
+        q_sl %density single layer
+        n %unit normal
    end
    
    methods
       function obj = Patch(m, n, R, numPatch, neighbors)
-         obj.numNodes = n;
+         obj.Nu = m;
+         obj.Nv = n;
          [obj.u,obj.v]=ndgrid(pi*(1:m)/(m+1),pi*(1:n)/(n+1)); %u and v both are m x n matrices
          obj.u = obj.u(:);
          obj.v = obj.v(:);
@@ -29,7 +36,9 @@ classdef Patch
          obj.numNodes = m*n; %no of nodes on one patch in u-v coordinates
          obj.numPatch = numPatch;
          obj.neighbors = neighbors;
-         obj.R = R; 
+         obj.R = R;
+         obj.numPatches = 6;
+          
       
       end
       
@@ -50,7 +59,12 @@ classdef Patch
          obj.x = obj.r(:, 1);
          obj.y = obj.r(:, 2);
          obj.z = obj.r(:, 3);
-         obj.pou = obj.spou(obj.numPatch, obj.r)./;
+         obj.n = obj.r/obj.R;
+         qk = zeros(obj.numNodes, 1);
+         for pp= 1:obj.numPatches
+             qk = qk+ obj.spou(pp, obj.r);
+         end
+         obj.pou = obj.spou(obj.numPatch, obj.r)./qk;
           
       end
 
@@ -81,7 +95,7 @@ classdef Patch
     for ii=1:nn
         t = greatCircleDistance(u0, v0, u1(ii), v1(ii), obj.R)/d;
         if t>=1
-            val(ii) =0;
+            val(ii) = 0;
         elseif t ==0
             val(ii) = 1;
         else
@@ -93,6 +107,14 @@ classdef Patch
     
     end
     
+    function [f_du, f_dv] = grad(obj, f)
+       
+        f_mat = reshape(f, [obj.Nu obj.Nv]); %u varies column wise, v rowwise
+        f_mat = [zeros(1, obj.Nv);f_mat];
+        f_mat = [zeros(obj.Nu+1, 1) f_mat];
+        [f_du, f_dv] = 0.5*deriv(f_mat); %0.5 for scaling due to transformati
+        
+    end
     
    end
 end

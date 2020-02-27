@@ -155,6 +155,7 @@ function [GradF] = grad(o,f)
   for j=1:o.dim
     tmp{j} = ifftn( o.gvc( o.IK, j) .*fk );
   end
+  
   GradF = o.crv( tmp );
 
   if o.use_real,  GradF = real(GradF); end
