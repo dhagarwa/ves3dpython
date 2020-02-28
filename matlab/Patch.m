@@ -108,14 +108,16 @@ classdef Patch
     end
     
     function [f_du, f_dv] = grad(obj, f)
-        f = 0.5*f; %0.5 for scaling due to transformation [0, pi]->[-pi, pi]
-        f_mat = reshape(f, [obj.Nu obj.Nv]); %u varies column wise, v rowwise
-        f_mat = [zeros(1, obj.Nv);f_mat];
-        f_mat = [zeros(obj.Nu+1, 1) f_mat];
-        [f_du, f_dv] = deriv(f_mat'); 
-        f_du = f_du';
-        f_dv = f_dv';
+         
+%         f_mat = reshape(f, [obj.Nu obj.Nv]); %u varies column wise, v rowwise
+%         f_mat = [zeros(1, obj.Nv);f_mat];
+%         f_mat = [zeros(obj.Nu+1, 1) f_mat];
+%         f_mat = 2*f_mat; %2 for scaling due to transformation [0, pi]->[-pi, pi]
         
+        f_mat = ves2fft(f, obj.Nu, obj.Nv);
+        [f_du, f_dv] = deriv(f_mat); %transpose because fft code has u vlues in row and v in column
+         f_du = fft2ves(f_du, obj.Nu, obj.Nv);
+         f_dv = fft2ves(f_dv, obj.Nu, obj.Nv);
         
     end
     

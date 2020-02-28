@@ -33,7 +33,7 @@ function [] = wrapper()
    
    patch = patches(1);
    [du, dv] = patch.grad(ones(size(patch.r, 1), 1));
-   
+   dv
 %    tv = [];
 %    for i=1:6
 %        patch = S.patches(i);
