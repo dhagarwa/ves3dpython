@@ -1,4 +1,4 @@
-function val = fftinterp2(x, f)
+function f_app = fftinterp2(x, f)
     %funtion for inteprolation of function on 2d domain using ffts
     %f is matrix of function values on a uniform periodic square domain
     %[-pi, pi]^2, in the order as required in fftpde code. u in rows, v cols

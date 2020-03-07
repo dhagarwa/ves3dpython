@@ -13,7 +13,8 @@ function val = fftinterp1(x, f)
 %    x = (0:4*n-1)*2*pi/(4*n);
 %    x = -pi + x';
 %    f = ftest(x);
-   val = zeros(x, 1);
+   
+   val = zeros(size(x, 1), 1);
    for ii=1:size(x, 1)
        %size(exp(1i*k*x(ii)).*f_hat)
       val(ii) = sum(exp(1i*k*(x(ii)+pi)).*f_hat/n);  % matlab assumes 0, 2*pi interval
