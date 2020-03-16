@@ -1,24 +1,34 @@
 classdef Surface
    properties
         patches
+        link %1 linked , 0 not linked
    end
    
    methods
-      function obj = Surface()
-         obj.numNodes = n;
-         [obj.u,obj.v]=ndgrid(pi*(1:m)/(m+1),pi*(1:n)/(n+1)); %u and v both are m x n matrices
-         obj.u = obj.u(:);
-         obj.v = obj.v(:);
-         obj.nodes =[obj.u,obj.v]; % N by 2 matrix listing x,y coordinates of all N=m*n nodespi
-         obj.h_u = pi/ (m+1);
-         obj.h_v = pi/ (n+1);    
-         obj.numNodes = m*n; %no of nodes on one patch in u-v coordinates
-         obj.numPatch = numPatch;
-         obj.neighbors = neighbors;
-         obj.R = R;
-         obj.numPatches = 6;
-      
+      function obj = Surface(patches)
+            obj.patches = patches;
+            obj.link = obj.linkPatches();
+            
       end
+      
+      function val = linkPatches(obj)
+         for ii=1:length(obj.patches)
+            patch = obj.patches(ii);
+            for jj=1:patch.numNodes
+               r0 = patch.r(jj, :);
+               for kk=1:length(obj.patches)
+                  p = obj.patches(kk);
+                  if kk ~= patch.numPatch
+                     %find out u-v coordinates in patch p 
+                      node = patchParameterise(r0, patch, p);
+                      patch.links = []
+                  end
+               end
+            end
+         end
+          
+      end
+      
       
    end
       

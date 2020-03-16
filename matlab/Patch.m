@@ -1,4 +1,4 @@
-classdef Patch
+classdef Patch < handle
    properties
         u
         v
@@ -21,6 +21,8 @@ classdef Patch
         q_dl %density double layer
         q_sl %density single layer
         n %unit normal
+        linkPatch
+        links %u-v parameters of points in current patch in other patch
    end
    
    methods
@@ -37,9 +39,8 @@ classdef Patch
          obj.numPatch = numPatch;
          obj.neighbors = neighbors;
          obj.R = R;
-         obj.numPatches = 6;
-          
-      
+         obj.numPatches = 6; 
+         obj.links = -1*ones(obj.numNodes, 2*obj.numPatches);
       end
       
 %       function initialiseMaps(obj, param, jac)
@@ -68,7 +69,7 @@ classdef Patch
           
       end
 
-    function val = spou(obj, patch, r)
+    function val = spou(obj, patch, r) %patch is patch num here
     [v1, u1, rho1] = cart2sph(r(:,1), r(:,2), r(:,3));
     %u = pi/2 - u;
     %u; v;

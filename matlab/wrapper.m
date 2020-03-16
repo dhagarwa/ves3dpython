@@ -7,15 +7,15 @@ function [] = wrapper()
 %     p5 = standardSpherePatch(16, 16, 5, 1);
 %     p6 = standardSpherePatch(16, 16, 6, 1);
     
-    m = 23;
-    n = 23;
+    m = 7;
+    n = 7;
     R = 1;
     
     %theta = pi/2;
     %phi = pi/3;
     %trg = [R*sin(theta)*cos(phi) R*sin(theta)*sin(phi) R*cos(theta)]
     trg = [0.902317 -0.39826 -0.164965];
-    norm_trg = sqrt(norm(trg))
+    norm_trg = sqrt(norm(trg));
     patches = [];
     for i=1:6
        patch =  standardSpherePatch(m, n, i, R);
@@ -26,6 +26,11 @@ function [] = wrapper()
         
     end
     S = Surface(patches);
+   
+    [r1, r2] = testlinks(S);
+    r1mr2 = r1-r2;
+    %r1mr2(isnan(r1mr2)) = 0;
+    max(r1 - r2,[],  'all')
     %val = DLSurface(S );
     %val = DLSmooth(trg, fooVec(trg), S);
     val = SLSmooth(trg,  S);
