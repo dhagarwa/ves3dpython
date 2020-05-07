@@ -5,7 +5,9 @@ function val = interpPatch(f, x, p)
     % function. Also need to ensure u, v with -1 values i.e., not in patch
     % are not counted (this is rn taken care of in fftinterp2 but thats not a good idea). 
     % p is given patch
-    x1 = 2*x - pi; % shift values to [-pi,pi] domain
+    x1 = 2*x(:, 1) - pi; % shift values to [-pi,pi] domain
+    c =  2*pi/(pi + 2*p.eps_strip) * x(:, 2) - pi^2/(pi + 2*obj.eps_strip); %shift values to [-pi,pi] domain
+    x1 = [x1 c];
     u = x1(:, 1);
     v = x1(:, 2);
     f_mat = ves2fft(f, p.Nu, p.Nv);

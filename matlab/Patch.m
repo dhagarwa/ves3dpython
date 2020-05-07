@@ -118,9 +118,9 @@ classdef Patch < handle
 %         f_mat = 2*f_mat; %2 for scaling due to transformation [0, pi]->[-pi, pi]
         f = f.*obj.pou; %partition of unity done
         f_mat = ves2fft(f, obj.Nu, obj.Nv);
-        [f_du, f_dv] = deriv(f_mat); %transpose because fft code has u vlues in row and v in column
-         f_du = fft2ves(f_du, obj.Nu, obj.Nv);
-         f_dv = fft2ves(f_dv, obj.Nu, obj.Nv);
+        [f_du, f_dv] = deriv(f_mat); % fft code has u values in row and v in column
+         f_du = 2 * fft2ves(f_du, obj.Nu, obj.Nv); %2 is scaling factor =  2*pi/ pi
+         f_dv = (2*pi/(pi + 2*obj.eps_strip)) * fft2ves(f_dv, obj.Nu, obj.Nv); %(2*pi/(pi + obj.eps_strip)) is scaling factor
         
     end
 
@@ -132,9 +132,9 @@ classdef Patch < handle
 %         f_mat = 2*f_mat; %2 for scaling due to transformation [0, pi]->[-pi, pi]
         
         f_mat = ves2fft(f, obj.Nu, obj.Nv);
-        [f_du, f_dv] = deriv(f_mat); %transpose because fft code has u vlues in row and v in column
-         f_du = fft2ves(f_du, obj.Nu, obj.Nv);
-         f_dv = fft2ves(f_dv, obj.Nu, obj.Nv);
+        [f_du, f_dv] = deriv(f_mat); %transpose because fft code has u values in row and v in column
+         f_du = 2 * fft2ves(f_du, obj.Nu, obj.Nv);
+         f_dv = (2*pi/(pi + 2*obj.eps_strip)) * fft2ves(f_dv, obj.Nu, obj.Nv);
         
         end
     
@@ -142,7 +142,7 @@ classdef Patch < handle
          
         f = f.*obj.pou; %partition of unity done
         f_mat = ves2fft(f, obj.Nu, obj.Nv);
-        [f_du, f_dv] = deriv(f_mat); %transpose because fft code has u vlues in row and v in column
+        [f_du, f_dv] = deriv(f_mat); %transpose because fft code has u values in row and v in column
          f_du = fft2ves(f_du, obj.Nu, obj.Nv);
          f_dv = fft2ves(f_dv, obj.Nu, obj.Nv);
         
