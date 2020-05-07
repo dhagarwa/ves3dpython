@@ -1,8 +1,0 @@
-function val = fftinterp1(x)
-%Function to interpolate using ffts at non grid points given in x
-%1D function
-
-    
-
-
-end

@@ -4,7 +4,7 @@ function f_app = fftinterp2(x, f)
     %[-pi, pi]^2, in the order as required in fftpde code. u in rows, v cols
     % x is the two column matrix points where value needs to be
     % approximated
-    %NEED TO ACCELERATE IT
+    %NEED TO ACCELERATE IT, directly pass fft
     n = size(x, 1);
     nu = size(f, 2);
     nv = size(f, 1);
@@ -12,6 +12,9 @@ function f_app = fftinterp2(x, f)
     for ii=1:n
         u = x(ii, 1);
         v = x(ii, 2);
+        if(u == -1 || v == -1)
+           f_app(ii) = 0; % NOTE u = -1 or v = -1 denotes not patch value, so this function is specific to the application not a general interpolation function anymore
+        end
         f_app_col = zeros(1, nu);
         for jj=1:nu
             f_col = f(:, jj);

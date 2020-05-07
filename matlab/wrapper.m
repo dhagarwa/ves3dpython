@@ -7,38 +7,38 @@ function [] = wrapper()
 %     p5 = standardSpherePatch(16, 16, 5, 1);
 %     p6 = standardSpherePatch(16, 16, 6, 1);
     
-    m = 7;
-    n = 7;
+    m = 127;
+    n = 127;
     R = 1;
     
     %theta = pi/2;
     %phi = pi/3;
     %trg = [R*sin(theta)*cos(phi) R*sin(theta)*sin(phi) R*cos(theta)]
-    trg = [0.902317 -0.39826 -0.164965];
-    norm_trg = sqrt(norm(trg));
+    trg = [0.997425 0.0338093 0.0632528];
+    norm_trg = sqrt(norm(trg))
     patches = [];
-    for i=1:6
+    for i=1:4
        patch =  standardSpherePatch(m, n, i, R);
        
        patch.q_sl = fooVec(patch.r);
+       patch.q_dl = fooVec(patch.r);
        patches = [patches patch];
        %val = val + DLSmoothPatch(trg, patch, f);
         
     end
     S = Surface(patches);
-   
-    [r1, r2] = testlinks(S);
-    r1mr2 = r1-r2;
+ 
     %r1mr2(isnan(r1mr2)) = 0;
-    max(r1 - r2,[],  'all')
+    
     %val = DLSurface(S );
-    %val = DLSmooth(trg, fooVec(trg), S);
-    val = SLSmooth(trg,  S);
-   val
+    val = DLSmooth(trg, fooVec(trg), S);
+    %val = SLSmooth(trg,  S);
+    true_val = [0.151684, 0.169363, 0.167644]
+    error = norm(val - true_val)/norm(true_val)
    
-   patch = patches(1);
-   [du, dv] = patch.grad(ones(size(patch.r, 1), 1));
-   dv
+   
+   %[du, dv] = S.deriv(ones(size(patch.r, 1), 4));
+   %dv
 %    tv = [];
 %    for i=1:6
 %        patch = S.patches(i);

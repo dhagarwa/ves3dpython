@@ -20,9 +20,9 @@ function node = patchParameterise(r, p_in, p_out)
             v = -1;
         else
             u = angle(r0, r);
-            v = angle(r - norm(r)*cos(u)*[0,0,1], [1,0,0]);
+            v = angle(r - norm(r)*cos(u)*[0,0,1], [-1,0,0]);
         end
-    elseif p_out.numPatch==3
+    elseif p_out.numPatch==5
         r0 = [0,R,0];
         if r(3) < 0
             u = -1;
@@ -31,7 +31,7 @@ function node = patchParameterise(r, p_in, p_out)
             u = angle(r0, r);
             v = angle(r - norm(r)*cos(u)*[0,1,0], [1,0,0]);
         end
-    elseif p_out.numPatch==4
+    elseif p_out.numPatch==6
         r0 = [0,R,0];
         if r(3) > 0
             u = -1;
@@ -40,16 +40,16 @@ function node = patchParameterise(r, p_in, p_out)
             u = angle(r0, r);
             v = angle(r-norm(r)*cos(u)*[0,1,0], [1,0,0]);
         end
-    elseif p_out.numPatch==5
+    elseif p_out.numPatch==3
         r0 = [0,0,R];
         if(r(1) < 0)
             u = -1;
             v = -1;
         else
             u = angle(r0, r);
-            v = angle(r - norm(r)*cos(u)*[0,0,1], [0,1,0]);
+            v = angle(r - norm(r)*cos(u)*[0,0,1], [0,-1,0]);
         end
-    elseif p_out.numPatch==6
+    elseif p_out.numPatch==4
         r0 = [0,0,R];
         if(r(1) > 0)
            u = -1;

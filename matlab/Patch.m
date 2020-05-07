@@ -21,6 +21,7 @@ classdef Patch < handle
         q_dl %density double layer
         q_sl %density single layer
         n %unit normal
+        eps_strip %extend hemispherical patch by eps_strip more v coordinate
         linkPatch
         links %u-v parameters of points in current patch in other patch
    end
@@ -29,17 +30,18 @@ classdef Patch < handle
       function obj = Patch(m, n, R, numPatch, neighbors)
          obj.Nu = m;
          obj.Nv = n;
-         [obj.u,obj.v]=ndgrid(pi*(1:m)/(m+1),pi*(1:n)/(n+1)); %u and v both are m x n matrices
+         obj.eps_strip = pi/6;
+         [obj.u,obj.v]=ndgrid(pi*(1:m)/(m+1), -obj.eps_strip + (pi + 2*obj.eps_strip)*(1:n)/(n+1)); %u and v both are m x n matrices
          obj.u = obj.u(:);
          obj.v = obj.v(:);
          obj.nodes =[obj.u,obj.v]; % N by 2 matrix listing x,y coordinates of all N=m*n nodespi
          obj.h_u = pi/ (m+1);
-         obj.h_v = pi/ (n+1);    
+         obj.h_v = (pi + 2*obj.eps_strip)/ (n+1);    
          obj.numNodes = m*n; %no of nodes on one patch in u-v coordinates
          obj.numPatch = numPatch;
          obj.neighbors = neighbors;
          obj.R = R;
-         obj.numPatches = 6; 
+         obj.numPatches = 4; 
          obj.links = -1*ones(obj.numNodes, 2*obj.numPatches);
       end
       
@@ -77,20 +79,20 @@ classdef Patch < handle
         r0 = [0,obj.R,0];
     elseif patch ==2    
         r0 = [0,-obj.R,0];
-    elseif patch==3
-        r0 = [0,0,obj.R];
-    elseif patch==4
-        r0 = [0,0,-obj.R];
     elseif patch==5
-        r0 = [obj.R,0,0];
+        r0 = [0,0,obj.R];
     elseif patch==6
+        r0 = [0,0,-obj.R];
+    elseif patch==3
+        r0 = [obj.R,0,0];
+    elseif patch==4
         r0 = [-obj.R,0,0];
         
     end
     [v0, u0, rho0] = cart2sph(r0(1), r0(2), r0(3));
     %u0 = pi/2-u0;
     %u0; v0;
-    d = (5/12) * pi*obj.R;
+    d = (6/5) *(5/12) * pi*obj.R;
     nn = size(r, 1);
     val = zeros(nn, 1);
     for ii=1:nn
@@ -114,7 +116,7 @@ classdef Patch < handle
 %         f_mat = [zeros(1, obj.Nv);f_mat];
 %         f_mat = [zeros(obj.Nu+1, 1) f_mat];
 %         f_mat = 2*f_mat; %2 for scaling due to transformation [0, pi]->[-pi, pi]
-        
+        f = f.*obj.pou; %partition of unity done
         f_mat = ves2fft(f, obj.Nu, obj.Nv);
         [f_du, f_dv] = deriv(f_mat); %transpose because fft code has u vlues in row and v in column
          f_du = fft2ves(f_du, obj.Nu, obj.Nv);
@@ -134,8 +136,17 @@ classdef Patch < handle
          f_du = fft2ves(f_du, obj.Nu, obj.Nv);
          f_dv = fft2ves(f_dv, obj.Nu, obj.Nv);
         
-    end
+        end
     
+       function [f_du, f_dv] = interpolate(obj, f)
+         
+        f = f.*obj.pou; %partition of unity done
+        f_mat = ves2fft(f, obj.Nu, obj.Nv);
+        [f_du, f_dv] = deriv(f_mat); %transpose because fft code has u vlues in row and v in column
+         f_du = fft2ves(f_du, obj.Nu, obj.Nv);
+         f_dv = fft2ves(f_dv, obj.Nu, obj.Nv);
+        
+    end
     
    end
 end

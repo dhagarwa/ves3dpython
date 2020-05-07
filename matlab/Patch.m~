@@ -1,4 +1,4 @@
-classdef Patch
+classdef Patch < handle
    properties
         u
         v
@@ -21,13 +21,15 @@ classdef Patch
         q_dl %density double layer
         q_sl %density single layer
         n %unit normal
+        linkPatch
+        links %u-v parameters of points in current patch in other patch
    end
    
    methods
       function obj = Patch(m, n, R, numPatch, neighbors)
          obj.Nu = m;
          obj.Nv = n;
-         [obj.u,obj.v]=ndgrid(pi*(1:m)/(m+1),pi*(1:n)/(n+1)); %u and v both are m x n matrices
+         [obj.u,obj.v]=ndgrid(pi*(1:m)/(m+1), pi + 2**(1:n)/(n+1)); %u and v both are m x n matrices
          obj.u = obj.u(:);
          obj.v = obj.v(:);
          obj.nodes =[obj.u,obj.v]; % N by 2 matrix listing x,y coordinates of all N=m*n nodespi
@@ -37,9 +39,8 @@ classdef Patch
          obj.numPatch = numPatch;
          obj.neighbors = neighbors;
          obj.R = R;
-         obj.numPatches = 6;
-          
-      
+         obj.numPatches = 6; 
+         obj.links = -1*ones(obj.numNodes, 2*obj.numPatches);
       end
       
 %       function initialiseMaps(obj, param, jac)
@@ -68,7 +69,7 @@ classdef Patch
           
       end
 
-    function val = spou(obj, patch, r)
+    function val = spou(obj, patch, r) %patch is patch num here
     [v1, u1, rho1] = cart2sph(r(:,1), r(:,2), r(:,3));
     %u = pi/2 - u;
     %u; v;
@@ -76,20 +77,20 @@ classdef Patch
         r0 = [0,obj.R,0];
     elseif patch ==2    
         r0 = [0,-obj.R,0];
-    elseif patch==3
-        r0 = [0,0,obj.R];
-    elseif patch==4
-        r0 = [0,0,-obj.R];
     elseif patch==5
-        r0 = [obj.R,0,0];
+        r0 = [0,0,obj.R];
     elseif patch==6
+        r0 = [0,0,-obj.R];
+    elseif patch==3
+        r0 = [obj.R,0,0];
+    elseif patch==4
         r0 = [-obj.R,0,0];
         
     end
     [v0, u0, rho0] = cart2sph(r0(1), r0(2), r0(3));
     %u0 = pi/2-u0;
     %u0; v0;
-    d = (5/12) * pi*obj.R;
+    d = (5/5) *(5/12) * pi*obj.R;
     nn = size(r, 1);
     val = zeros(nn, 1);
     for ii=1:nn
@@ -109,17 +110,39 @@ classdef Patch
     
     function [f_du, f_dv] = grad(obj, f)
          
-        f_mat = reshape(f, [obj.Nu obj.Nv]); %u varies column wise, v rowwise
-        f_mat = [ones(1, obj.Nv);f_mat];
-        f_mat = [ones(obj.Nu+1, 1) f_mat];
-        f_mat = 2*f_mat; %2 for scaling due to transformation [0, pi]->[-pi, pi]
+%         f_mat = reshape(f, [obj.Nu obj.Nv]); %u varies column wise, v rowwise
+%         f_mat = [zeros(1, obj.Nv);f_mat];
+%         f_mat = [zeros(obj.Nu+1, 1) f_mat];
+%         f_mat = 2*f_mat; %2 for scaling due to transformation [0, pi]->[-pi, pi]
+        f = f.*obj.pou; %partition of unity done
+        f_mat = ves2fft(f, obj.Nu, obj.Nv);
+        [f_du, f_dv] = deriv(f_mat); %transpose because fft code has u vlues in row and v in column
+         f_du = fft2ves(f_du, obj.Nu, obj.Nv);
+         f_dv = fft2ves(f_dv, obj.Nu, obj.Nv);
         
-        [f_du, f_dv] = deriv(f_mat'); %transpose because fft code has 
-        f_du = f_du';
-        f_dv = f_dv';
+    end
+
+        function [f_du, f_dv] = grad_cheb(obj, f)
+         
+%         f_mat = reshape(f, [obj.Nu obj.Nv]); %u varies column wise, v rowwise
+%         f_mat = [zeros(1, obj.Nv);f_mat];
+%         f_mat = [zeros(obj.Nu+1, 1) f_mat];
+%         f_mat = 2*f_mat; %2 for scaling due to transformation [0, pi]->[-pi, pi]
         
-        %f_du = f_du(:);
-        %f_dv = f_dv(:);
+        f_mat = ves2fft(f, obj.Nu, obj.Nv);
+        [f_du, f_dv] = deriv(f_mat); %transpose because fft code has u vlues in row and v in column
+         f_du = fft2ves(f_du, obj.Nu, obj.Nv);
+         f_dv = fft2ves(f_dv, obj.Nu, obj.Nv);
+        
+        end
+    
+       function [f_du, f_dv] = interpolate(obj, f)
+         
+        f = f.*obj.pou; %partition of unity done
+        f_mat = ves2fft(f, obj.Nu, obj.Nv);
+        [f_du, f_dv] = deriv(f_mat); %transpose because fft code has u vlues in row and v in column
+         f_du = fft2ves(f_du, obj.Nu, obj.Nv);
+         f_dv = fft2ves(f_dv, obj.Nu, obj.Nv);
         
     end
     

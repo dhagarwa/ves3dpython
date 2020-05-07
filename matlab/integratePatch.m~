@@ -1,8 +1,0 @@
-function val = integratePatch(p, f) %p is patch, f is the function. f should be compactly supported
-%Integration using trapezoidal rule
-%f is a scalar function
-    f.*(p.J)
-
-
-
-end

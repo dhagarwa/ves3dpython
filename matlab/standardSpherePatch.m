@@ -5,19 +5,24 @@ p = Patch(m, n, R, numPatch, []);
 
     if numPatch==1 
         p.r = [R*sin(p.u).*cos(p.v), R*sin(p.u).*sin(p.v), R*cos(p.u)];
+        
     elseif numPatch==2
-        p.r = [R*sin(p.u).*cos(p.v), -R*sin(p.u).*sin(p.v), R*cos(p.u)];
-    elseif numPatch==3
+        %p.r = [R*sin(p.u).*cos(p.v), -R*sin(p.u).*sin(p.v), R*cos(p.u)];
+        %before patch u-v direction alignment 
+        
+        p.r = [-R*sin(p.u).*cos(p.v), -R*sin(p.u).*sin(p.v), R*cos(p.u)];
+    elseif numPatch==5
+        %p.r = [R*sin(p.u).*cos(p.v), R*cos(p.u), R*sin(p.u).*sin(p.v)];
         p.r = [R*sin(p.u).*cos(p.v), R*cos(p.u), R*sin(p.u).*sin(p.v)];
-
-    elseif numPatch==4
+    elseif numPatch==6
         p.r = [R*sin(p.u).*cos(p.v), R*cos(p.u), -R*sin(p.u).*sin(p.v)];
 
-    elseif numPatch==5
-        p.r = [R*sin(p.u).*sin(p.v), R*sin(p.u).*cos(p.v), R*cos(p.u)];
+    elseif numPatch==3
+        %p.r = [R*sin(p.u).*sin(p.v), R*sin(p.u).*cos(p.v), R*cos(p.u)];
+        p.r = [R*sin(p.u).*sin(p.v), -R*sin(p.u).*cos(p.v), R*cos(p.u)];
 
-
-    elseif numPatch==6
+    elseif numPatch==4
+        %p.r = [-R*sin(p.u).*sin(p.v), R*sin(p.u).*cos(p.v), R*cos(p.u)];
         p.r = [-R*sin(p.u).*sin(p.v), R*sin(p.u).*cos(p.v), R*cos(p.u)];
     end
 
