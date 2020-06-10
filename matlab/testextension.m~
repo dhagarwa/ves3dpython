@@ -1,0 +1,15 @@
+function [] = testextension()
+
+theta = -10*pi:0.02*pi:4*pi;
+x_mapfrom_theta = cos(theta);
+plot(theta, fun(x_mapfrom_theta));
+
+
+end
+
+
+function val = fun(x)
+
+    val = x.^2;
+
+end

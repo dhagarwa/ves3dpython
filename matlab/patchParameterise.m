@@ -6,69 +6,125 @@ function node = patchParameterise(r, p_in, p_out)
     
     if p_out.numPatch==1
         r0 = [0,0,R];
-        if r(2) < 0
-            u = -1;
-            v = -1;
-        else 
+        
+        
             u = angle(r, r0);
-            v = angle(r - norm(r)*cos(u)*[0,0,1], [1,0,0]);
-        end
+            a = r - norm(r)*cos(u)*[0,0,1];
+            b = [1, 0, 0];
+            v = angle(a, b);
+            if r(2) < 0
+                u = -inf;
+                v = -inf;
+                
+            end
+%             if dot(cross(b, a), [0, 0, 1]) >= 0
+%                 v = v;
+%             else
+%                 v = -v;
+%             end
+%                 
+        
     elseif p_out.numPatch ==2
         r0 = [0,0,R];
-        if r(2) > 0
-            u = -1;
-            v = -1;
-        else
+        
             u = angle(r0, r);
-            v = angle(r - norm(r)*cos(u)*[0,0,1], [-1,0,0]);
-        end
+            a = r - norm(r)*cos(u)*[0,0,1];
+            b = [-1,0,0];
+            v = angle(a, b);
+            if r(2) > 0
+                u = -inf;
+                v = -inf;
+            end
+%             if dot(cross(b, a), [0, 0, 1]) >= 0
+%                 v = v;
+%             else
+%                 v = -v;
+%             end
+        
     elseif p_out.numPatch==5
-        r0 = [0,R,0];
-        if r(3) < 0
-            u = -1;
-            v = -1;
-        else
+        r0 = [0,-R,0];
+        
             u = angle(r0, r);
-            v = angle(r - norm(r)*cos(u)*[0,1,0], [1,0,0]);
-        end
+            a = r - norm(r)*cos(u)*[0,-1,0];
+            b = [1,0,0];
+            v = angle(a, b);
+            if r(3) < 0
+                u = -inf;
+                v = -inf;
+            end
+%             if dot(cross(b, a), [0, 0, 1]) >= 0
+%                 v = v;
+%             else
+%                 v = -v;
+%             end        
+
     elseif p_out.numPatch==6
         r0 = [0,R,0];
         if r(3) > 0
-            u = -1;
-            v = -1;
+            u = -inf;
+            v = -inf;
         else
             u = angle(r0, r);
             v = angle(r-norm(r)*cos(u)*[0,1,0], [1,0,0]);
         end
+        
     elseif p_out.numPatch==3
         r0 = [0,0,R];
-        if(r(1) < 0)
-            u = -1;
-            v = -1;
-        else
+
             u = angle(r0, r);
-            v = angle(r - norm(r)*cos(u)*[0,0,1], [0,-1,0]);
-        end
+            a = r - norm(r)*cos(u)*[0,0,1];
+            b = [0,-1,0];
+            v = angle(a, b);
+            if r(1) < 0
+                u = -inf;
+                v = -inf;
+            end
+%             if dot(cross(b, a), [0, 0, 1]) >= 0
+%                 v = v;
+%             else
+%                 v = -v;
+%             end            
+%         
     elseif p_out.numPatch==4
         r0 = [0,0,R];
-        if(r(1) > 0)
-           u = -1;
-           v = -1;
-        else
             u = angle(r0, r);
-            v = angle(r - norm(r)*cos(u)*[0,0,1], [0,1,0]);
-        end
-        
+            a = r - norm(r)*cos(u)*[0,0,1];
+            b = [0,1,0];
+            v = angle(a, b);
+            if r(1) > 0
+                u = -inf;
+                v = -inf;
+            end
+%             if dot(cross(b, a), [0, 0, 1]) >= 0
+%                 v = v;
+%             else
+%                 v = -v;
+%             end        
+%         
         
     end
     
     if(u < 0 || u > pi)
-        u = -1;
+        u = -inf;
+        v = -inf;
+    
+%     elseif (v >= 0 & v <= pi)
+%         u = u;
+%         v = v;
+%         
+%     elseif (v >= -p_out.eps_strip & v < 0)
+%         u = u;
+%         v = v;
+%         
+%     elseif (v > -pi & v < -pi + p_out.eps_strip)
+%         u = u;
+%         v = 2*pi + v;
+%         
+%     else
+%         u = -inf;
+%         v = -inf
     end
- 
-    if(v < 0 || v > pi)
-        v = -1;
-    end
+    
     node = [u, v];
 
 end

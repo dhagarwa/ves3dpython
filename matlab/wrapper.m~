@@ -7,8 +7,8 @@ function [] = wrapper()
 %     p5 = standardSpherePatch(16, 16, 5, 1);
 %     p6 = standardSpherePatch(16, 16, 6, 1);
     
-    m = 15;
-    n = 15;
+    m = 31;
+    n = 31;
     R = 1;
     
     %theta = pi/2;
@@ -28,7 +28,7 @@ function [] = wrapper()
     end
     S = Surface(patches);
  
-    
+    %r1mr2(isnan(r1mr2)) = 0;
     
     %val = DLSurface(S );
     val = DLSmooth(trg, fooVec(trg), S);
@@ -38,19 +38,7 @@ function [] = wrapper()
    
    
     patch = patches(1);
-    %test u-v derivatives
-    f = sin(patch.U) + cos(patch.V) + (patch.U).^8; 
-    [du, dv] = patch.grad_FDM(f);
-    
-    error_du = norm(du - cos(patch.U) - 8*(patch.U).^7)
-    error_dv = norm(dv + sin(patch.V))
-    %test tangents and normals
-    error_normal = norm(patch.n - patch.rb/patch.R)/ (patch.numNodes)
-    fs = patch.shearForce(1, 0.5)
-    
-    
-    
-    
+    [du, dv] = patch.grad()
 %   [du, dv] = S.deriv(sin(2*pi/(pi + 2*patch.eps_strip)*([patch.nodes(:, 2) patch.nodes(:, 2) patch.nodes(:, 2) patch.nodes(:, 2)] + patch.eps_strip)) );
 %    [du, dv] = S.deriv(ones(size(patch.r, 1), 6));
 %    du

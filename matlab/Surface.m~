@@ -95,10 +95,9 @@ classdef Surface < handle
                if jj ~= ii
                     %f_linked_patch = f(:, jj);
                     linked_patch = obj.patches(jj);
-                    x_linked_patch = linked_patch.pou;
+                    x_linked_patch = linked_patch.x.*linked_patch.pou;
                     y_linked_patch = linked_patch.y.*linked_patch.pou;
                     z_linked_patch = linked_patch.z.*linked_patch.pou;
-                    
                     xq = patch.links(:, 2*jj-1:2*jj); %query points from links
                     x_linked_interp = interpPatch(x_linked_patch, xq, linked_patch);
                     y_linked_interp = interpPatch(y_linked_patch, xq, linked_patch);
@@ -113,9 +112,8 @@ classdef Surface < handle
             end
             x = patch.x.*patch.pou + x;
             y = patch.y.*patch.pou + y;
-            z = patch.z.*patch.pou + z;
-            patch.r = [x y z];
-            patch.rb = patch.r;
+            z = patch.z.*patch.pou + x;
+            
 
           end          
       end

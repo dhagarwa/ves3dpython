@@ -1,0 +1,53 @@
+function [] = EvolveSurface()
+    %membrane properties
+    kb = 0;
+    Es = 2;
+    Ed = 1;
+    vesprops = [0;2;1]; %kb, Es, Ed
+    
+    %flow properties
+    shear_rate = 1;
+    
+    %Initialize a surface
+    
+    clc
+
+    m = 15;
+    n = 15;
+    R = 1;
+    
+
+    %trg = [0.997425 -0.0507148 -0.0507148];
+    %norm_trg = sqrt(norm(trg))
+    patches = [];
+    numPatches = 6;
+    for i=1:numPatches
+       patch =  standardSpherePatch(m, n, i, R);
+       patches = [patches patch];
+        
+    end
+    S = Surface(patches, vesprops);
+    
+    
+    t = 0;
+    dt = 0.01;
+    u_inf = [];
+    for nts=1:1
+        %Using patches directly
+        for i=1:numPatches
+           patch = S.patches(i);
+           patch = patch.updateStale();
+           patch.q_sl = patch.shearForce(Es, Ed);
+           u_inf_patch = bgshearFlow(shear_rate, patch.r);
+           u_inf = [u_inf; u_inf_patch]; 
+        end
+        
+        u1 = u_inf + SLSurface(S)
+        
+        %Using surface class
+        u_inf2 = bgshearFlow(shear_rate, S.getPosition());
+        u2 = u_inf2 + SLSurface(S)
+    end
+    
+
+end

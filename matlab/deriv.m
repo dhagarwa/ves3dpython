@@ -13,6 +13,7 @@ function [f_du, f_dv] = deriv(f)
     
     val =  o.grad(f);
     f_du = val(:, :, 1);
+    
     f_dv = val(:, :, 2);
     
     

@@ -9,7 +9,7 @@ function val = sph2cartPatch(u, v, patch)
     elseif numPatch==2
         val = [-R*sin(u).*cos(v), -R*sin(u).*sin(v), R*cos(u)];
     elseif numPatch==5
-        val = [R*sin(u).*cos(v), R*cos(u), R*sin(u).*sin(v)];
+        val = [R*sin(u).*cos(v), -R*cos(u), R*sin(u).*sin(v)];
 
     elseif numPatch==6
         val = [R*sin(u).*cos(v), R*cos(u), -R*sin(u).*sin(v)];
