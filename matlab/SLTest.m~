@@ -1,8 +1,8 @@
 function [] = SLTest()
       clc
 
-    m = 31;
-    n = 31;
+    m = 7;
+    n = 7;
     R = 1;
     
     %theta = pi/2;

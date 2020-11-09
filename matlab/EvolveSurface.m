@@ -38,7 +38,7 @@ function [] = EvolveSurface()
     dt = 0.0025;
     tot_xdisp = 0;
     tic 
-    for nts=1:20
+    for nts=1:33
         %Using patches directly
 %         for i=1:numPatches
 %            patch = S.patches(i);
@@ -57,10 +57,10 @@ function [] = EvolveSurface()
         u = u_inf + SLSurface(S);
         S.updateSurface(u, dt);
         S.updateStale();
-%         r_before_blend = S.getPosition();
-%         S.blendSurface();
-%         r_after_blend = S.getPosition();
-%         error_blend = norm(r_before_blend - r_after_blend)/(m*n*6)
+         %r_before_blend = S.getPosition();
+         %S.blendSurface();
+         %r_after_blend = S.getPosition();
+         %error_blend = norm(r_before_blend - r_after_blend)/(m*n*6)
         before_center = S.getCenter();
         tot_xdisp = tot_xdisp + abs(S.recenter_x())
         nts
@@ -69,6 +69,18 @@ function [] = EvolveSurface()
         
     end
     
-    plotSurface(S);
+    figure
+    plotPatch(S, 1);
+    figure
+    plotPatch(S, 2);
+    figure
+    plotPatch(S, 3);
+    figure
+    plotPatch(S, 4);
+    figure
+    plotPatch(S, 5);
+    figure
+    plotPatch(S, 6);
+    
     toc
 end

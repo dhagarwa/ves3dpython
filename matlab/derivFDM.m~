@@ -1,8 +1,0 @@
-function [f_du, f_dv] = derivFDM( h_u, h_v, ooa)
-
-    [Dx, Dy] = getNonCompactFDmatrix2D(npx,npy, h_u, h_v,n,ooa);
-
-
-
-
-end

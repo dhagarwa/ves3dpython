@@ -32,13 +32,17 @@ function [] = testBlendSurface()
     
     %makePosition(S, 1);
     S.updateStale();
-    plotSurface(S);
+    %plotSurface(S);
     r_before_blend = S.getPosition();
     S.blendSurface();
     r_after_blend = S.getPosition();
+    size(r_after_blend)
     error_blend = norm(r_before_blend - r_after_blend)/(m*n*6)
-    figure;
-    plotSurface(S);
+    plot(1:225, r_before_blend(1:225, 1));
+    hold on;
+    %plot(1:1350, r_after_blend(:, 1));
+    %figure;
+    %plotSurface(S);
 
 
 end

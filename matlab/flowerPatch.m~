@@ -1,0 +1,83 @@
+function p = flowerPatch(m, n, numPatch, R)
+
+
+p = Patch(m, n, R, numPatch, []);
+
+    if numPatch==1 
+        p.r = [];
+        for ii=1:size(p.u, 1)
+            u = p.u(ii); v = p.v(ii); 
+            r = sph2cartPatch_mod(u,v,numPatch);
+            
+            ref_node = p2pmap_modified(r,numPatch,1);
+            u0 = ref_node(1); v0 = ref_node(2);
+            rho = flower_function(u0,v0);
+            p.r = [p.r; rho*sin(u0)*cos(v0), rho*sin(u0).*sin(v0), rho*cos(u0)];
+            p.rb = [p.rb; rho*sin(u0)*cos(v0), rho*sin(u0).*sin(v0), rho*cos(u0)];
+        end
+    elseif numPatch==2
+        p.r
+        for ii=1:size(p.u, 1)
+            u = p.u(ii); v = p.v(ii); 
+            r = sph2cartPatch_mod(u,v,numPatch);
+            
+            ref_node = p2pmap_modified(r,numPatch,1);
+            u0 = ref_node(1); v0 = ref_node(2);
+            rho = flower_function(u0,v0);
+            p.r = [p.r; rho*sin(u0)*cos(v0), rho*sin(u0).*sin(v0), rho*cos(u0)];
+            p.rb = [p.rb; rho*sin(u0)*cos(v0), rho*sin(u0).*sin(v0), rho*cos(u0)];
+        end
+    elseif numPatch==5
+        for ii=1:size(p.u, 1)
+            u = p.u(ii); v = p.v(ii); 
+            r = sph2cartPatch_mod(u,v,numPatch);
+            
+            ref_node = p2pmap_modified(r,numPatch,1);
+            u0 = ref_node(1); v0 = ref_node(2);
+            rho = flower_function(u0,v0);
+            p.r = [p.r; rho*sin(u0)*cos(v0), rho*sin(u0).*sin(v0), rho*cos(u0)];
+            p.rb = [p.rb; rho*sin(u0)*cos(v0), rho*sin(u0).*sin(v0), rho*cos(u0)];
+        end
+    elseif numPatch==6
+        for ii=1:size(p.u, 1)
+            u = p.u(ii); v = p.v(ii); 
+            r = sph2cartPatch_mod(u,v,numPatch);
+            
+            ref_node = p2pmap_modified(r,numPatch,1);
+            u0 = ref_node(1); v0 = ref_node(2);
+            rho = flower_function(u0,v0);
+            p.r = [p.r; rho*sin(u0)*cos(v0), rho*sin(u0).*sin(v0), rho*cos(u0)];
+            p.rb = [p.rb; rho*sin(u0)*cos(v0), rho*sin(u0).*sin(v0), rho*cos(u0)];
+        end
+    elseif numPatch==3
+        for ii=1:size(p.u, 1)
+            u = p.u(ii); v = p.v(ii); 
+            r = sph2cartPatch_mod(u,v,numPatch);
+            
+            ref_node = p2pmap_modified(r,numPatch,1);
+            u0 = ref_node(1); v0 = ref_node(2);
+            rho = flower_function(u0,v0);
+            p.r = [p.r; rho*sin(u0)*cos(v0), rho*sin(u0).*sin(v0), rho*cos(u0)];
+            p.rb = [p.rb; rho*sin(u0)*cos(v0), rho*sin(u0).*sin(v0), rho*cos(u0)];
+        end
+    elseif numPatch==4
+        for ii=1:size(p.u, 1)
+            u = p.u(ii); v = p.v(ii); 
+            r = sph2cartPatch_mod(u,v,numPatch);
+            
+            ref_node = p2pmap_modified(r,numPatch,1);
+            u0 = ref_node(1); v0 = ref_node(2);
+            rho = flower_function(u0,v0);
+            p.r = [p.r; rho*sin(u0)*cos(v0), rho*sin(u0).*sin(v0), rho*cos(u0)];
+            p.rb = [p.rb; rho*sin(u0)*cos(v0), rho*sin(u0).*sin(v0), rho*cos(u0)];
+        end
+    end
+
+    
+p = p.update();    %updating x, y, z from r and pou
+p = p.updateStale();
+%p.J = abs(R^2*sin(p.u)); %Setting jacobian determinant
+
+end
+
+

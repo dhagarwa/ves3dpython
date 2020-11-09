@@ -2,7 +2,12 @@ classdef Patch < handle
    properties
         u
         v
+        u_up %upsampled u
+        v_up %upsampled v
+        uf %upsampling factor 
         nodes
+        nodes_up %upsampled nodes in a patch
+        sphcart %cartesian coordinates when u-v mapped to standard sphere
         U
         V
         Nodes
@@ -10,8 +15,11 @@ classdef Patch < handle
         numPatches
         neighbors
         numNodes
+        numNodes_up
         Nu %# of u nodes
         Nv %# of v nodes
+        Nu_up %# of upsampled u nodes
+        Nv_up % of upsampled v nodes
         NU % # of v nodes
         NV % # of U nodes
         h_u
@@ -39,6 +47,7 @@ classdef Patch < handle
         eps_strip %extend hemispherical patch by eps_strip more v coordinate
         linkPatch
         links %u-v parameters of points in current patch in other patch
+        cl_links %u-v parameters of points in current patch in other patch without -inf if outside the patch
         Du % u-derivative FDM matrix 
         Dv % v-derivative FDM matrix
         ooa %order of accuracy for FDM
@@ -72,19 +81,28 @@ classdef Patch < handle
       function obj = Patch(m, n, R, numPatch, neighbors)
          obj.Nu = m;
          obj.Nv = n;
+         obj.uf = 2; % even number 
+         obj.Nu_up = obj.uf*m+1;
+         obj.Nv_up = obj.uf*n+1;
          obj.eps_strip = 0;
          [obj.u,obj.v]=ndgrid(pi*(1:m)/(m+1), -obj.eps_strip + (pi + 2*obj.eps_strip)*(1:n)/(n+1)); %u and v both are m x n matrices
+         [obj.u_up,obj.v_up]=ndgrid(pi*(1:obj.uf*m+1)/(obj.uf*m+2), -obj.eps_strip + (pi + 2*obj.eps_strip)*(1:obj.uf*n+1)/(obj.uf*n+2));
          obj.u = obj.u(:);
          obj.v = obj.v(:);
+         obj.u_up = obj.u_up(:);
+         obj.v_up = obj.v_up(:);
          obj.nodes =[obj.u,obj.v]; % N by 2 matrix listing x,y coordinates of all N=m*n nodespi
-         obj.h_u = pi/ (m+1);
-         obj.h_v = (pi + 2*obj.eps_strip)/ (n+1);    
+         obj.nodes_up =[obj.u_up,obj.v_up];
+         obj.h_u = pi/(m+1);
+         obj.h_v = (pi + 2*obj.eps_strip)/(n+1);    
          obj.numNodes = m*n; %no of nodes on one patch in u-v coordinates
+         obj.numNodes_up = (obj.uf*m+1)*(obj.uf*n+1); %no of nodes on one patch in u-v coordinates
          obj.numPatch = numPatch;
          obj.neighbors = neighbors;
          obj.R = R;
          obj.numPatches = 6; 
          obj.links = -1*ones(obj.numNodes, 2*obj.numPatches);
+         obj.cl_links = -1*ones(obj.numNodes, 2*obj.numPatches);
          %FDM full U, V including boundary of u-v patch
          [obj.U,obj.V]=ndgrid(pi*(1:m)/(m+1), -obj.eps_strip + (pi + 2*obj.eps_strip)*(1:n)/(n+1)); %u and v both are m x n matrices
          obj.U = obj.U(:);
@@ -132,19 +150,24 @@ classdef Patch < handle
          %set normal
          temp_cross = cross(obj.rr_u, obj.rr_v, 2);
          obj.Jr = abs(vecnorm(temp_cross, 2, 2));
+         %size(temp_cross)
          obj.nr = diag(vecnorm(temp_cross, 2, 2).^(-1))*temp_cross;
          qk = zeros(obj.numNodes, 1);
          for pp= 1:obj.numPatches
              qk = qk+ obj.spou(pp, obj.r);
          end
-         obj.pou = obj.spou(obj.numPatch, obj.r)./qk; %TODO: obj.r is incorrect if initial shape is non sphere
-         plot(obj.spou(obj.numPatch, obj.r));
-         hold on
-         plot(qk)
-         hold on
-         plot(obj.pou)
-         legend("spou", 'qk', 'pou');
-         disp("pou component");
+         for ii=1:size(obj.u,1)
+             obj.sphcart = [obj.sphcart; sph2cartPatch(obj.u(ii),obj.v(ii),obj)];
+         end
+         
+         obj.pou = obj.spou(obj.numPatch, obj.sphcart)./qk; %TODO: obj.r is incorrect if initial shape is non sphere
+%          plot(obj.spou(obj.numPatch, obj.r));
+%          hold on
+%          plot(qk)
+%          hold on
+%          plot(obj.pou)
+%          legend("spou", 'qk', 'pou');
+%          disp("pou component");
       end
 
        function obj = updateStale(obj) %update to be called after patch.rb changes
@@ -206,7 +229,9 @@ classdef Patch < handle
         elseif t ==0
             val(ii) = 1;
         else
-            val(ii) = exp((2*exp(-1/t))/ (t-1));
+            %val(ii) = exp((2*exp(-1/t))/ (t-1)); %pou from bruno paper
+            %val(ii) = exp((2*exp(-1/t^2))/ (t^2-1)); %MORE SMOOTH pou 
+            %val(ii) = exp(t^2/ (t^2-1)); %POU from beale paper
         end
     end
     
@@ -232,27 +257,65 @@ classdef Patch < handle
 %         f_mat = [zeros(1, obj.Nv);f_mat];
 %         f_mat = [zeros(obj.Nu+1, 1) f_mat];
 %         f_mat = 2*f_mat; %2 for scaling due to transformation [0, pi]->[-pi, pi]
-        f = f.*obj.pou; %partition of unity done
-        %plot(f)
-        f_mat = ves2fft(f, obj.Nu, obj.Nv);
+        %f = f.*obj.pou; %partition of unity done
+        
+        %upsample f before differentiating
+        f_up = upsample2(f, obj);
+        
+        f_mat = ves2fft(f_up, obj.uf*(obj.Nu+1)-1, obj.uf*(obj.Nv+1)-1);
+        %stem3(f_mat);
         %f_mat(15, 2:(obj.Nu+1))
         
          %plot(f_mat(15, 2:(obj.Nv+1)))
          %hold on
         [fphi_du, fphi_dv] = deriv(f_mat); % fft code has u values in row and v in column
         
-         fphi_du = 2 * fft2ves(fphi_du, obj.Nu +1, obj.Nv +1); %2 is scaling factor =  2*pi/ pi
+        fphi_du = downsample(fphi_du, obj);
+        fphi_dv = downsample(fphi_dv, obj);
+         fphi_du = 2 * fft2ves(fphi_du, (obj.Nu +1), (obj.Nv +1)); %2 is scaling factor =  2*pi/ pi
          %plot(f_du((14*obj.Nu + 1):(15*obj.Nu)))
          
          %plot(f_du - 2*cos(2*obj.u));
          %hold on
-         fphi_dv = (2*pi/(pi + 2*obj.eps_strip)) * fft2ves(fphi_dv, obj.Nu+1, obj.Nv+1); %(2*pi/(pi + obj.eps_strip)) is scaling factor
+         fphi_dv = (2*pi/(pi + 2*obj.eps_strip)) * fft2ves(fphi_dv, (obj.Nu+1), (obj.Nv+1)); %(2*pi/(pi + obj.eps_strip)) is scaling factor
          %f_dv
          %plot(f_dv  - 2*pi/(2*obj.eps_strip + pi)*cos(2*pi/(2*obj.eps_strip + pi)*(obj.v + obj.eps_strip)));
          %f_dv;
          
     end
 
+    function [fphi_du, fphi_dv] = grad_nbr_patch(obj, f)
+         
+%         f_mat = reshape(f, [obj.Nu obj.Nv]); %u varies column wise, v rowwise
+%         f_mat = [zeros(1, obj.Nv);f_mat];
+%         f_mat = [zeros(obj.Nu+1, 1) f_mat];
+%         f_mat = 2*f_mat; %2 for scaling due to transformation [0, pi]->[-pi, pi]
+        %f = f.*obj.pou; %partition of unity done
+        
+        %upsample f before differentiating
+        f_up = upsample2(f, obj);
+        
+        f_mat = ves2fft(f_up, obj.uf*(obj.Nu+1)-1, obj.uf*(obj.Nv+1)-1);
+        %stem3(f_mat);
+        %f_mat(15, 2:(obj.Nu+1))
+        
+         %plot(f_mat(15, 2:(obj.Nv+1)))
+         %hold on
+        [fphi_du, fphi_dv] = deriv(f_mat); % fft code has u values in row and v in column
+        
+        fphi_du = downsample(fphi_du, obj);
+        fphi_dv = downsample(fphi_dv, obj);
+         fphi_du = 2 * fft2ves(fphi_du, (obj.Nu +1), (obj.Nv +1)); %2 is scaling factor =  2*pi/ pi
+         %plot(f_du((14*obj.Nu + 1):(15*obj.Nu)))
+         
+         %plot(f_du - 2*cos(2*obj.u));
+         %hold on
+         fphi_dv = (2*pi/(pi + 2*obj.eps_strip)) * fft2ves(fphi_dv, (obj.Nu+1), (obj.Nv+1)); %(2*pi/(pi + obj.eps_strip)) is scaling factor
+         %f_dv
+         %plot(f_dv  - 2*pi/(2*obj.eps_strip + pi)*cos(2*pi/(2*obj.eps_strip + pi)*(obj.v + obj.eps_strip)));
+         %f_dv;
+         
+    end
 
     
     %Finite difference derivative
@@ -266,7 +329,8 @@ classdef Patch < handle
         f_dv = fdm2ves(f_dv, obj.NU, obj.NV);
         
      end
-        
+    
+    
        %Incomplete function
     function [f_du, f_dv] = interpolate(obj, f)
          
@@ -303,6 +367,23 @@ classdef Patch < handle
         b = Ef_dv - Ff_du;
         val = dot(a, obj.r_u, 2) + dot(b, obj.r_v, 2);
     end
+
+    function val = surf_grad(obj, f)
+      %Function to calculate surface gradient
+      %f scalar valued  f. size(f) = numNodes
+      %val output is numNodes x 3
+        [f_du, f_dv] = obj.grad_FDM(f);
+
+        
+
+        Gx_du = [obj.G./(obj.W).^2 obj.G./(obj.W).^2 obj.G./(obj.W).^2].*obj.r_u;
+        Fx_dv = [obj.F./(obj.W).^2 obj.F./(obj.W).^2 obj.F./(obj.W).^2].*obj.r_v;
+        Ex_dv = [obj.E./(obj.W).^2 obj.E./(obj.W).^2 obj.E./(obj.W).^2].*obj.r_v;
+        Fx_du = [obj.F./(obj.W).^2 obj.F./(obj.W).^2 obj.F./(obj.W).^2].*obj.r_u;
+        a = Gx_du - Fx_dv;
+        b = Ex_dv - Fx_du;
+        val = a.*[f_du, f_du, f_du] + b.*[f_dv, f_dv, f_dv];
+    end    
     
     %Function to calculate shear force
     function fs = shearForce(obj, Es, Ed) %Es: shear modulus, Ed: dilatation modulus
@@ -351,6 +432,8 @@ classdef Patch < handle
        fsz = obj.surf_div(tauz);
        fs = [fsx, fsy, fsz]; 
     end
+    
+    
    end
 end
 

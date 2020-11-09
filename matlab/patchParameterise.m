@@ -1,7 +1,7 @@
 function node = patchParameterise(r, p_in, p_out)
-%Function to find the u-v coordinates of a point with cartesian coordinates r in p_in p_in
+%Function to find the u-v coordinates of a point with cartesian coordinates r in p_in 
 % in p_in p_out
-% if r is not in p_in p_out returns (u, v) = (-1, -1).
+% if r is not in p_in p_out returns (u, v) = (-inf, -inf).
     R = p_out.R;
     
     if p_out.numPatch==1
@@ -13,8 +13,9 @@ function node = patchParameterise(r, p_in, p_out)
             b = [1, 0, 0];
             v = angle(a, b);
             if r(2) < 0
-                u = -inf;
-                v = -inf;
+                %u = -inf;
+                %v = -inf;
+                v = 2*pi-v;
                 
             end
 %             if dot(cross(b, a), [0, 0, 1]) >= 0
@@ -32,8 +33,9 @@ function node = patchParameterise(r, p_in, p_out)
             b = [-1,0,0];
             v = angle(a, b);
             if r(2) > 0
-                u = -inf;
-                v = -inf;
+                %u = -inf;
+                %v = -inf;
+                v = 2*pi-v;
             end
 %             if dot(cross(b, a), [0, 0, 1]) >= 0
 %                 v = v;
@@ -49,8 +51,9 @@ function node = patchParameterise(r, p_in, p_out)
             b = [1,0,0];
             v = angle(a, b);
             if r(3) < 0
-                u = -inf;
-                v = -inf;
+                %u = -inf;
+                %v = -inf;
+                v = 2*pi-v;
             end
 %             if dot(cross(b, a), [0, 0, 1]) >= 0
 %                 v = v;
@@ -60,12 +63,14 @@ function node = patchParameterise(r, p_in, p_out)
 
     elseif p_out.numPatch==6
         r0 = [0,R,0];
+
+        u = angle(r0, r);
+        v = angle(r-norm(r)*cos(u)*[0,1,0], [1,0,0]);
+        
         if r(3) > 0
-            u = -inf;
-            v = -inf;
-        else
-            u = angle(r0, r);
-            v = angle(r-norm(r)*cos(u)*[0,1,0], [1,0,0]);
+            %u = -inf;
+            %v = -inf;
+            v = 2*pi-v;
         end
         
     elseif p_out.numPatch==3
@@ -76,8 +81,9 @@ function node = patchParameterise(r, p_in, p_out)
             b = [0,-1,0];
             v = angle(a, b);
             if r(1) < 0
-                u = -inf;
-                v = -inf;
+                %u = -inf;
+                %v = -inf;
+                v = 2*pi-v;
             end
 %             if dot(cross(b, a), [0, 0, 1]) >= 0
 %                 v = v;
@@ -92,8 +98,9 @@ function node = patchParameterise(r, p_in, p_out)
             b = [0,1,0];
             v = angle(a, b);
             if r(1) > 0
-                u = -inf;
-                v = -inf;
+                %u = -inf;
+                %v = -inf;
+                v = 2*pi-v;
             end
 %             if dot(cross(b, a), [0, 0, 1]) >= 0
 %                 v = v;
@@ -104,7 +111,7 @@ function node = patchParameterise(r, p_in, p_out)
         
     end
     
-    if(u < 0 || u > pi)
+    if(v>pi)
         u = -inf;
         v = -inf;
     

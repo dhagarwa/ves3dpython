@@ -1,4 +1,6 @@
-function [] = SLTest()
+function [] = testderiv()
+%Testing the surface deriv function
+
       clc
 
     m = 31;
@@ -9,7 +11,7 @@ function [] = SLTest()
     %phi = pi/3;
     %trg = [R*sin(theta)*cos(phi) R*sin(theta)*sin(phi) R*cos(theta)]
     trg = [0.997425 -0.0507148 -0.0507148];
-    norm_trg = sqrt(norm(trg))
+    norm_trg = sqrt(norm(trg));
     patches = [];
     for i=1:6
        patch =  standardSpherePatch(m, n, i, R);
@@ -21,15 +23,23 @@ function [] = SLTest()
         
     end
     S = Surface(patches, [0, 0, 0]);
- 
+    p = patches(1);
     
-    
- 
-    val = SLSmooth(trg,  S)
-    true_val = [0.287151, 0.191636, 0.191636];
-    SLerror = norm(val - true_val)/norm(true_val)
-   
-   
- 
-end
+    f = sin(4*p.u).*sin(2*p.v);
+    f_du = 4*cos(4*p.u).*sin(2*p.v);
+    f_dv = 1*sin(4*p.u).*cos(*p.v);
 
+    f_du_up = 4*cos(4*p.u_up).*sin(1*p.v_up);
+    f_dv_up = 1*sin(4*p.u_up).*cos(1*p.v_up);
+    
+    [f_du_app, f_dv_app] = p.grad_patch(f);
+    
+    max(f_du_app - f_du)
+    max(f_dv_app - f_dv)
+    
+    
+    
+    
+   
+
+end
