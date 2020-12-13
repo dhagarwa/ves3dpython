@@ -1,8 +1,8 @@
 function [] = SLTest4()
       clc
 
-    m = 63;
-    n = 63;
+    m = 31;
+    n = 31;
     R = 1;
     
     %theta = pi/2;
@@ -60,16 +60,18 @@ function [] = SLTest4()
 %     
 %     end
     SLerror = zeros(size(all_trg, 1), 1);
+    true_vals = zeros(size(all_trg, 1), 1);
     for ii=1:size(all_trg, 1)
         trg = all_trg(ii, :);
         true_val = all_pot(ii, :);
         norm_trg = sqrt(norm(trg)) ;
         val = SLSmooth(trg,  S);
         pot = all_pot(ii, :);
-        SLerror(ii) = norm(val - true_val)/norm(true_val);
+        SLerror(ii) = norm(val - true_val);
+        true_vals(ii) = norm(true_val);
         
     end
    
-    max(SLerror)
+    error = max(SLerror)/max(true_vals)
 end
 

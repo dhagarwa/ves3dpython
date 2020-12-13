@@ -1,9 +1,9 @@
-function [] = testderivFFT()
-%Testing the surface deriv function
+function [] = testderivFFT2()
+%Testing the surface deriv function on flower
 
       clc
 
-    m = 511;
+    m = 255;
     n = m;
     R = 1;
     
@@ -14,7 +14,7 @@ function [] = testderivFFT()
     norm_trg = sqrt(norm(trg));
     patches = [];
     for i=1:6
-       patch =  standardSpherePatch(m, n, i, R);
+       patch =  flowerPatch(m, n, i, R);
        
        patch.q_sl = fooVec(patch.r);
        patch.q_dl = fooVec(patch.r);
@@ -31,8 +31,8 @@ function [] = testderivFFT()
     
     [f_du_app, f_dv_app] = S.derivFFT(f);
     
-    (max(f_du_app))
-    (max(f_dv_app))
+    max(max(f_du_app))
+    max(max(f_dv_app))
     %max(abs(f_du_app - f_du))
     %max(abs(f_dv_app - f_dv))
     

@@ -4,7 +4,7 @@ function [] = flower_surface_theta_phi()
     % p = 1 + exp(-3 Real(Y(3,2,u,v))), u \in [0,pi], v \in [0,2*pi]
     rootdir = '/Users/dhwanit/Google Drive/Biros Research/ves3dpython/matlab';
     relativefolder = 'testfiles';
-    fid = fopen(fullfile(rootdir, relativefolder, 'theta_out.txt'), 'rt');
+    fid = fopen(fullfile(rootdir, relativefolder, 'theta_out32.txt'), 'rt');
     C = textscan(fid,'%f');
     fclose(fid);
     %celldisp(C);
@@ -12,7 +12,7 @@ function [] = flower_surface_theta_phi()
     
     rootdir = '/Users/dhwanit/Google Drive/Biros Research/ves3dpython/matlab';
     relativefolder = 'testfiles';
-    fid = fopen(fullfile(rootdir, relativefolder, 'phi_out.txt'), 'rt');
+    fid = fopen(fullfile(rootdir, relativefolder, 'phi_out32.txt'), 'rt');
     C = textscan(fid,'%f');
     fclose(fid);
     %celldisp(C);
@@ -27,6 +27,6 @@ function [] = flower_surface_theta_phi()
     r = r(:); %C++ src corrdinate form
     
     %write r to text file
-    dlmwrite('flower_src.txt',r,'newline','pc');
+    dlmwrite('flower_src32.txt',r,'newline','pc');
 end
 

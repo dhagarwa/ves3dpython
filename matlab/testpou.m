@@ -4,7 +4,7 @@ function [] = testpou()
       clc
 
     m = 63;
-    n = 63;
+    n = m;
     R = 1;
     
     %theta = pi/2;
@@ -27,8 +27,8 @@ function [] = testpou()
     %pou_err = checkerror(sin(16*p.u).*sin(16*p.v),p)
  
     stem3(reshape(p1.pou,[p1.Nu,p1.Nv]));
-    m = 127;
-    n = 127;
+    m = 2*(m+1)-1;
+    n = m;
     R = 1;
     
     %theta = pi/2;
@@ -50,12 +50,18 @@ function [] = testpou()
     p2 = patches(1);
 
     
-    
+    %using fftInterpolate code
+    p1_pou_mat = ves2fft(p1.pou,p1.Nu,p1.Nv);
+    p1_pou_mat_up = fftInterpolate(p1_pou_mat,[p2.Nu+1,p2.Nv+1]);
+    p1_pou_up = fft2ves(p1_pou_mat_up,p2.Nu+1,p2.Nv+1);
+    %figure;
+    %stem3(reshape(p1_pou_up,[p2.Nu,p2.Nv]));    
     
     pou_up = upsample2(p1.pou,p1);
-    figure;
-    stem3(reshape(pou_up,[p2.Nu,p2.Nv]));
+    %figure;
+    %stem3(reshape(pou_up,[p2.Nu,p2.Nv]));
     max(abs(pou_up-p2.pou))
+    max(abs(p1_pou_up-p2.pou))
     
     
     

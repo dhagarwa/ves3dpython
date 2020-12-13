@@ -2,6 +2,8 @@ classdef Patch < handle
    properties
         u
         v
+        u_ %u with boundary nodes
+        v_ % v with boundary nodes
         u_up %upsampled u
         v_up %upsampled v
         uf %upsampling factor 
@@ -34,11 +36,13 @@ classdef Patch < handle
         Yr % " y
         Zr % " z
         r
-        rb % r but  with boundary nodes included
+        r_ % r with boundary nodes
+        rb % r 
         rrb % r in reference configuration with boundary
         J  % current jacobian
         Jr %reference configuration jacobian
         pou
+        pou_ %pou with boundary nodes
         R
         q_dl %density double layer
         q_sl %density single layer
@@ -48,8 +52,12 @@ classdef Patch < handle
         linkPatch
         links %u-v parameters of points in current patch in other patch
         cl_links %u-v parameters of points in current patch in other patch without -inf if outside the patch
+        deriv_links %u,v derivatives p2p deriv 
+        pou_links %pou value at u-v coordinates of nodes of this patch in other patch 
         Du % u-derivative FDM matrix 
         Dv % v-derivative FDM matrix
+        Du_ % u-derivative FDM matrix including boundary
+        Dv_ % v-derivative FDM matrix including boundary
         ooa %order of accuracy for FDM
         %Reference tangents
         Xr_u %boundary included
@@ -91,6 +99,9 @@ classdef Patch < handle
          obj.v = obj.v(:);
          obj.u_up = obj.u_up(:);
          obj.v_up = obj.v_up(:);
+         [obj.u_,obj.v_]=ndgrid(pi*(0:m+1)/(m+1), -obj.eps_strip + (pi + 2*obj.eps_strip)*(0:n+1)/(n+1)); %u and v both are m x n matrices
+         obj.u_ = obj.u_(:);
+         obj.v_ = obj.v_(:);         
          obj.nodes =[obj.u,obj.v]; % N by 2 matrix listing x,y coordinates of all N=m*n nodespi
          obj.nodes_up =[obj.u_up,obj.v_up];
          obj.h_u = pi/(m+1);
@@ -102,7 +113,9 @@ classdef Patch < handle
          obj.R = R;
          obj.numPatches = 6; 
          obj.links = -1*ones(obj.numNodes, 2*obj.numPatches);
+         obj.pou_links = -1*ones(obj.numNodes, obj.numPatches);
          obj.cl_links = -1*ones(obj.numNodes, 2*obj.numPatches);
+         obj.deriv_links = -1*ones(obj.numNodes, 4*obj.numPatches);
          %FDM full U, V including boundary of u-v patch
          [obj.U,obj.V]=ndgrid(pi*(1:m)/(m+1), -obj.eps_strip + (pi + 2*obj.eps_strip)*(1:n)/(n+1)); %u and v both are m x n matrices
          obj.U = obj.U(:);
@@ -112,6 +125,7 @@ classdef Patch < handle
          obj.NV = n;
          obj.ooa = 8;
          [obj.Du, obj.Dv] = getNonCompactFDmatrix2D(obj.NU, obj.NV, obj.h_u, obj.h_v, 1, obj.ooa);
+         [obj.Du_, obj.Dv_] = getNonCompactFDmatrix2D(obj.NU+2, obj.NV+2, obj.h_u, obj.h_v, 1, obj.ooa);
       end
       
 %       function initialiseMaps(obj, param, jac)
@@ -151,16 +165,33 @@ classdef Patch < handle
          temp_cross = cross(obj.rr_u, obj.rr_v, 2);
          obj.Jr = abs(vecnorm(temp_cross, 2, 2));
          %size(temp_cross)
-         obj.nr = diag(vecnorm(temp_cross, 2, 2).^(-1))*temp_cross;
+         %%%%%%% replacing earlier non-sparse diag with sparse
+         vecn = vecnorm(temp_cross, 2, 2).^(-1);
+         D = spdiags(vecn(:),0,length(vecn),length(vecn));
+         obj.nr = D*temp_cross;
+         %obj.nr = diag(vecnorm(temp_cross, 2, 2).^(-1))*temp_cross;
+         %%%%%%%%
+         obj.sphcart = sph2cartPatch(obj.u,obj.v,obj);
          qk = zeros(obj.numNodes, 1);
          for pp= 1:obj.numPatches
-             qk = qk+ obj.spou(pp, obj.r);
-         end
-         for ii=1:size(obj.u,1)
-             obj.sphcart = [obj.sphcart; sph2cartPatch(obj.u(ii),obj.v(ii),obj)];
+             qk = qk+ obj.spou(pp, obj.sphcart);
          end
          
+         %for ii=1:size(obj.u,1)
+         %    obj.sphcart = [obj.sphcart; sph2cartPatch(obj.u(ii),obj.v(ii),obj)];
+         %end
+         
          obj.pou = obj.spou(obj.numPatch, obj.sphcart)./qk; %TODO: obj.r is incorrect if initial shape is non sphere
+         obj.pou_ = reshape(obj.pou, [obj.Nu,obj.Nv]);
+         obj.pou_ = [zeros(obj.Nu,1) obj.pou_ zeros(obj.Nu,1)];
+         obj.pou_ = [zeros(1,obj.Nv+2); obj.pou_;zeros(1,obj.Nv+2)];
+         obj.pou_ = obj.pou_(:);
+         
+         for pp=1:obj.numPatches
+             
+            obj.pou_links(:,pp) =  obj
+         end
+         
 %          plot(obj.spou(obj.numPatch, obj.r));
 %          hold on
 %          plot(qk)
@@ -190,7 +221,11 @@ classdef Patch < handle
          %set normal
          temp_cross = cross(obj.r_u, obj.r_v, 2);
          obj.J = abs(vecnorm(temp_cross, 2, 2));
-         obj.n = diag(vecnorm(temp_cross, 2, 2).^(-1))*temp_cross;
+         %%%%%%% replacing non-sparse diag with sparse
+         vecn = vecnorm(temp_cross, 2, 2).^(-1);
+         D = spdiags(vecn(:),0,length(vecn),length(vecn));
+         obj.n = D*temp_cross;
+         %obj.n = diag(vecnorm(temp_cross, 2, 2).^(-1))*temp_cross;
          [obj.E, obj.F, obj.G, obj.W] = obj.ffform();
           
          
@@ -229,7 +264,8 @@ classdef Patch < handle
         elseif t ==0
             val(ii) = 1;
         else
-            %val(ii) = exp((2*exp(-1/t))/ (t-1)); %pou from bruno paper
+            val(ii) = exp((2*exp(-1/t))/ (t-1)); %pou from bruno paper
+            %val(ii) = exp((1*exp(-1/t))/ (t-1)); %pou from bruno paper
             %val(ii) = exp((2*exp(-1/t^2))/ (t^2-1)); %MORE SMOOTH pou 
             %val(ii) = exp(t^2/ (t^2-1)); %POU from beale paper
         end
@@ -261,8 +297,10 @@ classdef Patch < handle
         
         %upsample f before differentiating
         f_up = upsample2(f, obj);
-        
-        f_mat = ves2fft(f_up, obj.uf*(obj.Nu+1)-1, obj.uf*(obj.Nv+1)-1);
+        up = obj.uf;
+        %up = 1;
+        %f_up = f;
+        f_mat = ves2fft(f_up, up*(obj.Nu+1)-1, up*(obj.Nv+1)-1);
         %stem3(f_mat);
         %f_mat(15, 2:(obj.Nu+1))
         
@@ -330,7 +368,19 @@ classdef Patch < handle
         
      end
     
-    
+    %Finite difference derivative with boundary nodes
+     function [f_du, f_dv] = grad_FDM_(obj, f) %ood = order of derivative, ooa = order of accuracy
+         
+        f_fdm = ves2fdm(f, obj.NU+2, obj.NV+2); %transpose because fdm code has U values in row and V in column
+        %[f_du, f_dv] = derivFDM(f_fdm, obj.NU, obj.NV, obj.h_u, obj.h_v, ood, ooa); 
+        f_du = obj.Du_*f_fdm;
+        f_dv = obj.Dv_*f_fdm;
+        f_du = fdm2ves(f_du, obj.NU+2, obj.NV+2);
+        f_dv = fdm2ves(f_dv, obj.NU+2, obj.NV+2);
+        
+     end
+     
+     
        %Incomplete function
     function [f_du, f_dv] = interpolate(obj, f)
          

@@ -19,7 +19,7 @@ function val = interpPatch2(f, x, p)
     m = p.Nu; n = p.Nv;
     [u_grid,v_grid]=ndgrid(2*pi*(0:2*m+2)/(2*m+2),  (2*pi)*(0:2*n+2)/(2*n+2));
     u_grid = u_grid - pi; v_grid = v_grid - pi; %move to [-pi,pi]
-    F = griddedInterpolant(u_grid,v_grid,f_mat,'cubic');
+    F = griddedInterpolant(u_grid,v_grid,f_mat,'spline');
     val = F(u,v);
     val(isnan(val))=0;
     

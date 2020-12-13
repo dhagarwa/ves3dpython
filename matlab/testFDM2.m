@@ -1,10 +1,10 @@
-function [] = testderivFFT()
+function [] = testFDM2()
 %Testing the surface deriv function
 
       clc
 
-    m = 511;
-    n = m;
+    m = 31;
+    n = 31;
     R = 1;
     
     %theta = pi/2;
@@ -23,18 +23,19 @@ function [] = testderivFFT()
         
     end
     S = Surface(patches, [0, 0, 0]);
-    p = patches(1);
-    %pou_err = checkerror(sin(16*p.u).*sin(16*p.v),p)
+    p = patches(6);
     
-    f = ones(p.numNodes, 6);
+    f = sin(4*p.u).*sin(8*p.v);
+    f_du = 4*cos(4*p.u).*sin(8*p.v);
+    f_dv = 8*sin(4*p.u).*cos(8*p.v);
+
+    f_du_up = 4*cos(4*p.u_up).*sin(8*p.v_up);
+    f_dv_up = 8*sin(4*p.u_up).*cos(8*p.v_up);
     
+    [f_du_app, f_dv_app] = p.grad_patch(f);
     
-    [f_du_app, f_dv_app] = S.derivFFT(f);
-    
-    (max(f_du_app))
-    (max(f_dv_app))
-    %max(abs(f_du_app - f_du))
-    %max(abs(f_dv_app - f_dv))
+    max(abs(f_du_app - f_du))
+    max(abs(f_dv_app - f_dv))
     
     
     

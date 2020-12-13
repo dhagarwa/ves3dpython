@@ -1,9 +1,9 @@
-function [] = testderivFFT()
+function [] = testdoublederivFFT()
 %Testing the surface deriv function
 
       clc
 
-    m = 511;
+    m = 63;
     n = m;
     R = 1;
     
@@ -26,19 +26,22 @@ function [] = testderivFFT()
     p = patches(1);
     %pou_err = checkerror(sin(16*p.u).*sin(16*p.v),p)
     
-    f = ones(p.numNodes, 6);
-    
-    
+    f = p.u;
+    for jj=2:6
+        
+        f = [f patches(jj).cl_links(:,1)];
+    end
+    %f is u corrdinate of patch 1
+    %check f_du = 1 on patch 1 and f_dv = 0 on patch 1
     [f_du_app, f_dv_app] = S.derivFFT(f);
-    
-    (max(f_du_app))
-    (max(f_dv_app))
+    %stem3(reshape(f_du_app(:,1),[p.Nu,p.Nv]))
+    err1 = max(abs(f_du_app(:,1)))
+    err2 = max(abs(f_dv_app(:,1))) %
     %max(abs(f_du_app - f_du))
     %max(abs(f_dv_app - f_dv))
     
     
     
     
-   
-
+ 
 end
