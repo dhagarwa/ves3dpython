@@ -526,9 +526,9 @@ classdef Surface < handle
 
 
 
-            normals_fdm_new_blend_x = S.blendSurfaceFunction(normals_fdm_new(:,1));
-            normals_fdm_new_blend_y = S.blendSurfaceFunction(normals_fdm_new(:,2));
-            normals_fdm_new_blend_z = S.blendSurfaceFunction(normals_fdm_new(:,3));
+            normals_fdm_new_blend_x = obj.blendSurfaceFunction(normals_fdm_new(:,1));
+            normals_fdm_new_blend_y = obj.blendSurfaceFunction(normals_fdm_new(:,2));
+            normals_fdm_new_blend_z = obj.blendSurfaceFunction(normals_fdm_new(:,3));
             normals_blend = [normals_fdm_new_blend_x normals_fdm_new_blend_y normals_fdm_new_blend_z ];
 
             %calculate normals using fdm          
@@ -768,6 +768,12 @@ classdef Surface < handle
             grad_sigma = obj.getSurfaceGradient(sigma);
             
             f_sigma = sigma_lap + grad_sigma;
+            
+%             [H,K] = obj.getCurvature();
+%             n = obj.getNormals();
+%             H_ = repmat(H,[1,3]);
+%             f_sigma = 2*sigma_.*H_.*n + grad_sigma;
+            
             
                 
       end

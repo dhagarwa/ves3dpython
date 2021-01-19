@@ -3,7 +3,7 @@ function [] = testcurvatureFDM()
 
       clc
 
-    m = 63;
+    m = 15;
     n = m;
     R = 1;
     
@@ -106,13 +106,19 @@ function [] = testcurvatureFDM()
     H_blend = S.blendSurfaceFunction(H);
     
     H_true = ones(size(H,1),1);
-
+    K_true = ones(size(H,1),1);
     
     error = max(abs(H-H_true))
     error_blend = max(abs(H_blend-H_true))
+    %using surface class methods 
+    n_blend2 = S.getNormals();
+    [H_blend2, K_blend2] = S.getCurvature();
+    fb = S.getBendingForce();
+    error_nblend = max(vecnorm(n_blend2-true_normals, 2, 2))
+    error_Hblend = max(abs(H_blend2-H_true))
+    error_Kblend = max(abs(K_blend2-K_true))
     
-    H_blend2 = S.getMeanCurvature();
-    error_blend = max(abs(H_blend2-H_true))
+    
     
 %     syms u v
 % 

@@ -1,8 +1,9 @@
-function [] = SLTest4()
+function [] = SLTest5()
+    %SL test of flower 
       clc
 
-    m = 7;
-    n = 7;
+    m = 63;
+    n = m;
     R = 1;
     
     %theta = pi/2;
@@ -21,7 +22,7 @@ function [] = SLTest4()
 
     rootdir = '/Users/dhwanit/Google Drive/Biros Research/ves3dpython/matlab';
     relativefolder = 'testfiles';
-    fid = fopen(fullfile(rootdir, relativefolder, 'matlab_flower_SL_potential_trg.txt'), 'rt');
+    fid = fopen(fullfile(rootdir, relativefolder, 'flower_SL_test2_trg64.txt'), 'rt');
     C = textscan(fid,'%f');
     fclose(fid);
     %celldisp(C);
@@ -34,7 +35,7 @@ function [] = SLTest4()
     for i=1:6
        patch =  flowerPatch(m, n, i, R);
        
-       patch.q_sl = fooVec(patch.r);
+       patch.q_sl = fooVec2(patch.r);
        patch.q_dl = ones(size(patch.r,1), 3);
        patches = [patches patch];
        %val = val + DLSmoothPatch(trg, 1, patch, patch.q_dl);
@@ -61,7 +62,7 @@ function [] = SLTest4()
 %     end
     SLerror = zeros(size(all_trg, 1), 1);
     true_vals = zeros(size(all_trg, 1), 1);
-    for ii=1:size(all_trg, 1)
+    for ii=1:40:size(all_trg, 1)
         trg = all_trg(ii, :);
         true_val = all_pot(ii, :);
         norm_trg = sqrt(norm(trg)) ;

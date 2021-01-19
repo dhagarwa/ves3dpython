@@ -89,6 +89,7 @@ classdef Patch < handle
         W
         
         H_true %true curvature if known, just for debugging purposes
+        delta %regularization parameter, \delta = ch^p.
         
    end
    
@@ -134,7 +135,7 @@ classdef Patch < handle
          obj.Nodes =[obj.U,obj.V]; % N by 2 matrix listing x,y coordinates of all N=m*n nodespi
          obj.NU = m;
          obj.NV = n;
-         obj.ooa = 8;
+         obj.ooa = 4;
          [obj.Du, obj.Dv] = getNonCompactFDmatrix2D(obj.NU, obj.NV, obj.h_u, obj.h_v, 1, obj.ooa);
          [obj.Du_, obj.Dv_] = getNonCompactFDmatrix2D(obj.NU+2, obj.NV+2, obj.h_u, obj.h_v, 1, obj.ooa);
       end
@@ -245,6 +246,15 @@ classdef Patch < handle
          %obj.n = diag(vecnorm(temp_cross, 2, 2).^(-1))*temp_cross;
          [obj.E, obj.F, obj.G, obj.W] = obj.ffform();
           
+         %calculate delta
+         [h_min, h_max] = getmeshsize(obj);
+         obj.delta = max(h_max(:));
+         mesh_size = obj.delta
+         delta_used = 0.6*(obj.h_u)^0.9
+                    
+             
+             
+         
          
       end     
       
@@ -285,6 +295,13 @@ classdef Patch < handle
             %val(ii) = exp((1*exp(-1/t))/ (t-1)); %pou from bruno paper
             %val(ii) = exp((2*exp(-1/t^2))/ (t^2-1)); %MORE SMOOTH pou 
             %val(ii) = exp(t^2/ (t^2-1)); %POU from beale paper
+            %val(ii) = 1; % B-spline N_0
+            
+            %if t <0.5 %B-spline cubic centered
+            %    val(ii) = 2/3 - 0.5*(2*t)^2*(2-2*t);
+            %else 
+            %    val(ii) = (2-(2*t))^3/6;
+            %end
         end
     end
     

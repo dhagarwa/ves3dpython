@@ -1,8 +1,8 @@
 function [] = SLTest3()
       clc
 
-    m = 31;
-    n = 31;
+    m = 63;
+    n = m;
     R = 1;
     
     %theta = pi/2;
@@ -40,7 +40,7 @@ function [] = SLTest3()
     S = Surface(patches, [0, 0, 0]);
  
     SLerror = zeros(size(all_trg, 1), 1);
-    for ii=1:size(all_trg, 1)
+    for ii=1:60:size(all_trg, 1)
         trg = all_trg(ii, :);
         true_val = all_pot(ii, :);
         norm_trg = sqrt(norm(trg)) ;

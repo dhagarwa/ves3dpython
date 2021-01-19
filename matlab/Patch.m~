@@ -10,6 +10,7 @@ classdef Patch < handle
         nodes
         nodes_up %upsampled nodes in a patch
         sphcart %cartesian coordinates when u-v mapped to standard sphere
+        sphcart_ %cartesian coordinates when u-v mapped to standard sphere (with boundary)
         U
         V
         Nodes
@@ -17,6 +18,7 @@ classdef Patch < handle
         numPatches
         neighbors
         numNodes
+        numNodes_ %numNodes with boundary included
         numNodes_up
         Nu %# of u nodes
         Nv %# of v nodes
@@ -51,9 +53,12 @@ classdef Patch < handle
         eps_strip %extend hemispherical patch by eps_strip more v coordinate
         linkPatch
         links %u-v parameters of points in current patch in other patch
+        links_ %u-v parameters of points in current patch (with boundary) in other patch
         cl_links %u-v parameters of points in current patch in other patch without -inf if outside the patch
         deriv_links %u,v derivatives p2p deriv 
+        deriv_links_ %u,v derivatives p2p deriv with boundary
         pou_links %pou value at u-v coordinates of nodes of this patch in other patch 
+        pou_links_ %pou value at u-v coordinates of nodes of this patch in other patch (w/ boundary)
         Du % u-derivative FDM matrix 
         Dv % v-derivative FDM matrix
         Du_ % u-derivative FDM matrix including boundary
@@ -83,6 +88,9 @@ classdef Patch < handle
         G
         W
         
+        H_true %true curvature if known, just for debugging purposes
+        delta %regularization parameter, \delta = ch^p.
+        
    end
    
    methods
@@ -107,15 +115,19 @@ classdef Patch < handle
          obj.h_u = pi/(m+1);
          obj.h_v = (pi + 2*obj.eps_strip)/(n+1);    
          obj.numNodes = m*n; %no of nodes on one patch in u-v coordinates
+         obj.numNodes_ = (m+2)*(n+2); %no of nodes on one patch with boundary in u-v coordinates
          obj.numNodes_up = (obj.uf*m+1)*(obj.uf*n+1); %no of nodes on one patch in u-v coordinates
          obj.numPatch = numPatch;
          obj.neighbors = neighbors;
          obj.R = R;
          obj.numPatches = 6; 
          obj.links = -1*ones(obj.numNodes, 2*obj.numPatches);
-         obj.pou_links = -1*ones(obj.numNodes, obj.numPatches);
+         obj.links_ = -1*ones(obj.numNodes_, 2*obj.numPatches);
+         obj.pou_links = zeros(obj.numNodes, obj.numPatches);
+         obj.pou_links_ = zeros(obj.numNodes_, obj.numPatches);
          obj.cl_links = -1*ones(obj.numNodes, 2*obj.numPatches);
          obj.deriv_links = -1*ones(obj.numNodes, 4*obj.numPatches);
+         obj.deriv_links_ = -1*ones(obj.numNodes_, 4*obj.numPatches);
          %FDM full U, V including boundary of u-v patch
          [obj.U,obj.V]=ndgrid(pi*(1:m)/(m+1), -obj.eps_strip + (pi + 2*obj.eps_strip)*(1:n)/(n+1)); %u and v both are m x n matrices
          obj.U = obj.U(:);
@@ -123,7 +135,7 @@ classdef Patch < handle
          obj.Nodes =[obj.U,obj.V]; % N by 2 matrix listing x,y coordinates of all N=m*n nodespi
          obj.NU = m;
          obj.NV = n;
-         obj.ooa = 8;
+         obj.ooa = 4;
          [obj.Du, obj.Dv] = getNonCompactFDmatrix2D(obj.NU, obj.NV, obj.h_u, obj.h_v, 1, obj.ooa);
          [obj.Du_, obj.Dv_] = getNonCompactFDmatrix2D(obj.NU+2, obj.NV+2, obj.h_u, obj.h_v, 1, obj.ooa);
       end
@@ -172,11 +184,15 @@ classdef Patch < handle
          %obj.nr = diag(vecnorm(temp_cross, 2, 2).^(-1))*temp_cross;
          %%%%%%%%
          obj.sphcart = sph2cartPatch(obj.u,obj.v,obj);
+         obj.sphcart_ = sph2cartPatch(obj.u_,obj.v_,obj);
          qk = zeros(obj.numNodes, 1);
+         qk_ = zeros(obj.numNodes_, 1);
          for pp= 1:obj.numPatches
              qk = qk+ obj.spou(pp, obj.sphcart);
          end
-         
+         for pp= 1:obj.numPatches
+             qk_ = qk_+ obj.spou(pp, obj.sphcart_);
+         end         
          %for ii=1:size(obj.u,1)
          %    obj.sphcart = [obj.sphcart; sph2cartPatch(obj.u(ii),obj.v(ii),obj)];
          %end
@@ -187,11 +203,13 @@ classdef Patch < handle
          obj.pou_ = [zeros(1,obj.Nv+2); obj.pou_;zeros(1,obj.Nv+2)];
          obj.pou_ = obj.pou_(:);
          
-         for pp=1:obj.numPatches
-             
-            obj.pou_links(:,pp) =  obj
+         for pp=1:obj.numPatches             
+            obj.pou_links(:,pp) =  obj.spou(pp, obj.sphcart)./qk;
          end
          
+         for pp=1:obj.numPatches             
+            obj.pou_links_(:,pp) =  obj.spou(pp, obj.sphcart_)./qk_;
+         end         
 %          plot(obj.spou(obj.numPatch, obj.r));
 %          hold on
 %          plot(qk)
@@ -228,6 +246,32 @@ classdef Patch < handle
          %obj.n = diag(vecnorm(temp_cross, 2, 2).^(-1))*temp_cross;
          [obj.E, obj.F, obj.G, obj.W] = obj.ffform();
           
+         %calculate delta
+         mat_x = reshape(obj.x, [obj.Nu, obj.Nv]);
+         mat_y = reshape(obj.y, [obj.Nu, obj.Nv]);
+         mat_z = reshape(obj.z, [obj.Nu, obj.Nv]);
+         h_min = zeros(obj.Nu, obj.Nv);
+         h_max = zeros(obj.Nu, obj.Nv);
+         for row = 1:obj.Nu
+             for col=1:obj.Nv
+                 
+                 minh = 10000;
+                 maxh = -10000;
+                 if (row-1) > 0 && (col-1) > 0
+                    dist = sqrt((mat_x(row,col) - mat_x(row-1, col-1))^2 + (mat_y(row,col) - mat_y(row-1, col-1))^2 + (mat_z(row,col) - mat_z(row-1, col-1))^2);
+                    if dist < minh
+                        minh = dist;
+                    end
+                    if dist > maxh
+                        maxh = dist;       
+                    end
+                    
+                    
+                 end
+                    
+             end
+             
+         end
          
       end     
       
@@ -268,6 +312,13 @@ classdef Patch < handle
             %val(ii) = exp((1*exp(-1/t))/ (t-1)); %pou from bruno paper
             %val(ii) = exp((2*exp(-1/t^2))/ (t^2-1)); %MORE SMOOTH pou 
             %val(ii) = exp(t^2/ (t^2-1)); %POU from beale paper
+            %val(ii) = 1; % B-spline N_0
+            
+            %if t <0.5 %B-spline cubic centered
+            %    val(ii) = 2/3 - 0.5*(2*t)^2*(2-2*t);
+            %else 
+            %    val(ii) = (2-(2*t))^3/6;
+            %end
         end
     end
     

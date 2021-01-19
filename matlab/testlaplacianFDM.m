@@ -3,7 +3,7 @@ function [] = testlaplacianFDM()
 
       clc
 
-    m = 63;
+    m = 127;
     n = m;
     R = 1;
     

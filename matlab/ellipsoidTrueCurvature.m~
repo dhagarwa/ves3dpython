@@ -1,12 +1,12 @@
-function [H_true,K_true, n_true, lapH_true] = flowerTrueCurvature(m)
-%calculate true mean curvature of a flower
+function [H_true,K_true, n_true, lapH_true] = ellipsoidTrueCurvature(m)
+%calculate true mean curvature of an ellipsoid
 %caluclate true curvature
     clc
     n = m;
     syms th ph
     %th = u, ph = v
-    rho_ =  1 + exp(-3*(1/4)*sqrt(105/(2*pi))*sin(th)^2*cos(th)*cos(2*ph));
-    x_ = rho_*sin(th)*cos(ph); y_ = rho_*sin(th)*sin(ph); z_ = rho_*cos(th); 
+    
+    x_ = 1*sin(th)*cos(ph); y_ = 0.4*sin(th)*sin(ph); z_ = 1*cos(th); 
 
     X  = [x_;y_;z_]; 
     Xu = (diff(X,th));
@@ -19,7 +19,18 @@ function [H_true,K_true, n_true, lapH_true] = flowerTrueCurvature(m)
 
     [the,phi]=ndgrid(pi*(1:m)/(m+1), (pi )*(1:n)/(n+1));
     the = the(:); phi = phi(:);
-    the = the(1:2); phi = phi(1:2);
+    the = the(1001:1050); phi = phi(1001:1050);
+    
+    %read theta phi form files 
+     
+    rootdir = '/Users/dhwanit/Google Drive/Biros Research/ves3dpython/matlab';
+    relativefolder = 'testfiles';
+    fid = fopen(fullfile(rootdir, relativefolder, 'test_ellipsoid2_fb_src64.txt'), 'rt');
+    C = textscan(fid,'%f');
+    fclose(fid);
+    A = cell2mat(C);
+    m0 = size(A, 1);
+    fb = reshape(A, [m0/3,3]);
     %size(phi)
     %Xu = double(subs(Xu, {'th' 'ph'}, {the phi}));
     %Xv = double(subs(Xv, {'th' 'ph'}, {the phi}));
@@ -54,10 +65,11 @@ function [H_true,K_true, n_true, lapH_true] = flowerTrueCurvature(m)
     H_true = double(subs(H_, {'th' 'ph'}, {the phi}));
     K_true = double(subs(K_, {'th' 'ph'}, {the phi}));
     n_true = double(subs(nor, {'th' 'ph'}, {the phi}));
-    %size(n_true)
+    size(n_true);
     lapH_true = double(subs(lapH, {'th' 'ph'}, {the phi}));
-    
-    
+    %max(-lapH_true)
+    n_true = reshape(n_true, [1, 3]);
+    fb_true = repmat(lapH_true + 2*H_true.*(H_true.^2 - K_true), [1, 3]).*n_true
     
     
     

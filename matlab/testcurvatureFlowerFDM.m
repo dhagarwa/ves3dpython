@@ -3,7 +3,7 @@ function [] = testcurvatureFlowerFDM()
 
       clc
 
-    m = 63;
+    m = 127;
     n = m;
     R = 1;
     
@@ -57,13 +57,17 @@ function [] = testcurvatureFlowerFDM()
     D = spdiags(vecn(:),0,length(vecn),length(vecn));
     normals_fdm_new = D*temp_cross; %normals calculated
     %--------get true values on patch 1
-    [H_true,n_true] = flowerTrueCurvature(m);
-    n_true = reshape(n_true, [m*n, 3]);
+   [H_true,K_true, n_true, lapH_true] = flowerTrueCurvature(m);
+    n_true = reshape(n_true, [2, 3]);
     nx_true = n_true(:,1); ny_true = n_true(:,2); nz_true = n_true(:,3);
     %--------------
-    normals_fdm_new_blend_x = S.blendSurfaceFunction(normals_fdm_new(:,1),nx_true);
-    normals_fdm_new_blend_y = S.blendSurfaceFunction(normals_fdm_new(:,2),ny_true);
-    normals_fdm_new_blend_z = S.blendSurfaceFunction(normals_fdm_new(:,3),nz_true);
+%     normals_fdm_new_blend_x = S.blendSurfaceFunction(normals_fdm_new(:,1),nx_true);
+%     normals_fdm_new_blend_y = S.blendSurfaceFunction(normals_fdm_new(:,2),ny_true);
+%     normals_fdm_new_blend_z = S.blendSurfaceFunction(normals_fdm_new(:,3),nz_true);
+%     
+    normals_fdm_new_blend_x = S.blendSurfaceFunction(normals_fdm_new(:,1));
+    normals_fdm_new_blend_y = S.blendSurfaceFunction(normals_fdm_new(:,2));
+    normals_fdm_new_blend_z = S.blendSurfaceFunction(normals_fdm_new(:,3));
     normals_fdm_new_blend = [normals_fdm_new_blend_x normals_fdm_new_blend_y normals_fdm_new_blend_z ];    
     
     [x_duu_app, x_duv_app] = S.patchwiseDerivFDM(x_du_app);
@@ -101,14 +105,26 @@ function [] = testcurvatureFlowerFDM()
 
     
     H = -0.5*(E.*N - 2*F.*M + G.*L)./ W.^2;
-    H_blend = S.blendSurfaceFunction(H,H_true);
- 
+    H_blend = S.blendSurfaceFunction(H);
+    [H_blend2,K_blend2] = S.getCurvature();
+    lapH_blend2 = S.getLaplacian(H_blend2);
     
-    error_blend = max(abs(H_blend(1:(m*n))-H_true))/max(abs(H_true))
+    n_blend2 = S.getNormals();
     
+%     errorH_blend = max(abs(H_blend(1:(m*n))-H_true))/max(abs(H_true))
+%     
+%     errorH_blend2 = max(abs(H_blend2(1:(m*n))-H_true))/max(abs(H_true))
+%     errorK_blend2 = max(abs(K_blend2(1:(m*n))-K_true))/max(abs(K_true))
+%     errorn_blend2 = max(vecnorm(n_blend2(1:(m*n),:)-n_true,2,2))/max(vecnorm(n_true,2,2))
+%     errorlapH_blend2 = max(abs(lapH_blend2(1:(m*n))-lapH_true))/max(abs(lapH_true))
+    
+    
+    errorH_blend = max(abs(H_blend(1:2)-H_true))/max(abs(H_true))
+    
+    errorH_blend2 = max(abs(H_blend2(1:2)-H_true))/max(abs(H_true))
+    errorK_blend2 = max(abs(K_blend2(1:2)-K_true))/max(abs(K_true))
+    errorn_blend2 = max(vecnorm(n_blend2(1:2,:)-n_true,2,2))/max(vecnorm(n_true,2,2))
+    errorlapH_blend2 = max(abs(lapH_blend2(1:2)-lapH_true))/max(abs(lapH_true))
 
-    
-    
-   
 
 end
