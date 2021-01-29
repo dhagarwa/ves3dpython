@@ -90,7 +90,8 @@ classdef Patch < handle
         
         H_true %true curvature if known, just for debugging purposes
         delta %regularization parameter, \delta = ch^p.
-        
+        h_min
+        h_max
    end
    
    methods
@@ -247,10 +248,12 @@ classdef Patch < handle
          [obj.E, obj.F, obj.G, obj.W] = obj.ffform();
           
          %calculate delta
-         [h_min, h_max] = getmeshsize(obj);
-         obj.delta = max(h_max(:));
-         mesh_size = obj.delta
-         delta_used = 0.6*(obj.h_u)^0.9
+         [obj.h_min, obj.h_max] = getmeshsize(obj);
+         obj.h_min = obj.h_min(:);
+         obj.h_max = obj.h_max(:);
+         obj.delta = max(obj.h_max(:));
+         mesh_size = obj.delta;
+         delta_used = 0.6*(obj.h_u)^0.9;
                     
              
              

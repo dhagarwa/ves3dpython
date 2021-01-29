@@ -1,7 +1,7 @@
 function [] = ellipsoidSLTensileTest4()
       clc
 
-    m = 127;
+    m = 31;
     n = m;
     R = 1;
     

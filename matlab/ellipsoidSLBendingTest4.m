@@ -1,7 +1,7 @@
 function [] = ellipsoidSLBendingTest4()
       clc
 
-    m = 63;
+    m = 127;
     n = m;
     R = 1;
     
@@ -21,7 +21,7 @@ function [] = ellipsoidSLBendingTest4()
 
     rootdir = '/Users/dhwanit/Google Drive/Biros Research/ves3dpython/matlab';
     relativefolder = 'testfiles';
-    fid = fopen(fullfile(rootdir, relativefolder, 'test_ellipsoid2_SL_fb_matlabtrg32_p64.txt'), 'rt');
+    fid = fopen(fullfile(rootdir, relativefolder, 'test_ellipsoid2_SL_noup_fb_matlabtrg32_p64.txt'), 'rt');
     C = textscan(fid,'%f');
     fclose(fid);
     %celldisp(C);
@@ -108,7 +108,7 @@ function [] = ellipsoidSLBendingTest4()
     SLerror = zeros(size(all_trg, 1), 1);
     true_vals = zeros(size(all_trg, 1), 1);
     true_norm = max(vecnorm(all_pot, 2, 2));
-    for ii=1:size(all_trg, 1)
+    for ii=1:60:size(all_trg, 1)
         trg = all_trg(ii, :);
         true_val = all_pot(ii, :);
         norm_trg = sqrt(norm(trg)) ;

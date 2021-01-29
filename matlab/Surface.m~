@@ -779,7 +779,12 @@ classdef Surface < handle
       end
       
       
-
+      function pos = getPosition(obj)
+      %get position matrix for all patches 3 columns (x, y, z)
+       patch = 
+          
+          
+      end
       
       % function p2p_deriv: nodes of p1 transformed to u-v coords in p2 and then calculate derivative
       % of f (f is provided on p2) in p2 and then interpolate to tranformed
