@@ -1,7 +1,7 @@
 function sle = SLTestreparam(S)
       
 
-    m = 31;
+    m = 63;
     n = m;
     R = 1;
     
@@ -50,6 +50,6 @@ function sle = SLTestreparam(S)
         
     end
    
-    sle = max(SLerror)
+    sle = max(SLerror);
 end
 
