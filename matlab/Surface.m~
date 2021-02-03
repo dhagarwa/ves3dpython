@@ -778,13 +778,21 @@ classdef Surface < handle
                 
       end
       
-      
-      function pos = getPosition(obj)
-      %get position matrix for all patches 3 columns (x, y, z)
-       patch = 
+      function val = integrateOverSurface(obj, f)
+          %function to integrate f over surface
+          %f is column vector, 6*m*n x 1 size. 
+          val = 0;
+          f_mat = reshape(f, )
+          for ii=1:length(obj.patches)              
+              patch = obj.patches(ii);
+              val = val + integratePatch(patch, f)
+               
+          end   
+          
           
           
       end
+
       
       % function p2p_deriv: nodes of p1 transformed to u-v coords in p2 and then calculate derivative
       % of f (f is provided on p2) in p2 and then interpolate to tranformed

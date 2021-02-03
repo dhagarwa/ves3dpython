@@ -33,6 +33,8 @@ function [] = reparameterization()
         
     end
     
+    area = S.getArea()
+    
     %reparameterization
     tau = 0.0001;
     T = 0.02; nt = T/tau; minT = T/5;

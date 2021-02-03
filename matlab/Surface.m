@@ -778,7 +778,26 @@ classdef Surface < handle
                 
       end
       
+      function val = integrateOverSurface(obj, f)
+          %function to integrate f over surface
+          %f is column vector, 6*m*n x 1 size. 
+          val = 0;
+          f_mat = reshape(f, [obj.patches(1).Nu*obj.patches(1).Nv, length(obj.patches)]);
+          for ii=1:length(obj.patches)              
+              patch = obj.patches(ii);
+              val = val + integratePatch(patch, f_mat(:,ii));
+               
+          end   
+          
+          
+          
+      end
       
+      function area = getArea(obj)
+          f = ones(obj.patches(1).Nu*obj.patches(1).Nv*length(obj.patches), 1);
+          area = integrateOverSurface(obj, f);
+          
+      end
 
       
       % function p2p_deriv: nodes of p1 transformed to u-v coords in p2 and then calculate derivative
