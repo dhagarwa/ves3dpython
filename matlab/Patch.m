@@ -57,6 +57,7 @@ classdef Patch < handle
         cl_links %u-v parameters of points in current patch in other patch without -inf if outside the patch
         deriv_links %u,v derivatives p2p deriv 
         deriv_links_ %u,v derivatives p2p deriv with boundary
+        secondderiv_links %second u,v derivatives p2p deriv 
         pou_links %pou value at u-v coordinates of nodes of this patch in other patch 
         pou_links_ %pou value at u-v coordinates of nodes of this patch in other patch (w/ boundary)
         Du % u-derivative FDM matrix 
@@ -129,6 +130,7 @@ classdef Patch < handle
          obj.cl_links = -1*ones(obj.numNodes, 2*obj.numPatches);
          obj.deriv_links = -1*ones(obj.numNodes, 4*obj.numPatches);
          obj.deriv_links_ = -1*ones(obj.numNodes_, 4*obj.numPatches);
+         obj.secondderiv_links = -1*ones(obj.numNodes, 8*obj.numPatches);
          %FDM full U, V including boundary of u-v patch
          [obj.U,obj.V]=ndgrid(pi*(1:m)/(m+1), -obj.eps_strip + (pi + 2*obj.eps_strip)*(1:n)/(n+1)); %u and v both are m x n matrices
          obj.U = obj.U(:);
@@ -184,8 +186,8 @@ classdef Patch < handle
          obj.nr = D*temp_cross;
          %obj.nr = diag(vecnorm(temp_cross, 2, 2).^(-1))*temp_cross;
          %%%%%%%%
-         obj.sphcart = sph2cartPatch(obj.u,obj.v,obj);
-         obj.sphcart_ = sph2cartPatch(obj.u_,obj.v_,obj);
+         obj.sphcart = sph2cartPatch(skewPatch(obj.u, 4),obj.v,obj);
+         obj.sphcart_ = sph2cartPatch(skewPatch(obj.u_, 4),obj.v_,obj);
          qk = zeros(obj.numNodes, 1);
          qk_ = zeros(obj.numNodes_, 1);
          for pp= 1:obj.numPatches

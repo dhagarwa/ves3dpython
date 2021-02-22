@@ -1,4 +1,4 @@
-function val = integratePatch(p, f) %p is patch, f is the function. f should be compactly supported
+function val = integratePatch(p, f) %p is patch, f is the function. d
 %Integration using trapezoidal rule
 %f is a scalar function
     f0 = f.*(p.pou); %multiplying by partition of unity

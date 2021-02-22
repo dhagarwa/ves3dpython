@@ -1,4 +1,4 @@
-function [] = reparameterization()
+function [] = reparameterization_old()
       clc
 
     m = 15;
@@ -10,7 +10,7 @@ function [] = reparameterization()
     %trg = [R*sin(theta)*cos(phi) R*sin(theta)*sin(phi) R*cos(theta)]
     patches = [];
     for i=1:6
-       patch =  standardSphereSkewPatch(m, n, i, R, 4);
+       patch =  standardSphereSkewPatch(m, n, i, R, 2);
        
        patch.q_sl = fooVec(patch.r);
        patch.q_dl = ones(size(patch.r,1), 3);
@@ -33,13 +33,15 @@ function [] = reparameterization()
         
     end
     
+    area = S.getArea()
+    
     %reparameterization
-    tau = 0.00001;
-    T = 0.02; nt = T/tau; minT = T/10;
+    tau = 0.0001;
+    T = 0.02; nt = T/tau; minT = T/5;
     %plotSurface(S);
     y0 = S.getPosition();
     scatter3(y0(:,1), y0(:,2), y0(:,3));
-    axis([-1 1 -1 1])
+    axis([-1 1 -1 1 -1 1])
     figure;
     E = []; t = []; grad = []; SLError = []; delta = [];
     for ii=0:nt
@@ -76,18 +78,23 @@ function [] = reparameterization()
     scatter3(y0(:,1), y0(:,2), y0(:,3));
     axis([-1 1 -1 1 -1 1])
     err = max(abs(vecnorm(y0,2,2)-1));
-    figure
-    plot(t, E, 'DisplayName', 'Energy');
-    title('Energy vs iterations')
-    figure
-    plot(t, grad, 'DisplayName', 'Gradient');
-    title('Gradient vs iterations')
-    figure 
-    plot(t, SLError, 'DisplayName', 'Single layer error');
-    title('Single layer error vs iterations')
-    figure 
-    plot( t, delta, 'DisplayName','Mesh Size');
-    title('Mesh size vs iterations')
+%     figure
+%     plot(t, E, 'DisplayName', 'Energy');
+%     title('Energy vs iterations')
+%     figure
+%     plot(t, grad, 'DisplayName', 'Gradient');
+%     title('Gradient vs iterations')
+%     figure 
+%     plot(t, SLError, 'DisplayName', 'Single layer error');
+%     title('Single layer error vs iterations')
+%     figure 
+%     plot( t, delta, 'DisplayName','Mesh Size');
+%     title('Mesh size vs iterations')
+      E
+      grad 
+      delta
+      SLError
+      t
+      
 
 end
-

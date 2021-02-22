@@ -6,14 +6,14 @@ function [] = EvolveSurface()
     vesprops = [0;Es;Ed]; %kb, Es, Ed
     
     %flow properties
-    shear_rate = 5;
+    shear_rate = 1;
     
     %Initialize a surface
     
     clc
 
     m = 15;
-    n = 15;
+    n = m;
     R = 1;
     
 
@@ -38,7 +38,7 @@ function [] = EvolveSurface()
     dt = 0.0025;
     tot_xdisp = 0;
     tic 
-    for nts=1:33
+    for nts=1:50
         %Using patches directly
 %         for i=1:numPatches
 %            patch = S.patches(i);
@@ -51,7 +51,7 @@ function [] = EvolveSurface()
 %         u1 = u_inf + SLSurface(S);
         
         %Using surface class
-        u_inf = bgPoiseuilleFlow(shear_rate, S.getPosition());
+        u_inf = bgshearFlow(shear_rate, S.getPosition());
         S.updateStale();
         S.interfacialForce();
         u = u_inf + SLSurface(S);
@@ -68,19 +68,22 @@ function [] = EvolveSurface()
         after_center = S.getCenter()
         
     end
+    y0 = S.getPosition();
+    scatter3(y0(:,1), y0(:,2), y0(:,3));
+    %axis([-2 2 -2 2 -2 2])
     
-    figure
-    plotPatch(S, 1);
-    figure
-    plotPatch(S, 2);
-    figure
-    plotPatch(S, 3);
-    figure
-    plotPatch(S, 4);
-    figure
-    plotPatch(S, 5);
-    figure
-    plotPatch(S, 6);
-    
+%     figure
+%     plotPatch(S, 1);
+%     figure
+%     plotPatch(S, 2);
+%     figure
+%     plotPatch(S, 3);
+%     figure
+%     plotPatch(S, 4);
+%     figure
+%     plotPatch(S, 5);
+%     figure
+%     plotPatch(S, 6);
+%     
     toc
 end

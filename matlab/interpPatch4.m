@@ -14,8 +14,8 @@ function val = interpPatch4(f, x, p)
     F = griddedInterpolant(u_grid,v_grid,f_mat,'spline');
     val = F(u,v);
     val(isnan(val))=0;
-    %val(val==inf)=0;
-    %val(val==-inf)=0;
+    val(val==inf)=0;
+    val(val==-inf)=0;
     
     
 

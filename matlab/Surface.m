@@ -5,6 +5,7 @@ classdef Surface < handle
         link_
         p2plinked
         derivlinked 
+        secondderivlinked
         poulinked
         numPatches
         kb %bending modulus
@@ -20,6 +21,7 @@ classdef Surface < handle
             obj.link_ = obj.linkPatches_();
             obj.p2plinked = obj.linkp2p();
             obj.derivlinked = obj.derivp2p();
+            %obj.secondderivlinked = obj.secondderivp2p();
             obj.kb = vesprops(1);
             obj.Es = vesprops(2);
             obj.Ed = vesprops(3);
@@ -37,13 +39,27 @@ classdef Surface < handle
       
       function [] = interfacialForce(obj)
           %setting interfacial force in each patch
+          m = obj.patches(1).Nu; n = obj.patches(1).Nv;
+          f = [];
           for ii=1:length(obj.patches)              
               patch = obj.patches(ii);
               f_ii = patch.shearForce(obj.Es, obj.Ed);
+              f = [f; f_ii];
+              %patch.q_sl = f_ii;
+              %disp('Force');
+          end
+          
+          fx_blend = obj.blendSurfaceFunction(f(:,1));
+          fy_blend = obj.blendSurfaceFunction(f(:,2));
+          fz_blend = obj.blendSurfaceFunction(f(:,3));
+          
+          f_blend = [fx_blend fy_blend fz_blend];
+          for ii=1:length(obj.patches)              
+              patch = obj.patches(ii);
+              f_ii = f_blend((ii-1)*m*n+1:ii*m*n, :);
               patch.q_sl = f_ii;
               %disp('Force');
           end          
-          
       end
       
       function [] = updateSurface(obj, u, dt)          
@@ -205,6 +221,25 @@ classdef Surface < handle
                 p1.deriv_links(:, 4*(jj-1) + 1:4*jj) = pc_deriv;
                 pc_deriv = p2pderivmap_(p1, p2);
                 p1.deriv_links_(:, 4*(jj-1) + 1:4*jj) = pc_deriv;
+                         
+               
+            end
+         end
+         %obj.patches(1).links
+          val = 1;
+      end  
+      
+      function val = secondderivp2p(obj)
+         for ii=1:length(obj.patches)
+            p1 = obj.patches(ii);
+            for jj=1:length(obj.patches)
+                p2 = obj.patches(jj);
+                  
+                %find out second u-v deriv  in patch p2 wrt p1 u-v 
+                pc_secondderiv = p2psecondderivmap(p1, p2);
+                p1.secondderiv_links(:, 8*(jj-1) + 1:8*jj) = pc_secondderiv;
+                %pc_secondderiv = p2psecondderivmap_(p1, p2);
+                %p1.secondderiv_links_(:, 4*(jj-1) + 1:4*jj) = pc_deriv;
                          
                
             end
@@ -799,6 +834,230 @@ classdef Surface < handle
           
       end
 
+      function vol = getVolume(obj)
+          patch = obj.patches;
+          x = [patch(1).r(:,1) patch(2).r(:,1) patch(3).r(:,1) patch(4).r(:,1) patch(5).r(:,1) patch(6).r(:,1)];
+          x = x(:);
+          f = zeros(size(x, 1), 3);
+          f(:,1) = x;
+          normals = obj.getNormals();
+          f = sum(f.*normals, 2);
+          vol = integrateOverSurface(obj, f);
+          
+      end      
+
+      function I = getInertia(obj)
+          I = zeros(3,3);
+          patch = obj.patches;
+          
+          x = [patch(1).r(:,1) patch(2).r(:,1) patch(3).r(:,1) patch(4).r(:,1) patch(5).r(:,1) patch(6).r(:,1)];
+          y = [patch(1).r(:,2) patch(2).r(:,2) patch(3).r(:,2) patch(4).r(:,2) patch(5).r(:,2) patch(6).r(:,2)];
+          z = [patch(1).r(:,3) patch(2).r(:,3) patch(3).r(:,3) patch(4).r(:,3) patch(5).r(:,3) patch(6).r(:,3)];
+                    
+          x = x(:); y = y(:); z = z(:);
+          f_xx = zeros(size(x, 1), 3);
+          f_xy = zeros(size(x, 1), 3);
+          f_xz = zeros(size(x, 1), 3);
+          f_yy = zeros(size(x, 1), 3);
+          f_yz = zeros(size(x, 1), 3);
+          f_zz = zeros(size(x, 1), 3);
+          
+          f_xx(:,1) = x.*y.^2; f_xx(:,2) = y.*z.^2;
+          f_xy(:,3) = -x.*y.*z; 
+          f_xz(:,2) = -x.*y.*z;
+          f_yy(:,1) = x.*z.^2; f_yy(:,2) = y.*x.^2;
+          f_yz(:,1) = -x.*y.*z;
+          f_zz(:,2) = y.*x.^2; f_zz(:,3) = z.*y.^2;
+          
+          normals = obj.getNormals();
+          f_xx = sum(f_xx.*normals, 2);
+          f_xy = sum(f_xy.*normals, 2);
+          f_xz = sum(f_xz.*normals, 2);
+          f_yy = sum(f_yy.*normals, 2);
+          f_yz = sum(f_yz.*normals, 2);
+          f_zz = sum(f_zz.*normals, 2);
+          I(1,1) = integrateOverSurface(obj, f_xx);
+          I(1,2) = integrateOverSurface(obj, f_xy);
+          I(1,3) = integrateOverSurface(obj, f_xz);
+          I(2,1) = I(1,2);
+          I(2,2) = integrateOverSurface(obj, f_yy);
+          I(2,3) = integrateOverSurface(obj, f_yz);
+          I(3,1) = I(1,3);
+          I(3,2) = I(2,3);
+          I(3,3) = integrateOverSurface(obj, f_zz);
+          
+      end            
+
+      function [f_du, f_dv] = unique_uv_deriv(obj, f)
+          %Function to calculate derivative of scalar f on surface S
+          % f is to be arranged in order of patch nodes, each patch stacked
+          % like a column, # of cols = # of patches
+          f_du = zeros(obj.patches(1).numNodes, length(obj.patches));
+          f_dv = zeros(obj.patches(1).numNodes, length(obj.patches));
+          %f_du_patches = zeros(obj.patches(1).numNodes, length(obj.patches));
+          %f_dv_patches = zeros(obj.patches(1).numNodes, length(obj.patches));
+         
+          [f_du_patches, f_dv_patches] = obj.patchwiseDerivFDM(f);
+          %f_du = f_du_patches; f_dv = f_dv_patches;
+
+          for ii = 1:obj.numPatches
+              patch = obj.patches(ii);
+              f_du(:, ii)   = f_du_patches(:, ii).*patch.pou;
+              f_dv(:, ii)   = f_dv_patches(:, ii).*patch.pou;
+              
+          end
+          
+          for ii = 1:obj.numPatches
+              patch = obj.patches(ii);
+            for jj=1:obj.numPatches
+                  
+               if jj ~= ii
+                    %f_linked_patch = f(:, jj);
+                    linked_patch = obj.patches(jj);
+                    f_du_linked_patch = f_du_patches(:, jj);
+                    f_dv_linked_patch = f_dv_patches(:, jj);
+                    xq = patch.links(:, 2*jj-1:2*jj); %query points from links
+                    u_linked_du = patch.deriv_links(:, 4*jj-3); %query points derivatives from links
+                    u_linked_dv = patch.deriv_links(:, 4*jj-2); %query points derivatives from links
+                    v_linked_du = patch.deriv_links(:, 4*jj-1); %query points derivatives from links
+                    v_linked_dv = patch.deriv_links(:, 4*jj); %query points derivatives from links
+                    %vq = patch.deriv_links(:, 2*jj); %query points derivatives from links
+                    f_du_linked_interp = interpPatch4(f_du_linked_patch, xq, linked_patch);
+                    f_dv_linked_interp = interpPatch4(f_dv_linked_patch, xq, linked_patch);
+                    %[u_linked_du, u_linked_dv] = patch.grad_FDM(uq);
+                    %[v_linked_du, v_linked_dv] = patch.grad_FDM(vq);
+                    f_du(:, ii) = f_du(:, ii) + (f_du_linked_interp.*u_linked_du + f_dv_linked_interp.*v_linked_du).*patch.pou_links(:, jj);
+                    f_dv(:, ii) = f_dv(:, ii) + (f_du_linked_interp.*u_linked_dv + f_dv_linked_interp.*v_linked_dv).*patch.pou_links(:, jj);  
+                    
+               end
+            end
+            
+
+          end
+      end      
+
+      
+      function [f_duu, f_dvv] = unique_uv_second_deriv(obj, f)
+          %Function to calculate derivative of scalar f on surface S
+          % f is to be arranged in order of patch nodes, each patch stacked
+          % like a column, # of cols = # of patches
+          f_duu = zeros(obj.patches(1).numNodes, length(obj.patches));
+          f_duv = zeros(obj.patches(1).numNodes, length(obj.patches));
+          f_dvu = zeros(obj.patches(1).numNodes, length(obj.patches));
+          f_dvv = zeros(obj.patches(1).numNodes, length(obj.patches));
+          %f_du_patches = zeros(obj.patches(1).numNodes, length(obj.patches));
+          %f_dv_patches = zeros(obj.patches(1).numNodes, length(obj.patches));
+         
+          [f_du_patches, f_dv_patches] = obj.patchwiseDerivFDM(f);
+          [f_duu_patches, f_duv_patches] = obj.patchwiseDerivFDM(f_du_patches);
+          [f_dvu_patches, f_dvv_patches] = obj.patchwiseDerivFDM(f_dv_patches);
+          %f_du = f_du_patches; f_dv = f_dv_patches;
+
+          for ii = 1:obj.numPatches
+              patch = obj.patches(ii);
+              f_duu(:, ii)   = f_duu_patches(:, ii).*patch.pou;
+              f_duv(:, ii)   = f_duv_patches(:, ii).*patch.pou;
+              f_dvu(:, ii)   = f_dvu_patches(:, ii).*patch.pou;
+              f_dvv(:, ii)   = f_dvv_patches(:, ii).*patch.pou;
+                       
+          end
+          
+          for ii = 1:obj.numPatches
+              patch = obj.patches(ii);
+            for jj=1:obj.numPatches
+                  
+               if jj ~= ii
+                    %f_linked_patch = f(:, jj);
+                    linked_patch = obj.patches(jj);
+                    f_du_linked_patch = f_du_patches(:, jj);
+                    f_dv_linked_patch = f_dv_patches(:, jj);
+                    f_duu_linked_patch = f_duu_patches(:, jj);
+                    f_duv_linked_patch = f_duv_patches(:, jj);
+                    f_dvu_linked_patch = f_dvu_patches(:, jj);
+                    f_dvv_linked_patch = f_dvv_patches(:, jj);                    
+                    xq = patch.links(:, 2*jj-1:2*jj); %query points from links
+                    u_linked_du = patch.deriv_links(:, 4*jj-3); %query points derivatives from links
+                    u_linked_dv = patch.deriv_links(:, 4*jj-2); %query points derivatives from links
+                    v_linked_du = patch.deriv_links(:, 4*jj-1); %query points derivatives from links
+                    v_linked_dv = patch.deriv_links(:, 4*jj); %query points derivatives from links
+                    
+                    u_linked_duu = patch.secondderiv_links(:, 8*jj-7); %query points second derivatives from links
+                    u_linked_duv = patch.secondderiv_links(:, 8*jj-6); %query points second derivatives from links
+                    u_linked_dvu = patch.secondderiv_links(:, 8*jj-5); %query points second derivatives from links
+                    u_linked_dvv = patch.secondderiv_links(:, 8*jj-4); %query points second derivatives from links
+                    v_linked_duu = patch.secondderiv_links(:, 8*jj-3); %query points second derivatives from links
+                    v_linked_duv = patch.secondderiv_links(:, 8*jj-2); %query points second derivatives from links
+                    v_linked_dvu = patch.secondderiv_links(:, 8*jj-1); %query points second derivatives from links
+                    v_linked_dvv = patch.secondderiv_links(:, 8*jj); %query points second derivatives from links
+                                  
+                    %vq = patch.deriv_links(:, 2*jj); %query points derivatives from links
+                    f_du_linked_interp = interpPatch4(f_du_linked_patch, xq, linked_patch);
+                    f_dv_linked_interp = interpPatch4(f_dv_linked_patch, xq, linked_patch);                    
+                    f_duu_linked_interp = interpPatch4(f_duu_linked_patch, xq, linked_patch);
+                    f_duv_linked_interp = interpPatch4(f_duv_linked_patch, xq, linked_patch);
+                    f_dvu_linked_interp = interpPatch4(f_dvu_linked_patch, xq, linked_patch);
+                    f_dvv_linked_interp = interpPatch4(f_dvv_linked_patch, xq, linked_patch);                    
+                    %[u_linked_du, u_linked_dv] = patch.grad_FDM(uq);
+                    %[v_linked_du, v_linked_dv] = patch.grad_FDM(vq);
+                    f_duu(:, ii) = f_duu(:, ii) +  (f_duu_linked_interp.*u_linked_du + f_dvu_linked_interp.*v_linked_du).*u_linked_du.*patch.pou_links(:, jj) + (f_duv_linked_interp.*u_linked_du + f_dvv_linked_interp.*v_linked_du).*v_linked_du.*patch.pou_links(:, jj) + (f_du_linked_interp.*u_linked_duu + f_dv_linked_interp.*v_linked_duu).*patch.pou_links(:, jj);
+                    f_dvv(:, ii) = f_dvv(:, ii) +  (f_duu_linked_interp.*u_linked_dv + f_dvu_linked_interp.*v_linked_dv).*u_linked_dv.*patch.pou_links(:, jj) + (f_duv_linked_interp.*u_linked_dv + f_dvv_linked_interp.*v_linked_dv).*v_linked_dv.*patch.pou_links(:, jj) + (f_du_linked_interp.*u_linked_dvv + f_dv_linked_interp.*v_linked_dvv).*patch.pou_links(:, jj);
+                       
+                    
+                    
+               end
+            end
+            
+
+          end
+      end       
+      
+      function [f_du_chain, f_dv_chain] = chain_rule(obj, f_du, f_dv)
+          %Function to calculate derivative of scalar f on surface S
+          % f is to be arranged in order of patch nodes, each patch stacked
+          % like a column, # of cols = # of patches
+          f_du_chain = zeros(obj.patches(1).numNodes, length(obj.patches));
+          f_dv_chain = zeros(obj.patches(1).numNodes, length(obj.patches));
+          %f_du_patches = zeros(obj.patches(1).numNodes, length(obj.patches));
+          %f_dv_patches = zeros(obj.patches(1).numNodes, length(obj.patches));
+         
+          %[f_du_patches, f_dv_patches] = obj.patchwiseDerivFDM(f);
+          
+
+          for ii = 1:obj.numPatches
+              patch = obj.patches(ii);
+              f_du_chain(:, ii)   = f_du(:, ii).*patch.pou;
+              f_dv_chain(:, ii)   = f_dv(:, ii).*patch.pou;
+              
+          end
+          
+          for ii = 1:obj.numPatches
+              patch = obj.patches(ii);
+            for jj=1:obj.numPatches
+                  
+               if jj ~= ii
+                    %f_linked_patch = f(:, jj);
+                    linked_patch = obj.patches(jj);
+                    f_du_linked_patch = f_du(:, jj);
+                    f_dv_linked_patch = f_dv(:, jj);
+                    xq = patch.links(:, 2*jj-1:2*jj); %query points from links
+                    u_linked_du = patch.deriv_links(:, 4*jj-3); %query points derivatives from links
+                    u_linked_dv = patch.deriv_links(:, 4*jj-2); %query points derivatives from links
+                    v_linked_du = patch.deriv_links(:, 4*jj-1); %query points derivatives from links
+                    v_linked_dv = patch.deriv_links(:, 4*jj); %query points derivatives from links
+                    %vq = patch.deriv_links(:, 2*jj); %query points derivatives from links
+                    f_du_linked_interp = interpPatch4(f_du_linked_patch, xq, linked_patch);
+                    f_dv_linked_interp = interpPatch4(f_dv_linked_patch, xq, linked_patch);
+                    %[u_linked_du, u_linked_dv] = patch.grad_FDM(uq);
+                    %[v_linked_du, v_linked_dv] = patch.grad_FDM(vq);
+                    f_du_chain(:, ii) = f_du_chain(:, ii) + (f_du_linked_interp.*u_linked_du + f_dv_linked_interp.*v_linked_du).*patch.pou_links(:, jj);
+                    f_dv_chain(:, ii) = f_dv_chain(:, ii) + (f_du_linked_interp.*u_linked_dv + f_dv_linked_interp.*v_linked_dv).*patch.pou_links(:, jj);  
+                    
+               end
+            end
+            
+
+          end
+      end      
       
       % function p2p_deriv: nodes of p1 transformed to u-v coords in p2 and then calculate derivative
       % of f (f is provided on p2) in p2 and then interpolate to tranformed

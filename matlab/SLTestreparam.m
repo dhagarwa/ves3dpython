@@ -1,7 +1,7 @@
 function sle = SLTestreparam(S)
       
 
-    m = 63;
+    m = 15;
     n = m;
     R = 1;
     

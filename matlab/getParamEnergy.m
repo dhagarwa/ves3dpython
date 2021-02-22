@@ -13,6 +13,9 @@ function E0 = getParamEnergy(S)
         [y_du_app, y_dv_app] = S.patchwiseDerivFDM(y);
         [z_du_app, z_dv_app] = S.patchwiseDerivFDM(z);
 
+%         [x_du_app, x_dv_app] = S.unique_uv_deriv(x);
+%         [y_du_app, y_dv_app] = S.unique_uv_deriv(y);
+%         [z_du_app, z_dv_app] = S.unique_uv_deriv(z);
 
         x_du = x_du_app(:);
         y_du = y_du_app(:);

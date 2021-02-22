@@ -52,7 +52,8 @@ function [] = ellipsoidSLTensileTest4()
 %     
     S = Surface(patches, [1, 0, 0]);
     %DLvalue = DLSmooth(trg,1,S)
-    
+    S.getArea()
+    S.getVolume()
     %assign tensile force as q_sl
     sigma = [(patches(1).x).^2 (patches(2).x).^2 (patches(3).x).^2 (patches(4).x).^2 (patches(5).x).^2 (patches(6).x).^2]; % tensile scalar
     sigma = sigma(:);

@@ -10,7 +10,7 @@ function [] = reparameterization()
     %trg = [R*sin(theta)*cos(phi) R*sin(theta)*sin(phi) R*cos(theta)]
     patches = [];
     for i=1:6
-       patch =  standardSphereSkewPatch(m, n, i, R, 1);
+       patch =  standardSphereSkewPatch(m, n, i, R, 4);
        
        patch.q_sl = fooVec(patch.r);
        patch.q_dl = ones(size(patch.r,1), 3);
@@ -33,17 +33,18 @@ function [] = reparameterization()
         
     end
     
-    area = S.getArea()
-    
+    area_err = abs(S.getArea() - 4*pi)/(4*pi)
+    vol_err = abs(S.getVolume() - 4*pi/3)/(4*pi/3)
+    patchint_err = abs(2*integratePatch_nopou(S.patches(1), ones(m*n, 1)) - 4*pi)/(4*pi)
     %reparameterization
-    tau = 0.0001;
+    tau = 0.001;
     T = 0.02; nt = T/tau; minT = T/5;
     %plotSurface(S);
     y0 = S.getPosition();
     scatter3(y0(:,1), y0(:,2), y0(:,3));
     axis([-1 1 -1 1 -1 1])
     figure;
-    E = []; t = []; grad = []; SLError = []; delta = [];
+    E = []; t = []; grad = []; SLError = []; delta = []; areas = []; vols = []; moi = []; com = [];
     for ii=0:nt
         t_ = ii*tau;
         y0 = S.getPosition();
@@ -53,6 +54,10 @@ function [] = reparameterization()
         n0 = S.getNormals();
         
         g0 = getPatchwiseLap(S);
+        %g0_x = S.blendSurfaceFunction(g0(:,1));
+        %g0_y = S.blendSurfaceFunction(g0(:,2));
+        %g0_z = S.blendSurfaceFunction(g0(:,3));
+        %g0 = [g0_x g0_y g0_z];        
         pg0 = g0 - repmat(dot(n0,g0,2),[1,3]).*n0;
         u0 = -pg0;
         
@@ -64,7 +69,18 @@ function [] = reparameterization()
             sle = SLTestreparam(S)
             SLError = [SLError sle];
             t = [t t_];
-        end        
+            areas = [areas abs(S.getArea() - 4*pi)/(4*pi)];
+            vols = [vols abs(S.getVolume() - 4*pi/3)/(4*pi/3)];
+            in = S.getInertia();
+            moi = [moi abs(in(1,1)-8*pi/15)/(8*pi/15)];
+            com = [com S.getCenter()];
+        end   
+        %blend u0
+%         u0_x = S.blendSurfaceFunction(u0(:,1));
+%         u0_y = S.blendSurfaceFunction(u0(:,2));
+%         u0_z = S.blendSurfaceFunction(u0(:,3));
+%         u0_blend = [u0_x u0_y u0_z];
+        
         S.updateSurface(u0, tau);
         S.updateStale();
         y1 = S.getPosition();
@@ -94,6 +110,10 @@ function [] = reparameterization()
       grad 
       delta
       SLError
+      areas
+      vols
+      moi
+      com      
       t
       
 

@@ -29,7 +29,10 @@ function val = getPatchwiseLap(S)
         [z_duu_app, z_duv_app] = S.patchwiseDerivFDM(z_du_app);
         [z_dvu_app, z_dvv_app] = S.patchwiseDerivFDM(z_dv_app);
         
-        
+%         [x_duu_app, x_dvv_app] = S.unique_uv_second_deriv(x);
+%         [y_duu_app, y_dvv_app] = S.unique_uv_second_deriv(y);
+%         [z_duu_app, z_dvv_app] = S.unique_uv_second_deriv(z);
+%            
         
         x_duu = x_duu_app(:);
         x_duv = x_duv_app(:);
