@@ -10,7 +10,7 @@ function [] = reparameterization_old()
     %trg = [R*sin(theta)*cos(phi) R*sin(theta)*sin(phi) R*cos(theta)]
     patches = [];
     for i=1:6
-       patch =  standardSphereSkewPatch(m, n, i, R, 2);
+       patch =  standardSphereSkewPatch(m, n, i, R, 4);
        
        patch.q_sl = fooVec(patch.r);
        patch.q_dl = ones(size(patch.r,1), 3);

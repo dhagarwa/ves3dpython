@@ -93,6 +93,18 @@ classdef Patch < handle
         delta %regularization parameter, \delta = ch^p.
         h_min
         h_max
+        delta_min
+        
+        
+        X_u_sphere
+        X_v_sphere
+        Y_u_sphere
+        Y_v_sphere
+        Z_u_sphere
+        Z_v_sphere
+        r_u_sphere
+        r_v_sphere
+        J_sphere
    end
    
    methods
@@ -138,7 +150,7 @@ classdef Patch < handle
          obj.Nodes =[obj.U,obj.V]; % N by 2 matrix listing x,y coordinates of all N=m*n nodespi
          obj.NU = m;
          obj.NV = n;
-         obj.ooa = 4;
+         obj.ooa = 8;
          [obj.Du, obj.Dv] = getNonCompactFDmatrix2D(obj.NU, obj.NV, obj.h_u, obj.h_v, 1, obj.ooa);
          [obj.Du_, obj.Dv_] = getNonCompactFDmatrix2D(obj.NU+2, obj.NV+2, obj.h_u, obj.h_v, 1, obj.ooa);
       end
@@ -186,8 +198,8 @@ classdef Patch < handle
          obj.nr = D*temp_cross;
          %obj.nr = diag(vecnorm(temp_cross, 2, 2).^(-1))*temp_cross;
          %%%%%%%%
-         obj.sphcart = sph2cartPatch(skewPatch(obj.u, 4),obj.v,obj);
-         obj.sphcart_ = sph2cartPatch(skewPatch(obj.u_, 4),obj.v_,obj);
+         obj.sphcart = sph2cartPatchSymm(skewPatch(obj.u, 1),obj.v,obj);
+         obj.sphcart_ = sph2cartPatchSymm(skewPatch(obj.u_, 1),obj.v_,obj);
          qk = zeros(obj.numNodes, 1);
          qk_ = zeros(obj.numNodes_, 1);
          for pp= 1:obj.numPatches
@@ -254,10 +266,23 @@ classdef Patch < handle
          obj.h_min = obj.h_min(:);
          obj.h_max = obj.h_max(:);
          obj.delta = max(obj.h_max(:));
+         obj.delta_min = min(obj.h_min(:));
          mesh_size = obj.delta;
          delta_used = 0.6*(obj.h_u)^0.9;
-                    
-             
+                 
+         %set jacobian for sphere
+         [obj.X_u_sphere, obj.X_v_sphere ] = obj.grad_FDM(obj.sphcart(:, 1));
+         [obj.Y_u_sphere, obj.Y_v_sphere ] = obj.grad_FDM(obj.sphcart(:, 2));
+         [obj.Z_u_sphere, obj.Z_v_sphere ] = obj.grad_FDM(obj.sphcart(:, 3));
+         obj.r_u_sphere = [obj.X_u_sphere, obj.Y_u_sphere, obj.Z_u_sphere];
+
+         obj.r_v_sphere = [obj.X_v_sphere, obj.Y_v_sphere, obj.Z_v_sphere];
+         
+         %set new jacobian determinant J ||r_u \times r_v||
+         
+         %set normal
+         temp_cross = cross(obj.r_u_sphere, obj.r_v_sphere, 2);
+         obj.J_sphere = abs(vecnorm(temp_cross, 2, 2));
              
          
          

@@ -19,9 +19,9 @@ classdef Surface < handle
             obj.numPatches = length(patches);
             obj.link = obj.linkPatches();
             obj.link_ = obj.linkPatches_();
-            obj.p2plinked = obj.linkp2p();
-            obj.derivlinked = obj.derivp2p();
-            %obj.secondderivlinked = obj.secondderivp2p();
+            obj.p2plinked = obj.linkp2p(); 
+            obj.derivlinked = obj.derivp2p(); %need to chamge for Symm patch
+            %obj.secondderivlinked = obj.secondderivp2p(); %need to chamge for Symm patch
             obj.kb = vesprops(1);
             obj.Es = vesprops(2);
             obj.Ed = vesprops(3);
@@ -154,7 +154,7 @@ classdef Surface < handle
                   if kk ~= patch.numPatch
                      %find out u-v coordinates in patch p 
                      
-                      node = patchParameterise(r0, patch, p);
+                      node = patchParameteriseSymm(r0, patch, p);
                       patch.links(jj, 2*(kk-1) + 1:2*kk) = node;
                   end
                end
@@ -174,7 +174,7 @@ classdef Surface < handle
                   if kk ~= patch.numPatch
                      %find out u-v coordinates in patch p 
                      
-                      node = patchParameterise(r0, patch, p);
+                      node = patchParameteriseSymm(r0, patch, p);
                       patch.links_(jj, 2*(kk-1) + 1:2*kk) = node;
                   end
                end
@@ -196,7 +196,7 @@ classdef Surface < handle
                   p = obj.patches(kk);
                   
                   %find out u-v coordinates in patch p 
-                  node = p2pmap(r0, patch, p);
+                  node = p2pmapSymm(r0, patch, p);
                   patch.cl_links(jj, 2*(kk-1) + 1:2*kk) = node;
                   
                end
@@ -1077,7 +1077,128 @@ classdef Surface < handle
          
           
   
-      end
+       end
+      
+       
+       function surf_lap_blend = getSphereLaplacian(obj, f)
+      %Function to get sphere surface laplacian of f 
+            f = reshape(f, [obj.patches(1).numNodes, obj.patches(1).numPatches]);
+            patch = obj.patches;
+            x = [patch(1).sphcart(:,1) patch(2).sphcart(:,1) patch(3).sphcart(:,1) patch(4).sphcart(:,1) patch(5).sphcart(:,1) patch(6).sphcart(:,1)];
+            y = [patch(1).sphcart(:,2) patch(2).sphcart(:,2) patch(3).sphcart(:,2) patch(4).sphcart(:,2) patch(5).sphcart(:,2) patch(6).sphcart(:,2)];
+            z = [patch(1).sphcart(:,3) patch(2).sphcart(:,3) patch(3).sphcart(:,3) patch(4).sphcart(:,3) patch(5).sphcart(:,3) patch(6).sphcart(:,3)];
+
+
+            [x_du_app, x_dv_app] = obj.patchwiseDerivFDM(x);
+            [y_du_app, y_dv_app] = obj.patchwiseDerivFDM(y);
+            [z_du_app, z_dv_app] = obj.patchwiseDerivFDM(z);
+
+            x_du = x_du_app(:);
+            y_du = y_du_app(:);
+            z_du = z_du_app(:);
+
+            x_dv = x_dv_app(:);
+            y_dv = y_dv_app(:);
+            z_dv = z_dv_app(:);
+
+
+
+            [f_du_app, f_dv_app] = obj.patchwiseDerivFDM(f);
+
+            f_du = f_du_app(:);
+            f_dv = f_dv_app(:);
+
+
+            E = x_du.*x_du + y_du.*y_du + z_du.*z_du;
+            F = x_du.*x_dv + y_du.*y_dv + z_du.*z_dv;
+            G = x_dv.*x_dv + y_dv.*y_dv + z_dv.*z_dv;
+            W = (E.*G - F.^2).^(0.5);
+
+            % calculate ((E*f_dv - F*f_du)/W) and take v derivative 
+            t1 = (E.*f_dv - F.*f_du)./W;
+            t1_app = reshape(t1, [size(x,1),size(x,2)]);
+
+            [t1_du_app, t1_dv_app] = obj.patchwiseDerivFDM(t1_app);
+            t1_du = t1_du_app(:);
+            t1_dv = t1_dv_app(:);
+
+
+            % calculate ((G*f_du - F*f_dv)/W) and take u derivative
+
+            t2 = (G.*f_du - F.*f_dv)./W;
+            t2_app = reshape(t2, [size(x,1),size(x,2)]);
+
+            [t2_du_app, t2_dv_app] = obj.patchwiseDerivFDM(t2_app);
+            t2_du = t2_du_app(:);
+            t2_dv = t2_dv_app(:);
+
+            %calculate surf_lap
+
+            surf_lap = (t1_dv + t2_du)./W;
+
+            surf_lap_blend = obj.blendSurfaceFunction(surf_lap);
+%             true_lap = true_lap(:);
+% 
+%             error_lap = max(abs(surf_lap-true_lap))/max(abs(true_lap))
+%             error_lap_blend = max(abs(surf_lap_blend-true_lap))/max(abs(true_lap))
+
+          
+          
+       end
+      
+      function surf_grad_blend = getSphereGradient(obj, f)
+      %Function to get surface gradient of scalar f 
+            f = reshape(f, [obj.patches(1).numNodes, obj.patches(1).numPatches]);
+            patch = obj.patches;
+            x = [patch(1).sphcart(:,1) patch(2).sphcart(:,1) patch(3).sphcart(:,1) patch(4).sphcart(:,1) patch(5).sphcart(:,1) patch(6).sphcart(:,1)];
+            y = [patch(1).sphcart(:,2) patch(2).sphcart(:,2) patch(3).sphcart(:,2) patch(4).sphcart(:,2) patch(5).sphcart(:,2) patch(6).sphcart(:,2)];
+            z = [patch(1).sphcart(:,3) patch(2).sphcart(:,3) patch(3).sphcart(:,3) patch(4).sphcart(:,3) patch(5).sphcart(:,3) patch(6).sphcart(:,3)];
+
+
+            [x_du_app, x_dv_app] = obj.patchwiseDerivFDM(x);
+            [y_du_app, y_dv_app] = obj.patchwiseDerivFDM(y);
+            [z_du_app, z_dv_app] = obj.patchwiseDerivFDM(z);
+
+            x_du = x_du_app(:);
+            y_du = y_du_app(:);
+            z_du = z_du_app(:);
+
+            x_dv = x_dv_app(:);
+            y_dv = y_dv_app(:);
+            z_dv = z_dv_app(:);
+
+
+
+            [f_du_app, f_dv_app] = obj.patchwiseDerivFDM(f);
+
+            f_du = f_du_app(:);
+            f_dv = f_dv_app(:);
+
+
+            E = x_du.*x_du + y_du.*y_du + z_du.*z_du;
+            F = x_du.*x_dv + y_du.*y_dv + z_du.*z_dv;
+            G = x_dv.*x_dv + y_dv.*y_dv + z_dv.*z_dv;
+            W = (E.*G - F.^2).^(0.5);
+
+            % calculate ((E*f_dv - F*f_du)/W) and take v derivative 
+            t1_x = ((G.*x_du - F.*x_dv)./W.^2).*f_du;
+            t1_y = ((G.*y_du - F.*y_dv)./W.^2).*f_du;
+            t1_z = ((G.*z_du - F.*z_dv)./W.^2).*f_du;
+            t2_x = ((E.*x_dv - F.*x_du)./W.^2).*f_dv;
+            t2_y = ((E.*y_dv - F.*y_du)./W.^2).*f_dv;
+            t2_z = ((E.*z_dv - F.*z_du)./W.^2).*f_dv;
+                  
+
+            %calculate surf_grad
+
+            surf_grad = [t1_x+t2_x t1_y+t2_y t1_z+t2_z];
+
+            surf_grad_blend_x = obj.blendSurfaceFunction(surf_grad(:,1));
+            surf_grad_blend_y = obj.blendSurfaceFunction(surf_grad(:,2));
+            surf_grad_blend_z = obj.blendSurfaceFunction(surf_grad(:,3));
+            surf_grad_blend = [surf_grad_blend_x surf_grad_blend_y surf_grad_blend_z];
+          
+      end      
    end
       
  

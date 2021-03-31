@@ -11,6 +11,7 @@ function [] = plotSurface(S)
         h = trisurf(tri, patch.x, patch.y, patch.z);
         axis vis3d
         hold on
+        axis([-1 1 -1 1 -1 1])
         
     end
 

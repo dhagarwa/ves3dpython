@@ -3,7 +3,7 @@ function [] = testlaplacianFDM()
 
       clc
 
-    m = 127;
+    m = 31;
     n = m;
     R = 1;
     
@@ -94,6 +94,8 @@ function [] = testlaplacianFDM()
     surf_lap_blend2 = S.getLaplacian(f(:));
     error_lap_blend2 = max(abs(surf_lap_blend2-true_lap))/max(abs(true_lap))
    
-
+    surf_lap_blend3 = S.getSphereLaplacian(f(:));
+    error_lap_blend3 = max(abs(surf_lap_blend3-surf_lap_blend2))/max(abs(true_lap))
+   
 end
 

@@ -1,0 +1,31 @@
+function ts = getInnerProductBiLapSphere(S, f)
+%calculate mesh energy function
+%1/2 * int_uv ((x_u^2 + x_v^2) + (y_u^2 + y_v^2) + (z_u^2 + z_v^2) duv )
+
+        y0 = S.getPosition();
+
+        patch = S.patches;
+        x = [patch(1).r(:,1) patch(2).r(:,1) patch(3).r(:,1) patch(4).r(:,1) patch(5).r(:,1) patch(6).r(:,1)];
+        y = [patch(1).r(:,2) patch(2).r(:,2) patch(3).r(:,2) patch(4).r(:,2) patch(5).r(:,2) patch(6).r(:,2)];
+        z = [patch(1).r(:,3) patch(2).r(:,3) patch(3).r(:,3) patch(4).r(:,3) patch(5).r(:,3) patch(6).r(:,3)];
+
+        lap_x = S.getSphereLaplacian(x(:));
+        lap_y = S.getSphereLaplacian(y(:));
+        lap_z = S.getSphereLaplacian(z(:));
+
+        lapf_x = S.getSphereLaplacian(f(:,1));
+        lapf_y = S.getSphereLaplacian(f(:,2));
+        lapf_z = S.getSphereLaplacian(f(:,3));
+                
+        
+        intgd = lap_x.*lapf_x + lap_y.*lapf_y + lap_z.*lapf_z;
+        
+        E0 = integrateSphere(S, intgd);
+        
+        intgd2 = sum(lapf_x.*lapf_x + lapf_y.*lapf_y + lapf_z.*lapf_z, 2);
+        
+        E1 = integrateSphere(S, intgd2);
+        
+        ts = E0/E1;
+
+end
