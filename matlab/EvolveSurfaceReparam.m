@@ -1,18 +1,20 @@
-function [] = EvolveSurface()
+function [] = EvolveSurfaceReparam()
+
+    %diary 'outputtxt/output7.txt'
     %membrane properties
     kb = 0;
     Es = 2;
     Ed = 20;
-    vesprops = [0;Es;Ed]; %kb, Es, Ed
+    vesprops = [0;Es;Ed] %kb, Es, Ed
     
     %flow properties
-    shear_rate = 1;
+    shear_rate = 1
     
     %Initialize a surface
     
-    
+    %clc
 
-    m = 31
+    m = 15
     n = m;
     R = 1;
     
@@ -26,7 +28,6 @@ function [] = EvolveSurface()
        patches = [patches patch];
         
     end
-    patch.r;
     S = Surface(patches, vesprops);
     S.updateSurface(2*ones(size(S.getPosition(), 1), 3), 1);
     S.updateStale();
@@ -38,8 +39,9 @@ function [] = EvolveSurface()
     t = 0;
     dt = 0.0025
     tot_xdisp = 0;
-    s1 = tic; 
-    for nts=1:70
+    tic 
+    psi = []; %store inclination angle psi in radians
+    for nts=1:1000
         %Using patches directly
 %         for i=1:numPatches
 %            patch = S.patches(i);
@@ -55,9 +57,7 @@ function [] = EvolveSurface()
         u_inf = bgshearFlow(shear_rate, S.getPosition());
         S.updateStale();
         S.interfacialForce();
-	s2 = tic;
         u = u_inf + SLSurface(S);
-	nongpuSL = toc(s2)
         S.updateSurface(u, dt);
         S.updateStale();
          %r_before_blend = S.getPosition();
@@ -69,10 +69,14 @@ function [] = EvolveSurface()
         nts
         S.updateStale();
         after_center = S.getCenter()
+        reparam(S);
+        psi_ = inclination(S.getInertia())/pi
+        psi = [psi; psi_];
         
     end
     y0 = S.getPosition();
-%    scatter3(y0(:,1), y0(:,2), y0(:,3));
+    %scatter3(y0(:,1), y0(:,2), y0(:,3));
+    psi
     %axis([-2 2 -2 2 -2 2])
     
 %     figure
@@ -88,5 +92,7 @@ function [] = EvolveSurface()
 %     figure
 %     plotPatch(S, 6);
 %     
-    total_time = toc(s1)
+    toc
+    %plot(psi);
+    %diary off
 end

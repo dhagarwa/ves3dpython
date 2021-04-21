@@ -1,0 +1,868 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2020 The MathWorks, Inc.
+                  R2020a (9.8.0.1323502) 64-bit (glnxa64)
+                             February 25, 2020
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+>> >> >> 
+m =
+
+    31
+
+in sphere patch
+in sphere patch
+in sphere patch
+in sphere patch
+in sphere patch
+in sphere patch
+
+ini_center =
+
+    2.0000    2.0000    2.0000
+
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 4).
+
+ans = 
+
+ ProcessPool with properties: 
+
+            Connected: true
+           NumWorkers: 4
+              Cluster: local
+        AttachedFiles: {}
+    AutoAddClientPath: true
+          IdleTimeout: 30 minutes (30 minutes remaining)
+          SpmdEnabled: true
+
+
+gpuSL =
+
+   33.2355
+
+
+tot_xdisp =
+
+    0.0050
+
+
+nts =
+
+     1
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   23.6021
+
+
+tot_xdisp =
+
+    0.0100
+
+
+nts =
+
+     2
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.8027
+
+
+tot_xdisp =
+
+    0.0150
+
+
+nts =
+
+     3
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   23.7896
+
+
+tot_xdisp =
+
+    0.0200
+
+
+nts =
+
+     4
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   23.5925
+
+
+tot_xdisp =
+
+    0.0250
+
+
+nts =
+
+     5
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   22.5095
+
+
+tot_xdisp =
+
+    0.0300
+
+
+nts =
+
+     6
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.6116
+
+
+tot_xdisp =
+
+    0.0350
+
+
+nts =
+
+     7
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   22.1679
+
+
+tot_xdisp =
+
+    0.0400
+
+
+nts =
+
+     8
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   23.3261
+
+
+tot_xdisp =
+
+    0.0450
+
+
+nts =
+
+     9
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   23.1330
+
+
+tot_xdisp =
+
+    0.0500
+
+
+nts =
+
+    10
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   22.6385
+
+
+tot_xdisp =
+
+    0.0550
+
+
+nts =
+
+    11
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   22.4673
+
+
+tot_xdisp =
+
+    0.0600
+
+
+nts =
+
+    12
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.1373
+
+
+tot_xdisp =
+
+    0.0650
+
+
+nts =
+
+    13
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.3013
+
+
+tot_xdisp =
+
+    0.0700
+
+
+nts =
+
+    14
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.6154
+
+
+tot_xdisp =
+
+    0.0750
+
+
+nts =
+
+    15
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.3757
+
+
+tot_xdisp =
+
+    0.0800
+
+
+nts =
+
+    16
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.4884
+
+
+tot_xdisp =
+
+    0.0850
+
+
+nts =
+
+    17
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.0627
+
+
+tot_xdisp =
+
+    0.0900
+
+
+nts =
+
+    18
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.6625
+
+
+tot_xdisp =
+
+    0.0950
+
+
+nts =
+
+    19
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.1415
+
+
+tot_xdisp =
+
+    0.1000
+
+
+nts =
+
+    20
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.8622
+
+
+tot_xdisp =
+
+    0.1050
+
+
+nts =
+
+    21
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.3590
+
+
+tot_xdisp =
+
+    0.1100
+
+
+nts =
+
+    22
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.3790
+
+
+tot_xdisp =
+
+    0.1150
+
+
+nts =
+
+    23
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   23.9304
+
+
+tot_xdisp =
+
+    0.1200
+
+
+nts =
+
+    24
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.4661
+
+
+tot_xdisp =
+
+    0.1250
+
+
+nts =
+
+    25
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.0229
+
+
+tot_xdisp =
+
+    0.1300
+
+
+nts =
+
+    26
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.2855
+
+
+tot_xdisp =
+
+    0.1350
+
+
+nts =
+
+    27
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   23.9411
+
+
+tot_xdisp =
+
+    0.1400
+
+
+nts =
+
+    28
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.3552
+
+
+tot_xdisp =
+
+    0.1450
+
+
+nts =
+
+    29
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.0388
+
+
+tot_xdisp =
+
+    0.1500
+
+
+nts =
+
+    30
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.4268
+
+
+tot_xdisp =
+
+    0.1550
+
+
+nts =
+
+    31
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.0400
+
+
+tot_xdisp =
+
+    0.1600
+
+
+nts =
+
+    32
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.5298
+
+
+tot_xdisp =
+
+    0.1650
+
+
+nts =
+
+    33
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   24.1228
+
+
+tot_xdisp =
+
+    0.1700
+
+
+nts =
+
+    34
+
+
+after_center =
+
+    2.0000    2.0000    2.0001
+
+
+gpuSL =
+
+   27.8760
+
+
+tot_xdisp =
+
+    0.1750
+
+
+nts =
+
+    35
+
+
+after_center =
+
+    2.0000    2.0000    2.0001
+
+
+gpuSL =
+
+   26.5007
+
+
+tot_xdisp =
+
+    0.1798
+
+
+nts =
+
+    36
+
+
+after_center =
+
+    2.0000    2.0002    2.0006
+
+
+gpuSL =
+
+   24.2687
+
+
+tot_xdisp =
+
+    0.3111
+
+
+nts =
+
+    37
+
+
+after_center =
+
+    2.0000    1.8864    2.0369
+
+
+gpuSL =
+
+   24.6068
+
+
+tot_xdisp =
+
+   3.0729e+03
+
+
+nts =
+
+    38
+
+
+after_center =
+
+   1.0e+03 *
+
+    0.0020   -1.7799    3.2323
+
+
+gpuSL =
+
+   23.5995
+
+
+tot_xdisp =
+
+   1.2745e+23
+
+
+nts =
+
+    39
+
+
+after_center =
+
+   1.0e+23 *
+
+   -0.0000   -1.0828    0.2042
+
+
+gpuSL =
+
+   22.5413
+
+
+tot_xdisp =
+
+  5.2380e+139
+
+
+nts =
+
+    40
+
+
+after_center =
+
+  1.0e+139 *
+
+    0.0000   -1.8844    9.0315
+
+
+gpuSL =
+
+   22.2787
+
+
+tot_xdisp =
+
+   NaN
+
+
+nts =
+
+    41
+
+
+after_center =
+
+   NaN   NaN   NaN
+
+>> 

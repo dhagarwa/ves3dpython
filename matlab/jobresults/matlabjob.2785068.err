@@ -1,0 +1,5 @@
+{Error using gpuArray/fft
+Out of memory on device. To view more detail about available memory on the GPU,
+use 'gpuDevice()'. If the problem persists, reset the GPU by calling
+'gpuDevice(1)'.
+} 

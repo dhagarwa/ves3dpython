@@ -198,8 +198,8 @@ classdef Patch < handle
          obj.nr = D*temp_cross;
          %obj.nr = diag(vecnorm(temp_cross, 2, 2).^(-1))*temp_cross;
          %%%%%%%%
-         obj.sphcart = sph2cartPatchSymm(skewPatch(obj.u, 1),obj.v,obj);
-         obj.sphcart_ = sph2cartPatchSymm(skewPatch(obj.u_, 1),obj.v_,obj);
+         obj.sphcart = sph2cartPatch(skewPatch(obj.u, 1),obj.v,obj);
+         obj.sphcart_ = sph2cartPatch(skewPatch(obj.u_, 1),obj.v_,obj);
          qk = zeros(obj.numNodes, 1);
          qk_ = zeros(obj.numNodes_, 1);
          for pp= 1:obj.numPatches

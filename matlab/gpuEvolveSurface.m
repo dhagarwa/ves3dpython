@@ -1,4 +1,4 @@
-function [] = EvolveSurface()
+function [] = gpuEvolveSurface()
     %membrane properties
     kb = 0;
     Es = 2;
@@ -12,7 +12,7 @@ function [] = EvolveSurface()
     
     
 
-    m = 31
+    m = 127
     n = m;
     R = 1;
     
@@ -38,7 +38,10 @@ function [] = EvolveSurface()
     t = 0;
     dt = 0.0025
     tot_xdisp = 0;
-    s1 = tic; 
+    numGPU = gpuDeviceCount;
+    parpool(numGPU)
+ 
+    iterstart = tic; 
     for nts=1:70
         %Using patches directly
 %         for i=1:numPatches
@@ -55,9 +58,9 @@ function [] = EvolveSurface()
         u_inf = bgshearFlow(shear_rate, S.getPosition());
         S.updateStale();
         S.interfacialForce();
-	s2 = tic;
-        u = u_inf + SLSurface(S);
-	nongpuSL = toc(s2)
+	slstart = tic;
+        u = u_inf + gpuSLSurface(S);
+        gpuSLtime = toc(slstart)
         S.updateSurface(u, dt);
         S.updateStale();
          %r_before_blend = S.getPosition();
@@ -69,7 +72,12 @@ function [] = EvolveSurface()
         nts
         S.updateStale();
         after_center = S.getCenter()
-        
+	if mod(nts, 2) == 0
+		y0 = S.getPosition();
+		%fi = figure;
+		%scatter3(y0(:, 1), y0(:, 2), y0(:, 3));
+		%saveas(fi, ['jobresults/scatter_32_bigt_', num2str(nts)], 'jpg');
+	end        
     end
     y0 = S.getPosition();
 %    scatter3(y0(:,1), y0(:,2), y0(:,3));
@@ -88,5 +96,5 @@ function [] = EvolveSurface()
 %     figure
 %     plotPatch(S, 6);
 %     
-    total_time = toc(s1)
+     gpuiter = toc(iterstart)
 end

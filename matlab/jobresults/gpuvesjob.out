@@ -1,0 +1,3486 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2020 The MathWorks, Inc.
+                  R2020a (9.8.0.1323502) 64-bit (glnxa64)
+                             February 25, 2020
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+>> >> >> 
+m =
+
+    63
+
+in sphere patch
+in sphere patch
+in sphere patch
+in sphere patch
+in sphere patch
+in sphere patch
+
+ini_center =
+
+    2.0000    2.0000    2.0000
+
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 4).
+
+ans = 
+
+ ProcessPool with properties: 
+
+            Connected: true
+           NumWorkers: 4
+              Cluster: local
+        AttachedFiles: {}
+    AutoAddClientPath: true
+          IdleTimeout: 30 minutes (30 minutes remaining)
+          SpmdEnabled: true
+
+
+gpuSL =
+
+  112.6843
+
+
+tot_xdisp =
+
+   5.0000e-04
+
+
+nts =
+
+     1
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   93.8097
+
+
+tot_xdisp =
+
+   1.0000e-03
+
+
+nts =
+
+     2
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   95.0854
+
+
+tot_xdisp =
+
+    0.0015
+
+
+nts =
+
+     3
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   97.8719
+
+
+tot_xdisp =
+
+    0.0020
+
+
+nts =
+
+     4
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  100.4728
+
+
+tot_xdisp =
+
+    0.0025
+
+
+nts =
+
+     5
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   97.5000
+
+
+tot_xdisp =
+
+    0.0030
+
+
+nts =
+
+     6
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   97.6533
+
+
+tot_xdisp =
+
+    0.0035
+
+
+nts =
+
+     7
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   92.6210
+
+
+tot_xdisp =
+
+    0.0040
+
+
+nts =
+
+     8
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   94.8990
+
+
+tot_xdisp =
+
+    0.0045
+
+
+nts =
+
+     9
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   94.1211
+
+
+tot_xdisp =
+
+    0.0050
+
+
+nts =
+
+    10
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   95.7835
+
+
+tot_xdisp =
+
+    0.0055
+
+
+nts =
+
+    11
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.7696
+
+
+tot_xdisp =
+
+    0.0060
+
+
+nts =
+
+    12
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   93.1446
+
+
+tot_xdisp =
+
+    0.0065
+
+
+nts =
+
+    13
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   96.1422
+
+
+tot_xdisp =
+
+    0.0070
+
+
+nts =
+
+    14
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   92.7612
+
+
+tot_xdisp =
+
+    0.0075
+
+
+nts =
+
+    15
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   92.5640
+
+
+tot_xdisp =
+
+    0.0080
+
+
+nts =
+
+    16
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   92.4203
+
+
+tot_xdisp =
+
+    0.0085
+
+
+nts =
+
+    17
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  100.4856
+
+
+tot_xdisp =
+
+    0.0090
+
+
+nts =
+
+    18
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  102.1879
+
+
+tot_xdisp =
+
+    0.0095
+
+
+nts =
+
+    19
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   93.4079
+
+
+tot_xdisp =
+
+    0.0100
+
+
+nts =
+
+    20
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   96.7568
+
+
+tot_xdisp =
+
+    0.0105
+
+
+nts =
+
+    21
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  100.0880
+
+
+tot_xdisp =
+
+    0.0110
+
+
+nts =
+
+    22
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   99.7499
+
+
+tot_xdisp =
+
+    0.0115
+
+
+nts =
+
+    23
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  100.6499
+
+
+tot_xdisp =
+
+    0.0120
+
+
+nts =
+
+    24
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   99.5793
+
+
+tot_xdisp =
+
+    0.0125
+
+
+nts =
+
+    25
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   99.4651
+
+
+tot_xdisp =
+
+    0.0130
+
+
+nts =
+
+    26
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   99.9117
+
+
+tot_xdisp =
+
+    0.0135
+
+
+nts =
+
+    27
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  105.4280
+
+
+tot_xdisp =
+
+    0.0140
+
+
+nts =
+
+    28
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   99.6642
+
+
+tot_xdisp =
+
+    0.0145
+
+
+nts =
+
+    29
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   99.9492
+
+
+tot_xdisp =
+
+    0.0150
+
+
+nts =
+
+    30
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  100.8813
+
+
+tot_xdisp =
+
+    0.0155
+
+
+nts =
+
+    31
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  101.1240
+
+
+tot_xdisp =
+
+    0.0160
+
+
+nts =
+
+    32
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  101.5321
+
+
+tot_xdisp =
+
+    0.0165
+
+
+nts =
+
+    33
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  101.1650
+
+
+tot_xdisp =
+
+    0.0170
+
+
+nts =
+
+    34
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  101.7692
+
+
+tot_xdisp =
+
+    0.0175
+
+
+nts =
+
+    35
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  102.5532
+
+
+tot_xdisp =
+
+    0.0180
+
+
+nts =
+
+    36
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  101.4147
+
+
+tot_xdisp =
+
+    0.0185
+
+
+nts =
+
+    37
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   95.6585
+
+
+tot_xdisp =
+
+    0.0190
+
+
+nts =
+
+    38
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   90.2595
+
+
+tot_xdisp =
+
+    0.0195
+
+
+nts =
+
+    39
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   91.7813
+
+
+tot_xdisp =
+
+    0.0200
+
+
+nts =
+
+    40
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  102.1118
+
+
+tot_xdisp =
+
+    0.0205
+
+
+nts =
+
+    41
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   99.0983
+
+
+tot_xdisp =
+
+    0.0210
+
+
+nts =
+
+    42
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   99.1025
+
+
+tot_xdisp =
+
+    0.0215
+
+
+nts =
+
+    43
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   97.9522
+
+
+tot_xdisp =
+
+    0.0220
+
+
+nts =
+
+    44
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.4916
+
+
+tot_xdisp =
+
+    0.0225
+
+
+nts =
+
+    45
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   96.9599
+
+
+tot_xdisp =
+
+    0.0230
+
+
+nts =
+
+    46
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   95.5450
+
+
+tot_xdisp =
+
+    0.0235
+
+
+nts =
+
+    47
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   99.6112
+
+
+tot_xdisp =
+
+    0.0240
+
+
+nts =
+
+    48
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.8439
+
+
+tot_xdisp =
+
+    0.0245
+
+
+nts =
+
+    49
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   93.8970
+
+
+tot_xdisp =
+
+    0.0250
+
+
+nts =
+
+    50
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   95.5761
+
+
+tot_xdisp =
+
+    0.0255
+
+
+nts =
+
+    51
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   91.0472
+
+
+tot_xdisp =
+
+    0.0260
+
+
+nts =
+
+    52
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   90.2428
+
+
+tot_xdisp =
+
+    0.0265
+
+
+nts =
+
+    53
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   90.5240
+
+
+tot_xdisp =
+
+    0.0270
+
+
+nts =
+
+    54
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   94.2353
+
+
+tot_xdisp =
+
+    0.0275
+
+
+nts =
+
+    55
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   90.0374
+
+
+tot_xdisp =
+
+    0.0280
+
+
+nts =
+
+    56
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   91.3806
+
+
+tot_xdisp =
+
+    0.0285
+
+
+nts =
+
+    57
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   90.5502
+
+
+tot_xdisp =
+
+    0.0290
+
+
+nts =
+
+    58
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   95.8142
+
+
+tot_xdisp =
+
+    0.0295
+
+
+nts =
+
+    59
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   94.3847
+
+
+tot_xdisp =
+
+    0.0300
+
+
+nts =
+
+    60
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   93.1192
+
+
+tot_xdisp =
+
+    0.0305
+
+
+nts =
+
+    61
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   99.7637
+
+
+tot_xdisp =
+
+    0.0310
+
+
+nts =
+
+    62
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   96.7304
+
+
+tot_xdisp =
+
+    0.0315
+
+
+nts =
+
+    63
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   91.0811
+
+
+tot_xdisp =
+
+    0.0320
+
+
+nts =
+
+    64
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   88.5402
+
+
+tot_xdisp =
+
+    0.0325
+
+
+nts =
+
+    65
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   90.3666
+
+
+tot_xdisp =
+
+    0.0330
+
+
+nts =
+
+    66
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   93.5361
+
+
+tot_xdisp =
+
+    0.0335
+
+
+nts =
+
+    67
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   97.6127
+
+
+tot_xdisp =
+
+    0.0340
+
+
+nts =
+
+    68
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   94.2851
+
+
+tot_xdisp =
+
+    0.0345
+
+
+nts =
+
+    69
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.6277
+
+
+tot_xdisp =
+
+    0.0350
+
+
+nts =
+
+    70
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   89.0979
+
+
+tot_xdisp =
+
+    0.0355
+
+
+nts =
+
+    71
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   93.0070
+
+
+tot_xdisp =
+
+    0.0360
+
+
+nts =
+
+    72
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   99.4427
+
+
+tot_xdisp =
+
+    0.0365
+
+
+nts =
+
+    73
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.9930
+
+
+tot_xdisp =
+
+    0.0370
+
+
+nts =
+
+    74
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.4307
+
+
+tot_xdisp =
+
+    0.0375
+
+
+nts =
+
+    75
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   95.6405
+
+
+tot_xdisp =
+
+    0.0380
+
+
+nts =
+
+    76
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   90.4369
+
+
+tot_xdisp =
+
+    0.0385
+
+
+nts =
+
+    77
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   92.7443
+
+
+tot_xdisp =
+
+    0.0390
+
+
+nts =
+
+    78
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   89.0260
+
+
+tot_xdisp =
+
+    0.0395
+
+
+nts =
+
+    79
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   92.6423
+
+
+tot_xdisp =
+
+    0.0400
+
+
+nts =
+
+    80
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   90.9737
+
+
+tot_xdisp =
+
+    0.0405
+
+
+nts =
+
+    81
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   95.1140
+
+
+tot_xdisp =
+
+    0.0410
+
+
+nts =
+
+    82
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  100.7826
+
+
+tot_xdisp =
+
+    0.0415
+
+
+nts =
+
+    83
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   97.6524
+
+
+tot_xdisp =
+
+    0.0420
+
+
+nts =
+
+    84
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   93.0813
+
+
+tot_xdisp =
+
+    0.0425
+
+
+nts =
+
+    85
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   93.8046
+
+
+tot_xdisp =
+
+    0.0430
+
+
+nts =
+
+    86
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   97.9991
+
+
+tot_xdisp =
+
+    0.0435
+
+
+nts =
+
+    87
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   95.1570
+
+
+tot_xdisp =
+
+    0.0440
+
+
+nts =
+
+    88
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   92.6848
+
+
+tot_xdisp =
+
+    0.0445
+
+
+nts =
+
+    89
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   91.3308
+
+
+tot_xdisp =
+
+    0.0450
+
+
+nts =
+
+    90
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   96.0605
+
+
+tot_xdisp =
+
+    0.0455
+
+
+nts =
+
+    91
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   92.1663
+
+
+tot_xdisp =
+
+    0.0460
+
+
+nts =
+
+    92
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   94.8635
+
+
+tot_xdisp =
+
+    0.0465
+
+
+nts =
+
+    93
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   96.6548
+
+
+tot_xdisp =
+
+    0.0470
+
+
+nts =
+
+    94
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  100.1367
+
+
+tot_xdisp =
+
+    0.0475
+
+
+nts =
+
+    95
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   95.9930
+
+
+tot_xdisp =
+
+    0.0480
+
+
+nts =
+
+    96
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   95.1628
+
+
+tot_xdisp =
+
+    0.0485
+
+
+nts =
+
+    97
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   96.9097
+
+
+tot_xdisp =
+
+    0.0490
+
+
+nts =
+
+    98
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   99.5324
+
+
+tot_xdisp =
+
+    0.0495
+
+
+nts =
+
+    99
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   93.7628
+
+
+tot_xdisp =
+
+    0.0500
+
+
+nts =
+
+   100
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   91.4899
+
+
+tot_xdisp =
+
+    0.0505
+
+
+nts =
+
+   101
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   95.9557
+
+
+tot_xdisp =
+
+    0.0510
+
+
+nts =
+
+   102
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   96.9725
+
+
+tot_xdisp =
+
+    0.0515
+
+
+nts =
+
+   103
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   95.7123
+
+
+tot_xdisp =
+
+    0.0520
+
+
+nts =
+
+   104
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   97.4483
+
+
+tot_xdisp =
+
+    0.0525
+
+
+nts =
+
+   105
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.2710
+
+
+tot_xdisp =
+
+    0.0530
+
+
+nts =
+
+   106
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   97.8601
+
+
+tot_xdisp =
+
+    0.0535
+
+
+nts =
+
+   107
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.1268
+
+
+tot_xdisp =
+
+    0.0540
+
+
+nts =
+
+   108
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.5863
+
+
+tot_xdisp =
+
+    0.0545
+
+
+nts =
+
+   109
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   96.1460
+
+
+tot_xdisp =
+
+    0.0550
+
+
+nts =
+
+   110
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   89.9629
+
+
+tot_xdisp =
+
+    0.0555
+
+
+nts =
+
+   111
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   95.2400
+
+
+tot_xdisp =
+
+    0.0560
+
+
+nts =
+
+   112
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.4431
+
+
+tot_xdisp =
+
+    0.0565
+
+
+nts =
+
+   113
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   97.8320
+
+
+tot_xdisp =
+
+    0.0570
+
+
+nts =
+
+   114
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   96.1080
+
+
+tot_xdisp =
+
+    0.0575
+
+
+nts =
+
+   115
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   93.6360
+
+
+tot_xdisp =
+
+    0.0580
+
+
+nts =
+
+   116
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   92.4538
+
+
+tot_xdisp =
+
+    0.0585
+
+
+nts =
+
+   117
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   96.0039
+
+
+tot_xdisp =
+
+    0.0590
+
+
+nts =
+
+   118
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   96.7630
+
+
+tot_xdisp =
+
+    0.0595
+
+
+nts =
+
+   119
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   99.7683
+
+
+tot_xdisp =
+
+    0.0600
+
+
+nts =
+
+   120
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.9451
+
+
+tot_xdisp =
+
+    0.0605
+
+
+nts =
+
+   121
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  100.0425
+
+
+tot_xdisp =
+
+    0.0610
+
+
+nts =
+
+   122
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   93.3804
+
+
+tot_xdisp =
+
+    0.0615
+
+
+nts =
+
+   123
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  100.0093
+
+
+tot_xdisp =
+
+    0.0620
+
+
+nts =
+
+   124
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   96.9288
+
+
+tot_xdisp =
+
+    0.0625
+
+
+nts =
+
+   125
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   96.6898
+
+
+tot_xdisp =
+
+    0.0630
+
+
+nts =
+
+   126
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.3396
+
+
+tot_xdisp =
+
+    0.0635
+
+
+nts =
+
+   127
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.6469
+
+
+tot_xdisp =
+
+    0.0640
+
+
+nts =
+
+   128
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   99.7188
+
+
+tot_xdisp =
+
+    0.0645
+
+
+nts =
+
+   129
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   94.6341
+
+
+tot_xdisp =
+
+    0.0650
+
+
+nts =
+
+   130
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   95.3250
+
+
+tot_xdisp =
+
+    0.0655
+
+
+nts =
+
+   131
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   99.2560
+
+
+tot_xdisp =
+
+    0.0660
+
+
+nts =
+
+   132
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   99.7318
+
+
+tot_xdisp =
+
+    0.0665
+
+
+nts =
+
+   133
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   99.6107
+
+
+tot_xdisp =
+
+    0.0670
+
+
+nts =
+
+   134
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.6613
+
+
+tot_xdisp =
+
+    0.0675
+
+
+nts =
+
+   135
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.4598
+
+
+tot_xdisp =
+
+    0.0680
+
+
+nts =
+
+   136
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   96.6785
+
+
+tot_xdisp =
+
+    0.0685
+
+
+nts =
+
+   137
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.2053
+
+
+tot_xdisp =
+
+    0.0690
+
+
+nts =
+
+   138
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   97.1216
+
+
+tot_xdisp =
+
+    0.0695
+
+
+nts =
+
+   139
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   97.4383
+
+
+tot_xdisp =
+
+    0.0700
+
+
+nts =
+
+   140
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   93.9353
+
+
+tot_xdisp =
+
+    0.0705
+
+
+nts =
+
+   141
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   90.7017
+
+
+tot_xdisp =
+
+    0.0710
+
+
+nts =
+
+   142
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   90.7903
+
+
+tot_xdisp =
+
+    0.0715
+
+
+nts =
+
+   143
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   96.7408
+
+
+tot_xdisp =
+
+    0.0720
+
+
+nts =
+
+   144
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.4187
+
+
+tot_xdisp =
+
+    0.0725
+
+
+nts =
+
+   145
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   95.3547
+
+
+tot_xdisp =
+
+    0.0730
+
+
+nts =
+
+   146
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.7480
+
+
+tot_xdisp =
+
+    0.0735
+
+
+nts =
+
+   147
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.7950
+
+
+tot_xdisp =
+
+    0.0740
+
+
+nts =
+
+   148
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   96.6565
+
+
+tot_xdisp =
+
+    0.0745
+
+
+nts =
+
+   149
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   93.6430
+
+
+tot_xdisp =
+
+    0.0750
+
+
+nts =
+
+   150
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   90.9998
+
+
+tot_xdisp =
+
+    0.0755
+
+
+nts =
+
+   151
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  100.8688
+
+
+tot_xdisp =
+
+    0.0760
+
+
+nts =
+
+   152
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   94.5082
+
+
+tot_xdisp =
+
+    0.0765
+
+
+nts =
+
+   153
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   91.8211
+
+
+tot_xdisp =
+
+    0.0770
+
+
+nts =
+
+   154
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   97.6234
+
+
+tot_xdisp =
+
+    0.0775
+
+
+nts =
+
+   155
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   91.2541
+
+
+tot_xdisp =
+
+    0.0780
+
+
+nts =
+
+   156
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   92.7077
+
+
+tot_xdisp =
+
+    0.0785
+
+
+nts =
+
+   157
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.7075
+
+
+tot_xdisp =
+
+    0.0790
+
+
+nts =
+
+   158
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   92.9226
+
+
+tot_xdisp =
+
+    0.0795
+
+
+nts =
+
+   159
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   95.3424
+
+
+tot_xdisp =
+
+    0.0800
+
+
+nts =
+
+   160
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   97.2814
+
+
+tot_xdisp =
+
+    0.0805
+
+
+nts =
+
+   161
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  101.3772
+
+
+tot_xdisp =
+
+    0.0810
+
+
+nts =
+
+   162
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+  100.3145
+
+
+tot_xdisp =
+
+    0.0815
+
+
+nts =
+
+   163
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   98.2051
+
+
+tot_xdisp =
+
+    0.0820
+
+
+nts =
+
+   164
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   94.6468
+
+
+tot_xdisp =
+
+    0.0825
+
+
+nts =
+
+   165
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   92.2926
+
+
+tot_xdisp =
+
+    0.0830
+
+
+nts =
+
+   166
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+gpuSL =
+
+   92.8866
+
+
+tot_xdisp =
+
+    0.0833
+
+
+nts =
+
+   167
+
+
+after_center =
+
+    2.0000    1.9998    1.9998
+
+
+gpuSL =
+
+   98.1311
+
+
+tot_xdisp =
+
+    0.0839
+
+
+nts =
+
+   168
+
+
+after_center =
+
+    2.0000    1.9999    1.9996
+
+
+gpuSL =
+
+   97.1235
+
+
+tot_xdisp =
+
+    0.1489
+
+
+nts =
+
+   169
+
+
+after_center =
+
+    2.0000    1.9821    1.8437
+
+
+gpuSL =
+
+   97.7711
+
+
+tot_xdisp =
+
+   1.2988e+09
+
+
+nts =
+
+   170
+
+
+after_center =
+
+   1.0e+09 *
+
+    0.0000   -0.7441   -1.5784
+
+
+gpuSL =
+
+   96.9854
+
+
+tot_xdisp =
+
+   1.6518e+57
+
+
+nts =
+
+   171
+
+
+after_center =
+
+   1.0e+57 *
+
+   -0.0000   -1.1259   -1.4720
+
+
+gpuSL =
+
+   94.7018
+
+
+tot_xdisp =
+
+   NaN
+
+
+nts =
+
+   172
+
+
+after_center =
+
+   NaN   NaN   NaN
+
+>> 

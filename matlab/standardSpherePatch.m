@@ -2,7 +2,7 @@ function p = standardSpherePatch(m, n, numPatch, R)
 
 
 p = Patch(m, n, R, numPatch, []);
-
+disp('in sphere patch')
     if numPatch==1 
         p.r = [R*sin(p.u).*cos(p.v), R*sin(p.u).*sin(p.v), R*cos(p.u)];
         p.r_ = [R*sin(p.u_).*cos(p.v_), R*sin(p.u_).*sin(p.v_), R*cos(p.u_)];

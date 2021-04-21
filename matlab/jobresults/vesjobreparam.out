@@ -1,0 +1,8267 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2020 The MathWorks, Inc.
+                  R2020a (9.8.0.1323502) 64-bit (glnxa64)
+                             February 25, 2020
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+>> >> >> 
+vesprops =
+
+     0
+     2
+    20
+
+
+shear_rate =
+
+     1
+
+
+m =
+
+    15
+
+in sphere patch
+in sphere patch
+in sphere patch
+in sphere patch
+in sphere patch
+in sphere patch
+
+ini_center =
+
+    2.0000    2.0000    2.0000
+
+
+dt =
+
+    0.0025
+
+
+tot_xdisp =
+
+    0.0050
+
+
+nts =
+
+     1
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5647
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2434
+
+
+tot_xdisp =
+
+    0.0100
+
+
+nts =
+
+     2
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5648
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2464
+
+
+tot_xdisp =
+
+    0.0150
+
+
+nts =
+
+     3
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5648
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2473
+
+
+tot_xdisp =
+
+    0.0200
+
+
+nts =
+
+     4
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5649
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2476
+
+
+tot_xdisp =
+
+    0.0250
+
+
+nts =
+
+     5
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5650
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2477
+
+
+tot_xdisp =
+
+    0.0300
+
+
+nts =
+
+     6
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5651
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2477
+
+
+tot_xdisp =
+
+    0.0350
+
+
+nts =
+
+     7
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5652
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2477
+
+
+tot_xdisp =
+
+    0.0400
+
+
+nts =
+
+     8
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5654
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2476
+
+
+tot_xdisp =
+
+    0.0450
+
+
+nts =
+
+     9
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5656
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2475
+
+
+tot_xdisp =
+
+    0.0500
+
+
+nts =
+
+    10
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5658
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2474
+
+
+tot_xdisp =
+
+    0.0550
+
+
+nts =
+
+    11
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5660
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2472
+
+
+tot_xdisp =
+
+    0.0600
+
+
+nts =
+
+    12
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5662
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2471
+
+
+tot_xdisp =
+
+    0.0650
+
+
+nts =
+
+    13
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5665
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2469
+
+
+tot_xdisp =
+
+    0.0700
+
+
+nts =
+
+    14
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5668
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2468
+
+
+tot_xdisp =
+
+    0.0750
+
+
+nts =
+
+    15
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5671
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2466
+
+
+tot_xdisp =
+
+    0.0800
+
+
+nts =
+
+    16
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5675
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2464
+
+
+tot_xdisp =
+
+    0.0850
+
+
+nts =
+
+    17
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5678
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2462
+
+
+tot_xdisp =
+
+    0.0900
+
+
+nts =
+
+    18
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5682
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2461
+
+
+tot_xdisp =
+
+    0.0950
+
+
+nts =
+
+    19
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5686
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2459
+
+
+tot_xdisp =
+
+    0.1000
+
+
+nts =
+
+    20
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5691
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2457
+
+
+tot_xdisp =
+
+    0.1050
+
+
+nts =
+
+    21
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5695
+
+
+true_vol =
+
+    4.1886
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2455
+
+
+tot_xdisp =
+
+    0.1100
+
+
+nts =
+
+    22
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5700
+
+
+true_vol =
+
+    4.1887
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2453
+
+
+tot_xdisp =
+
+    0.1150
+
+
+nts =
+
+    23
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5705
+
+
+true_vol =
+
+    4.1887
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2451
+
+
+tot_xdisp =
+
+    0.1200
+
+
+nts =
+
+    24
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5710
+
+
+true_vol =
+
+    4.1887
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2449
+
+
+tot_xdisp =
+
+    0.1250
+
+
+nts =
+
+    25
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5716
+
+
+true_vol =
+
+    4.1887
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2447
+
+
+tot_xdisp =
+
+    0.1300
+
+
+nts =
+
+    26
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5721
+
+
+true_vol =
+
+    4.1887
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2446
+
+
+tot_xdisp =
+
+    0.1350
+
+
+nts =
+
+    27
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5727
+
+
+true_vol =
+
+    4.1887
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2444
+
+
+tot_xdisp =
+
+    0.1400
+
+
+nts =
+
+    28
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5733
+
+
+true_vol =
+
+    4.1887
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2442
+
+
+tot_xdisp =
+
+    0.1450
+
+
+nts =
+
+    29
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5740
+
+
+true_vol =
+
+    4.1888
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2440
+
+
+tot_xdisp =
+
+    0.1500
+
+
+nts =
+
+    30
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5746
+
+
+true_vol =
+
+    4.1888
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2438
+
+
+tot_xdisp =
+
+    0.1550
+
+
+nts =
+
+    31
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5753
+
+
+true_vol =
+
+    4.1888
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2436
+
+
+tot_xdisp =
+
+    0.1600
+
+
+nts =
+
+    32
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5760
+
+
+true_vol =
+
+    4.1888
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2434
+
+
+tot_xdisp =
+
+    0.1650
+
+
+nts =
+
+    33
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5767
+
+
+true_vol =
+
+    4.1888
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2432
+
+
+tot_xdisp =
+
+    0.1700
+
+
+nts =
+
+    34
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5775
+
+
+true_vol =
+
+    4.1889
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2430
+
+
+tot_xdisp =
+
+    0.1750
+
+
+nts =
+
+    35
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5782
+
+
+true_vol =
+
+    4.1889
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2428
+
+
+tot_xdisp =
+
+    0.1800
+
+
+nts =
+
+    36
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5790
+
+
+true_vol =
+
+    4.1889
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2426
+
+
+tot_xdisp =
+
+    0.1850
+
+
+nts =
+
+    37
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5798
+
+
+true_vol =
+
+    4.1889
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2424
+
+
+tot_xdisp =
+
+    0.1900
+
+
+nts =
+
+    38
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5806
+
+
+true_vol =
+
+    4.1890
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2422
+
+
+tot_xdisp =
+
+    0.1950
+
+
+nts =
+
+    39
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5815
+
+
+true_vol =
+
+    4.1890
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2420
+
+
+tot_xdisp =
+
+    0.2000
+
+
+nts =
+
+    40
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5824
+
+
+true_vol =
+
+    4.1890
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2418
+
+
+tot_xdisp =
+
+    0.2050
+
+
+nts =
+
+    41
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5833
+
+
+true_vol =
+
+    4.1891
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2416
+
+
+tot_xdisp =
+
+    0.2100
+
+
+nts =
+
+    42
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5842
+
+
+true_vol =
+
+    4.1891
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2415
+
+
+tot_xdisp =
+
+    0.2150
+
+
+nts =
+
+    43
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5851
+
+
+true_vol =
+
+    4.1891
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2413
+
+
+tot_xdisp =
+
+    0.2200
+
+
+nts =
+
+    44
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5861
+
+
+true_vol =
+
+    4.1892
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2411
+
+
+tot_xdisp =
+
+    0.2250
+
+
+nts =
+
+    45
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5871
+
+
+true_vol =
+
+    4.1892
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2409
+
+
+tot_xdisp =
+
+    0.2300
+
+
+nts =
+
+    46
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5881
+
+
+true_vol =
+
+    4.1892
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2407
+
+
+tot_xdisp =
+
+    0.2350
+
+
+nts =
+
+    47
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5891
+
+
+true_vol =
+
+    4.1893
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2405
+
+
+tot_xdisp =
+
+    0.2400
+
+
+nts =
+
+    48
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5901
+
+
+true_vol =
+
+    4.1893
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2403
+
+
+tot_xdisp =
+
+    0.2450
+
+
+nts =
+
+    49
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5912
+
+
+true_vol =
+
+    4.1893
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2401
+
+
+tot_xdisp =
+
+    0.2500
+
+
+nts =
+
+    50
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5923
+
+
+true_vol =
+
+    4.1894
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2399
+
+
+tot_xdisp =
+
+    0.2550
+
+
+nts =
+
+    51
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5934
+
+
+true_vol =
+
+    4.1894
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2397
+
+
+tot_xdisp =
+
+    0.2599
+
+
+nts =
+
+    52
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5946
+
+
+true_vol =
+
+    4.1895
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2395
+
+
+tot_xdisp =
+
+    0.2649
+
+
+nts =
+
+    53
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5957
+
+
+true_vol =
+
+    4.1895
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2393
+
+
+tot_xdisp =
+
+    0.2699
+
+
+nts =
+
+    54
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5969
+
+
+true_vol =
+
+    4.1896
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2391
+
+
+tot_xdisp =
+
+    0.2749
+
+
+nts =
+
+    55
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5981
+
+
+true_vol =
+
+    4.1896
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2389
+
+
+tot_xdisp =
+
+    0.2799
+
+
+nts =
+
+    56
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.5993
+
+
+true_vol =
+
+    4.1897
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2387
+
+
+tot_xdisp =
+
+    0.2849
+
+
+nts =
+
+    57
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.6006
+
+
+true_vol =
+
+    4.1897
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2385
+
+
+tot_xdisp =
+
+    0.2899
+
+
+nts =
+
+    58
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.6019
+
+
+true_vol =
+
+    4.1898
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2383
+
+
+tot_xdisp =
+
+    0.2949
+
+
+nts =
+
+    59
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.6031
+
+
+true_vol =
+
+    4.1898
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2381
+
+
+tot_xdisp =
+
+    0.2999
+
+
+nts =
+
+    60
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.6045
+
+
+true_vol =
+
+    4.1899
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2379
+
+
+tot_xdisp =
+
+    0.3049
+
+
+nts =
+
+    61
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.6058
+
+
+true_vol =
+
+    4.1899
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2377
+
+
+tot_xdisp =
+
+    0.3099
+
+
+nts =
+
+    62
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.6071
+
+
+true_vol =
+
+    4.1900
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2375
+
+
+tot_xdisp =
+
+    0.3149
+
+
+nts =
+
+    63
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.6085
+
+
+true_vol =
+
+    4.1900
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2373
+
+
+tot_xdisp =
+
+    0.3199
+
+
+nts =
+
+    64
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.6099
+
+
+true_vol =
+
+    4.1901
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2371
+
+
+tot_xdisp =
+
+    0.3249
+
+
+nts =
+
+    65
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+true_area =
+
+   12.6113
+
+
+true_vol =
+
+    4.1902
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2369
+
+
+tot_xdisp =
+
+    0.3299
+
+
+nts =
+
+    66
+
+
+after_center =
+
+    2.0000    2.0000    1.9999
+
+
+true_area =
+
+   12.6128
+
+
+true_vol =
+
+    4.1902
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2367
+
+
+tot_xdisp =
+
+    0.3349
+
+
+nts =
+
+    67
+
+
+after_center =
+
+    2.0000    2.0000    1.9999
+
+
+true_area =
+
+   12.6143
+
+
+true_vol =
+
+    4.1903
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2365
+
+
+tot_xdisp =
+
+    0.3399
+
+
+nts =
+
+    68
+
+
+after_center =
+
+    2.0000    2.0000    1.9999
+
+
+true_area =
+
+   12.6157
+
+
+true_vol =
+
+    4.1904
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2364
+
+
+tot_xdisp =
+
+    0.3449
+
+
+nts =
+
+    69
+
+
+after_center =
+
+    2.0000    2.0000    1.9999
+
+
+true_area =
+
+   12.6172
+
+
+true_vol =
+
+    4.1904
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2362
+
+
+tot_xdisp =
+
+    0.3499
+
+
+nts =
+
+    70
+
+
+after_center =
+
+    2.0000    2.0000    1.9999
+
+
+true_area =
+
+   12.6188
+
+
+true_vol =
+
+    4.1905
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2360
+
+
+tot_xdisp =
+
+    0.3549
+
+
+nts =
+
+    71
+
+
+after_center =
+
+    2.0000    2.0000    1.9999
+
+
+true_area =
+
+   12.6203
+
+
+true_vol =
+
+    4.1906
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2358
+
+
+tot_xdisp =
+
+    0.3599
+
+
+nts =
+
+    72
+
+
+after_center =
+
+    2.0000    2.0000    1.9999
+
+
+true_area =
+
+   12.6219
+
+
+true_vol =
+
+    4.1907
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2356
+
+
+tot_xdisp =
+
+    0.3649
+
+
+nts =
+
+    73
+
+
+after_center =
+
+    2.0000    2.0000    1.9999
+
+
+true_area =
+
+   12.6235
+
+
+true_vol =
+
+    4.1907
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2354
+
+
+tot_xdisp =
+
+    0.3699
+
+
+nts =
+
+    74
+
+
+after_center =
+
+    2.0000    2.0000    1.9999
+
+
+true_area =
+
+   12.6251
+
+
+true_vol =
+
+    4.1908
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2352
+
+
+tot_xdisp =
+
+    0.3749
+
+
+nts =
+
+    75
+
+
+after_center =
+
+    2.0000    2.0000    1.9999
+
+
+true_area =
+
+   12.6267
+
+
+true_vol =
+
+    4.1909
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2350
+
+
+tot_xdisp =
+
+    0.3799
+
+
+nts =
+
+    76
+
+
+after_center =
+
+    2.0000    2.0000    1.9999
+
+
+true_area =
+
+   12.6284
+
+
+true_vol =
+
+    4.1910
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2348
+
+
+tot_xdisp =
+
+    0.3848
+
+
+nts =
+
+    77
+
+
+after_center =
+
+    2.0000    2.0000    1.9999
+
+
+true_area =
+
+   12.6300
+
+
+true_vol =
+
+    4.1911
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2346
+
+
+tot_xdisp =
+
+    0.3898
+
+
+nts =
+
+    78
+
+
+after_center =
+
+    2.0000    2.0001    1.9999
+
+
+true_area =
+
+   12.6317
+
+
+true_vol =
+
+    4.1912
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2344
+
+
+tot_xdisp =
+
+    0.3948
+
+
+nts =
+
+    79
+
+
+after_center =
+
+    2.0000    2.0001    1.9999
+
+
+true_area =
+
+   12.6335
+
+
+true_vol =
+
+    4.1912
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2342
+
+
+tot_xdisp =
+
+    0.3998
+
+
+nts =
+
+    80
+
+
+after_center =
+
+    2.0000    2.0001    1.9999
+
+
+true_area =
+
+   12.6352
+
+
+true_vol =
+
+    4.1913
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2340
+
+
+tot_xdisp =
+
+    0.4048
+
+
+nts =
+
+    81
+
+
+after_center =
+
+    2.0000    2.0001    1.9999
+
+
+true_area =
+
+   12.6369
+
+
+true_vol =
+
+    4.1914
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2338
+
+
+tot_xdisp =
+
+    0.4098
+
+
+nts =
+
+    82
+
+
+after_center =
+
+    2.0000    2.0001    1.9999
+
+
+true_area =
+
+   12.6387
+
+
+true_vol =
+
+    4.1915
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2335
+
+
+tot_xdisp =
+
+    0.4148
+
+
+nts =
+
+    83
+
+
+after_center =
+
+    2.0000    2.0001    1.9999
+
+
+true_area =
+
+   12.6396
+
+
+true_vol =
+
+    4.1896
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2333
+
+
+tot_xdisp =
+
+    0.4197
+
+
+nts =
+
+    84
+
+
+after_center =
+
+    2.0000    2.0001    1.9999
+
+
+true_area =
+
+   12.6414
+
+
+true_vol =
+
+    4.1897
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2332
+
+
+tot_xdisp =
+
+    0.4247
+
+
+nts =
+
+    85
+
+
+after_center =
+
+    2.0000    2.0001    1.9999
+
+
+true_area =
+
+   12.6433
+
+
+true_vol =
+
+    4.1897
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2330
+
+
+tot_xdisp =
+
+    0.4297
+
+
+nts =
+
+    86
+
+
+after_center =
+
+    2.0000    2.0001    1.9999
+
+
+true_area =
+
+   12.6451
+
+
+true_vol =
+
+    4.1898
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2328
+
+
+tot_xdisp =
+
+    0.4347
+
+
+nts =
+
+    87
+
+
+after_center =
+
+    2.0000    2.0001    1.9999
+
+
+true_area =
+
+   12.6470
+
+
+true_vol =
+
+    4.1899
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2326
+
+
+tot_xdisp =
+
+    0.4397
+
+
+nts =
+
+    88
+
+
+after_center =
+
+    2.0000    2.0001    1.9999
+
+
+true_area =
+
+   12.6489
+
+
+true_vol =
+
+    4.1899
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2324
+
+
+tot_xdisp =
+
+    0.4447
+
+
+nts =
+
+    89
+
+
+after_center =
+
+    2.0000    2.0001    1.9999
+
+
+true_area =
+
+   12.6508
+
+
+true_vol =
+
+    4.1900
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2322
+
+
+tot_xdisp =
+
+    0.4496
+
+
+nts =
+
+    90
+
+
+after_center =
+
+    2.0000    2.0001    1.9999
+
+
+true_area =
+
+   12.6528
+
+
+true_vol =
+
+    4.1901
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2320
+
+
+tot_xdisp =
+
+    0.4546
+
+
+nts =
+
+    91
+
+
+after_center =
+
+    2.0000    2.0001    1.9999
+
+
+true_area =
+
+   12.6547
+
+
+true_vol =
+
+    4.1902
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2318
+
+
+tot_xdisp =
+
+    0.4596
+
+
+nts =
+
+    92
+
+
+after_center =
+
+    2.0000    2.0001    1.9999
+
+
+true_area =
+
+   12.6567
+
+
+true_vol =
+
+    4.1903
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2316
+
+
+tot_xdisp =
+
+    0.4646
+
+
+nts =
+
+    93
+
+
+after_center =
+
+    2.0000    2.0001    1.9999
+
+
+true_area =
+
+   12.6587
+
+
+true_vol =
+
+    4.1903
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2314
+
+
+tot_xdisp =
+
+    0.4696
+
+
+nts =
+
+    94
+
+
+after_center =
+
+    2.0000    2.0002    1.9999
+
+
+true_area =
+
+   12.6607
+
+
+true_vol =
+
+    4.1904
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2313
+
+
+tot_xdisp =
+
+    0.4745
+
+
+nts =
+
+    95
+
+
+after_center =
+
+    2.0000    2.0002    1.9999
+
+
+true_area =
+
+   12.6627
+
+
+true_vol =
+
+    4.1905
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2311
+
+
+tot_xdisp =
+
+    0.4795
+
+
+nts =
+
+    96
+
+
+after_center =
+
+    2.0000    2.0002    1.9999
+
+
+true_area =
+
+   12.6648
+
+
+true_vol =
+
+    4.1906
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2309
+
+
+tot_xdisp =
+
+    0.4845
+
+
+nts =
+
+    97
+
+
+after_center =
+
+    2.0000    2.0002    1.9999
+
+
+true_area =
+
+   12.6669
+
+
+true_vol =
+
+    4.1907
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2307
+
+
+tot_xdisp =
+
+    0.4895
+
+
+nts =
+
+    98
+
+
+after_center =
+
+    2.0000    2.0002    1.9999
+
+
+true_area =
+
+   12.6690
+
+
+true_vol =
+
+    4.1908
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2305
+
+
+tot_xdisp =
+
+    0.4945
+
+
+nts =
+
+    99
+
+
+after_center =
+
+    2.0000    2.0002    1.9999
+
+
+true_area =
+
+   12.6711
+
+
+true_vol =
+
+    4.1909
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2303
+
+
+tot_xdisp =
+
+    0.4994
+
+
+nts =
+
+   100
+
+
+after_center =
+
+    2.0000    2.0002    1.9999
+
+
+true_area =
+
+   12.6732
+
+
+true_vol =
+
+    4.1910
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2301
+
+
+tot_xdisp =
+
+    0.5044
+
+
+nts =
+
+   101
+
+
+after_center =
+
+    2.0000    2.0002    1.9999
+
+
+true_area =
+
+   12.6754
+
+
+true_vol =
+
+    4.1911
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2299
+
+
+tot_xdisp =
+
+    0.5094
+
+
+nts =
+
+   102
+
+
+after_center =
+
+    2.0000    2.0003    1.9999
+
+
+true_area =
+
+   12.6776
+
+
+true_vol =
+
+    4.1912
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2297
+
+
+tot_xdisp =
+
+    0.5144
+
+
+nts =
+
+   103
+
+
+after_center =
+
+    2.0000    2.0003    1.9998
+
+
+true_area =
+
+   12.6798
+
+
+true_vol =
+
+    4.1913
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2296
+
+
+tot_xdisp =
+
+    0.5193
+
+
+nts =
+
+   104
+
+
+after_center =
+
+    2.0000    2.0003    1.9998
+
+
+true_area =
+
+   12.6820
+
+
+true_vol =
+
+    4.1914
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2294
+
+
+tot_xdisp =
+
+    0.5243
+
+
+nts =
+
+   105
+
+
+after_center =
+
+    2.0000    2.0003    1.9998
+
+
+true_area =
+
+   12.6842
+
+
+true_vol =
+
+    4.1915
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2292
+
+
+tot_xdisp =
+
+    0.5293
+
+
+nts =
+
+   106
+
+
+after_center =
+
+    2.0000    2.0003    1.9998
+
+
+true_area =
+
+   12.6865
+
+
+true_vol =
+
+    4.1916
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2290
+
+
+tot_xdisp =
+
+    0.5343
+
+
+nts =
+
+   107
+
+
+after_center =
+
+    2.0000    2.0003    1.9998
+
+
+true_area =
+
+   12.6887
+
+
+true_vol =
+
+    4.1917
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2288
+
+
+tot_xdisp =
+
+    0.5393
+
+
+nts =
+
+   108
+
+
+after_center =
+
+    2.0000    2.0004    1.9998
+
+
+true_area =
+
+   12.6910
+
+
+true_vol =
+
+    4.1919
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2286
+
+
+tot_xdisp =
+
+    0.5442
+
+
+nts =
+
+   109
+
+
+after_center =
+
+    2.0000    2.0004    1.9998
+
+
+true_area =
+
+   12.6933
+
+
+true_vol =
+
+    4.1920
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2284
+
+
+tot_xdisp =
+
+    0.5492
+
+
+nts =
+
+   110
+
+
+after_center =
+
+    2.0000    2.0004    1.9998
+
+
+true_area =
+
+   12.6957
+
+
+true_vol =
+
+    4.1921
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2282
+
+
+tot_xdisp =
+
+    0.5542
+
+
+nts =
+
+   111
+
+
+after_center =
+
+    2.0000    2.0004    1.9998
+
+
+true_area =
+
+   12.6980
+
+
+true_vol =
+
+    4.1922
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2281
+
+
+tot_xdisp =
+
+    0.5592
+
+
+nts =
+
+   112
+
+
+after_center =
+
+    2.0000    2.0004    1.9998
+
+
+true_area =
+
+   12.7004
+
+
+true_vol =
+
+    4.1924
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2279
+
+
+tot_xdisp =
+
+    0.5641
+
+
+nts =
+
+   113
+
+
+after_center =
+
+    2.0000    2.0005    1.9998
+
+
+true_area =
+
+   12.7028
+
+
+true_vol =
+
+    4.1925
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2277
+
+
+tot_xdisp =
+
+    0.5691
+
+
+nts =
+
+   114
+
+
+after_center =
+
+    2.0000    2.0005    1.9998
+
+
+true_area =
+
+   12.7052
+
+
+true_vol =
+
+    4.1926
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2275
+
+
+tot_xdisp =
+
+    0.5741
+
+
+nts =
+
+   115
+
+
+after_center =
+
+    2.0000    2.0005    1.9998
+
+
+true_area =
+
+   12.7076
+
+
+true_vol =
+
+    4.1928
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2273
+
+
+tot_xdisp =
+
+    0.5791
+
+
+nts =
+
+   116
+
+
+after_center =
+
+    2.0000    2.0005    1.9998
+
+
+true_area =
+
+   12.7101
+
+
+true_vol =
+
+    4.1929
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2271
+
+
+tot_xdisp =
+
+    0.5840
+
+
+nts =
+
+   117
+
+
+after_center =
+
+    2.0000    2.0006    1.9998
+
+
+true_area =
+
+   12.7125
+
+
+true_vol =
+
+    4.1931
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2269
+
+
+tot_xdisp =
+
+    0.5890
+
+
+nts =
+
+   118
+
+
+after_center =
+
+    2.0000    2.0006    1.9997
+
+
+true_area =
+
+   12.7150
+
+
+true_vol =
+
+    4.1932
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2268
+
+
+tot_xdisp =
+
+    0.5940
+
+
+nts =
+
+   119
+
+
+after_center =
+
+    2.0000    2.0006    1.9997
+
+
+true_area =
+
+   12.7175
+
+
+true_vol =
+
+    4.1934
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2266
+
+
+tot_xdisp =
+
+    0.5990
+
+
+nts =
+
+   120
+
+
+after_center =
+
+    2.0000    2.0006    1.9997
+
+
+true_area =
+
+   12.7200
+
+
+true_vol =
+
+    4.1935
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2264
+
+
+tot_xdisp =
+
+    0.6040
+
+
+nts =
+
+   121
+
+
+after_center =
+
+    2.0000    2.0007    1.9997
+
+
+true_area =
+
+   12.7225
+
+
+true_vol =
+
+    4.1937
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2262
+
+
+tot_xdisp =
+
+    0.6089
+
+
+nts =
+
+   122
+
+
+after_center =
+
+    2.0000    2.0007    1.9997
+
+
+true_area =
+
+   12.7251
+
+
+true_vol =
+
+    4.1938
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2260
+
+
+tot_xdisp =
+
+    0.6139
+
+
+nts =
+
+   123
+
+
+after_center =
+
+    2.0000    2.0007    1.9997
+
+
+true_area =
+
+   12.7276
+
+
+true_vol =
+
+    4.1940
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2258
+
+
+tot_xdisp =
+
+    0.6189
+
+
+nts =
+
+   124
+
+
+after_center =
+
+    2.0000    2.0008    1.9997
+
+
+true_area =
+
+   12.7302
+
+
+true_vol =
+
+    4.1941
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2257
+
+
+tot_xdisp =
+
+    0.6239
+
+
+nts =
+
+   125
+
+
+after_center =
+
+    2.0000    2.0008    1.9996
+
+
+true_area =
+
+   12.7328
+
+
+true_vol =
+
+    4.1943
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2255
+
+
+tot_xdisp =
+
+    0.6288
+
+
+nts =
+
+   126
+
+
+after_center =
+
+    2.0000    2.0008    1.9996
+
+
+true_area =
+
+   12.7354
+
+
+true_vol =
+
+    4.1945
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2253
+
+
+tot_xdisp =
+
+    0.6338
+
+
+nts =
+
+   127
+
+
+after_center =
+
+    2.0000    2.0009    1.9996
+
+
+true_area =
+
+   12.7381
+
+
+true_vol =
+
+    4.1946
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2251
+
+
+tot_xdisp =
+
+    0.6388
+
+
+nts =
+
+   128
+
+
+after_center =
+
+    2.0000    2.0009    1.9996
+
+
+true_area =
+
+   12.7407
+
+
+true_vol =
+
+    4.1948
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2249
+
+
+tot_xdisp =
+
+    0.6438
+
+
+nts =
+
+   129
+
+
+after_center =
+
+    2.0000    2.0009    1.9995
+
+
+true_area =
+
+   12.7434
+
+
+true_vol =
+
+    4.1950
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2248
+
+
+tot_xdisp =
+
+    0.6488
+
+
+nts =
+
+   130
+
+
+after_center =
+
+    2.0000    2.0010    1.9995
+
+
+true_area =
+
+   12.7460
+
+
+true_vol =
+
+    4.1952
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2246
+
+
+tot_xdisp =
+
+    0.6537
+
+
+nts =
+
+   131
+
+
+after_center =
+
+    2.0000    2.0010    1.9995
+
+
+true_area =
+
+   12.7487
+
+
+true_vol =
+
+    4.1953
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2244
+
+
+tot_xdisp =
+
+    0.6587
+
+
+nts =
+
+   132
+
+
+after_center =
+
+    2.0000    2.0010    1.9995
+
+
+true_area =
+
+   12.7515
+
+
+true_vol =
+
+    4.1955
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2242
+
+
+tot_xdisp =
+
+    0.6637
+
+
+nts =
+
+   133
+
+
+after_center =
+
+    2.0000    2.0011    1.9994
+
+
+true_area =
+
+   12.7542
+
+
+true_vol =
+
+    4.1957
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2241
+
+
+tot_xdisp =
+
+    0.6687
+
+
+nts =
+
+   134
+
+
+after_center =
+
+    2.0000    2.0011    1.9994
+
+
+true_area =
+
+   12.7569
+
+
+true_vol =
+
+    4.1958
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2239
+
+
+tot_xdisp =
+
+    0.6737
+
+
+nts =
+
+   135
+
+
+after_center =
+
+    2.0000    2.0011    1.9993
+
+
+true_area =
+
+   12.7597
+
+
+true_vol =
+
+    4.1960
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2237
+
+
+tot_xdisp =
+
+    0.6787
+
+
+nts =
+
+   136
+
+
+after_center =
+
+    2.0000    2.0011    1.9993
+
+
+true_area =
+
+   12.7624
+
+
+true_vol =
+
+    4.1962
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2235
+
+
+tot_xdisp =
+
+    0.6837
+
+
+nts =
+
+   137
+
+
+after_center =
+
+    2.0000    2.0012    1.9992
+
+
+true_area =
+
+   12.7652
+
+
+true_vol =
+
+    4.1964
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2233
+
+
+tot_xdisp =
+
+    0.6886
+
+
+nts =
+
+   138
+
+
+after_center =
+
+    2.0000    2.0012    1.9992
+
+
+true_area =
+
+   12.7680
+
+
+true_vol =
+
+    4.1966
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2232
+
+
+tot_xdisp =
+
+    0.6936
+
+
+nts =
+
+   139
+
+
+after_center =
+
+    2.0000    2.0012    1.9991
+
+
+true_area =
+
+   12.7708
+
+
+true_vol =
+
+    4.1968
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2230
+
+
+tot_xdisp =
+
+    0.6986
+
+
+nts =
+
+   140
+
+
+after_center =
+
+    2.0000    2.0013    1.9991
+
+
+true_area =
+
+   12.7737
+
+
+true_vol =
+
+    4.1970
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2228
+
+
+tot_xdisp =
+
+    0.7036
+
+
+nts =
+
+   141
+
+
+after_center =
+
+    2.0000    2.0013    1.9990
+
+
+true_area =
+
+   12.7765
+
+
+true_vol =
+
+    4.1972
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2226
+
+
+tot_xdisp =
+
+    0.7086
+
+
+nts =
+
+   142
+
+
+after_center =
+
+    2.0000    2.0013    1.9990
+
+
+true_area =
+
+   12.7794
+
+
+true_vol =
+
+    4.1974
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2225
+
+
+tot_xdisp =
+
+    0.7136
+
+
+nts =
+
+   143
+
+
+after_center =
+
+    2.0000    2.0014    1.9989
+
+
+true_area =
+
+   12.7823
+
+
+true_vol =
+
+    4.1976
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2223
+
+
+tot_xdisp =
+
+    0.7186
+
+
+nts =
+
+   144
+
+
+after_center =
+
+    2.0000    2.0014    1.9989
+
+
+true_area =
+
+   12.7852
+
+
+true_vol =
+
+    4.1979
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2221
+
+
+tot_xdisp =
+
+    0.7235
+
+
+nts =
+
+   145
+
+
+after_center =
+
+    2.0000    2.0014    1.9988
+
+
+true_area =
+
+   12.7881
+
+
+true_vol =
+
+    4.1981
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2220
+
+
+tot_xdisp =
+
+    0.7285
+
+
+nts =
+
+   146
+
+
+after_center =
+
+    2.0000    2.0015    1.9988
+
+
+true_area =
+
+   12.7910
+
+
+true_vol =
+
+    4.1983
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2218
+
+
+tot_xdisp =
+
+    0.7335
+
+
+nts =
+
+   147
+
+
+after_center =
+
+    2.0000    2.0015    1.9988
+
+
+true_area =
+
+   12.7940
+
+
+true_vol =
+
+    4.1986
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2216
+
+
+tot_xdisp =
+
+    0.7385
+
+
+nts =
+
+   148
+
+
+after_center =
+
+    2.0000    2.0015    1.9987
+
+
+true_area =
+
+   12.7969
+
+
+true_vol =
+
+    4.1988
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2214
+
+
+tot_xdisp =
+
+    0.7435
+
+
+nts =
+
+   149
+
+
+after_center =
+
+    2.0000    2.0015    1.9987
+
+
+true_area =
+
+   12.7999
+
+
+true_vol =
+
+    4.1991
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2213
+
+
+tot_xdisp =
+
+    0.7485
+
+
+nts =
+
+   150
+
+
+after_center =
+
+    2.0000    2.0016    1.9986
+
+
+true_area =
+
+   12.8029
+
+
+true_vol =
+
+    4.1993
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2211
+
+
+tot_xdisp =
+
+    0.7535
+
+
+nts =
+
+   151
+
+
+after_center =
+
+    2.0000    2.0016    1.9986
+
+
+true_area =
+
+   12.8059
+
+
+true_vol =
+
+    4.1996
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2209
+
+
+tot_xdisp =
+
+    0.7584
+
+
+nts =
+
+   152
+
+
+after_center =
+
+    2.0000    2.0016    1.9985
+
+
+true_area =
+
+   12.8089
+
+
+true_vol =
+
+    4.1999
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2208
+
+
+tot_xdisp =
+
+    0.7634
+
+
+nts =
+
+   153
+
+
+after_center =
+
+    2.0000    2.0017    1.9985
+
+
+true_area =
+
+   12.8119
+
+
+true_vol =
+
+    4.2001
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2206
+
+
+tot_xdisp =
+
+    0.7684
+
+
+nts =
+
+   154
+
+
+after_center =
+
+    2.0000    2.0017    1.9984
+
+
+true_area =
+
+   12.8149
+
+
+true_vol =
+
+    4.2004
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2204
+
+
+tot_xdisp =
+
+    0.7734
+
+
+nts =
+
+   155
+
+
+after_center =
+
+    2.0000    2.0017    1.9984
+
+
+true_area =
+
+   12.8180
+
+
+true_vol =
+
+    4.2007
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2202
+
+
+tot_xdisp =
+
+    0.7784
+
+
+nts =
+
+   156
+
+
+after_center =
+
+    2.0000    2.0018    1.9983
+
+
+true_area =
+
+   12.8210
+
+
+true_vol =
+
+    4.2009
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2201
+
+
+tot_xdisp =
+
+    0.7833
+
+
+nts =
+
+   157
+
+
+after_center =
+
+    2.0000    2.0018    1.9983
+
+
+true_area =
+
+   12.8241
+
+
+true_vol =
+
+    4.2012
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2199
+
+
+tot_xdisp =
+
+    0.7883
+
+
+nts =
+
+   158
+
+
+after_center =
+
+    2.0000    2.0018    1.9982
+
+
+true_area =
+
+   12.8272
+
+
+true_vol =
+
+    4.2015
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2197
+
+
+tot_xdisp =
+
+    0.7933
+
+
+nts =
+
+   159
+
+
+after_center =
+
+    2.0000    2.0019    1.9982
+
+
+true_area =
+
+   12.8303
+
+
+true_vol =
+
+    4.2018
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2196
+
+
+tot_xdisp =
+
+    0.7983
+
+
+nts =
+
+   160
+
+
+after_center =
+
+    2.0000    2.0019    1.9982
+
+
+true_area =
+
+   12.8334
+
+
+true_vol =
+
+    4.2020
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2194
+
+
+tot_xdisp =
+
+    0.8032
+
+
+nts =
+
+   161
+
+
+after_center =
+
+    2.0000    2.0020    1.9981
+
+
+true_area =
+
+   12.8365
+
+
+true_vol =
+
+    4.2023
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2192
+
+
+tot_xdisp =
+
+    0.8082
+
+
+nts =
+
+   162
+
+
+after_center =
+
+    2.0000    2.0020    1.9981
+
+
+true_area =
+
+   12.8396
+
+
+true_vol =
+
+    4.2026
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2190
+
+
+tot_xdisp =
+
+    0.8132
+
+
+nts =
+
+   163
+
+
+after_center =
+
+    2.0000    2.0020    1.9980
+
+
+true_area =
+
+   12.8428
+
+
+true_vol =
+
+    4.2029
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2189
+
+
+tot_xdisp =
+
+    0.8182
+
+
+nts =
+
+   164
+
+
+after_center =
+
+    2.0000    2.0021    1.9980
+
+
+true_area =
+
+   12.8459
+
+
+true_vol =
+
+    4.2032
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2187
+
+
+tot_xdisp =
+
+    0.8231
+
+
+nts =
+
+   165
+
+
+after_center =
+
+    2.0000    2.0021    1.9979
+
+
+true_area =
+
+   12.8491
+
+
+true_vol =
+
+    4.2035
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2185
+
+
+tot_xdisp =
+
+    0.8281
+
+
+nts =
+
+   166
+
+
+after_center =
+
+    2.0000    2.0022    1.9979
+
+
+true_area =
+
+   12.8523
+
+
+true_vol =
+
+    4.2038
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2183
+
+
+tot_xdisp =
+
+    0.8331
+
+
+nts =
+
+   167
+
+
+after_center =
+
+    2.0000    2.0022    1.9978
+
+
+true_area =
+
+   12.8554
+
+
+true_vol =
+
+    4.2041
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2182
+
+
+tot_xdisp =
+
+    0.8381
+
+
+nts =
+
+   168
+
+
+after_center =
+
+    2.0000    2.0022    1.9978
+
+
+true_area =
+
+   12.8586
+
+
+true_vol =
+
+    4.2044
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2180
+
+
+tot_xdisp =
+
+    0.8430
+
+
+nts =
+
+   169
+
+
+after_center =
+
+    2.0000    2.0023    1.9977
+
+
+true_area =
+
+   12.8618
+
+
+true_vol =
+
+    4.2048
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2178
+
+
+tot_xdisp =
+
+    0.8480
+
+
+nts =
+
+   170
+
+
+after_center =
+
+    2.0000    2.0023    1.9977
+
+
+true_area =
+
+   12.8650
+
+
+true_vol =
+
+    4.2051
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2176
+
+
+tot_xdisp =
+
+    0.8530
+
+
+nts =
+
+   171
+
+
+after_center =
+
+    2.0000    2.0024    1.9977
+
+
+true_area =
+
+   12.8683
+
+
+true_vol =
+
+    4.2054
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2175
+
+
+tot_xdisp =
+
+    0.8580
+
+
+nts =
+
+   172
+
+
+after_center =
+
+    2.0000    2.0024    1.9976
+
+
+true_area =
+
+   12.8715
+
+
+true_vol =
+
+    4.2057
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2173
+
+
+tot_xdisp =
+
+    0.8629
+
+
+nts =
+
+   173
+
+
+after_center =
+
+    2.0000    2.0025    1.9976
+
+
+true_area =
+
+   12.8747
+
+
+true_vol =
+
+    4.2061
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2171
+
+
+tot_xdisp =
+
+    0.8679
+
+
+nts =
+
+   174
+
+
+after_center =
+
+    2.0000    2.0025    1.9975
+
+
+true_area =
+
+   12.8780
+
+
+true_vol =
+
+    4.2064
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2170
+
+
+tot_xdisp =
+
+    0.8729
+
+
+nts =
+
+   175
+
+
+after_center =
+
+    2.0000    2.0025    1.9975
+
+
+true_area =
+
+   12.8813
+
+
+true_vol =
+
+    4.2067
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2168
+
+
+tot_xdisp =
+
+    0.8779
+
+
+nts =
+
+   176
+
+
+after_center =
+
+    2.0000    2.0026    1.9974
+
+
+true_area =
+
+   12.8845
+
+
+true_vol =
+
+    4.2071
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2166
+
+
+tot_xdisp =
+
+    0.8829
+
+
+nts =
+
+   177
+
+
+after_center =
+
+    2.0000    2.0026    1.9974
+
+
+true_area =
+
+   12.8878
+
+
+true_vol =
+
+    4.2074
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2164
+
+
+tot_xdisp =
+
+    0.8878
+
+
+nts =
+
+   178
+
+
+after_center =
+
+    2.0000    2.0026    1.9974
+
+
+true_area =
+
+   12.8911
+
+
+true_vol =
+
+    4.2078
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2163
+
+
+tot_xdisp =
+
+    0.8928
+
+
+nts =
+
+   179
+
+
+after_center =
+
+    2.0000    2.0027    1.9973
+
+
+true_area =
+
+   12.8944
+
+
+true_vol =
+
+    4.2081
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2161
+
+
+tot_xdisp =
+
+    0.8978
+
+
+nts =
+
+   180
+
+
+after_center =
+
+    2.0000    2.0027    1.9973
+
+
+true_area =
+
+   12.8977
+
+
+true_vol =
+
+    4.2085
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2159
+
+
+tot_xdisp =
+
+    0.9028
+
+
+nts =
+
+   181
+
+
+after_center =
+
+    2.0000    2.0027    1.9972
+
+
+true_area =
+
+   12.9011
+
+
+true_vol =
+
+    4.2089
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2158
+
+
+tot_xdisp =
+
+    0.9078
+
+
+nts =
+
+   182
+
+
+after_center =
+
+    2.0000    2.0028    1.9972
+
+
+true_area =
+
+   12.9044
+
+
+true_vol =
+
+    4.2093
+
+Starting reparameterization
+
+psi_ =
+
+    0.2156
+
+
+tot_xdisp =
+
+    0.9128
+
+
+nts =
+
+   183
+
+
+after_center =
+
+    2.0000    2.0028    1.9972
+
+
+true_area =
+
+   12.9077
+
+
+true_vol =
+
+    4.2096
+
+Starting reparameterization
+
+psi_ =
+
+    0.2154
+
+
+tot_xdisp =
+
+    0.9178
+
+
+nts =
+
+   184
+
+
+after_center =
+
+    2.0000    2.0028    1.9971
+
+
+true_area =
+
+   12.9111
+
+
+true_vol =
+
+    4.2100
+
+Starting reparameterization
+
+psi_ =
+
+    0.2153
+
+
+tot_xdisp =
+
+    0.9228
+
+
+nts =
+
+   185
+
+
+after_center =
+
+    2.0000    2.0028    1.9971
+
+
+true_area =
+
+   12.9144
+
+
+true_vol =
+
+    4.2104
+
+Starting reparameterization
+
+psi_ =
+
+    0.2151
+
+
+tot_xdisp =
+
+    0.9278
+
+
+nts =
+
+   186
+
+
+after_center =
+
+    2.0000    2.0029    1.9971
+
+
+true_area =
+
+   12.9178
+
+
+true_vol =
+
+    4.2108
+
+Starting reparameterization
+
+psi_ =
+
+    0.2149
+
+
+tot_xdisp =
+
+    0.9328
+
+
+nts =
+
+   187
+
+
+after_center =
+
+    2.0000    2.0029    1.9971
+
+
+true_area =
+
+   12.9211
+
+
+true_vol =
+
+    4.2112
+
+Starting reparameterization
+
+psi_ =
+
+    0.2148
+
+
+tot_xdisp =
+
+    0.9378
+
+
+nts =
+
+   188
+
+
+after_center =
+
+    2.0000    2.0029    1.9970
+
+
+true_area =
+
+   12.9245
+
+
+true_vol =
+
+    4.2116
+
+Starting reparameterization
+
+psi_ =
+
+    0.2146
+
+
+tot_xdisp =
+
+    0.9428
+
+
+nts =
+
+   189
+
+
+after_center =
+
+    2.0000    2.0029    1.9970
+
+
+true_area =
+
+   12.9279
+
+
+true_vol =
+
+    4.2120
+
+Starting reparameterization
+
+psi_ =
+
+    0.2144
+
+
+tot_xdisp =
+
+    0.9478
+
+
+nts =
+
+   190
+
+
+after_center =
+
+    2.0000    2.0029    1.9970
+
+
+true_area =
+
+   12.9313
+
+
+true_vol =
+
+    4.2124
+
+Starting reparameterization
+
+psi_ =
+
+    0.2143
+
+
+tot_xdisp =
+
+    0.9529
+
+
+nts =
+
+   191
+
+
+after_center =
+
+    2.0000    2.0030    1.9970
+
+
+true_area =
+
+   12.9347
+
+
+true_vol =
+
+    4.2128
+
+Starting reparameterization
+
+psi_ =
+
+    0.2141
+
+
+tot_xdisp =
+
+    0.9579
+
+
+nts =
+
+   192
+
+
+after_center =
+
+    2.0000    2.0030    1.9971
+
+
+true_area =
+
+   12.9381
+
+
+true_vol =
+
+    4.2132
+
+Starting reparameterization
+
+psi_ =
+
+    0.2139
+
+
+tot_xdisp =
+
+    0.9629
+
+
+nts =
+
+   193
+
+
+after_center =
+
+    2.0000    2.0030    1.9971
+
+
+true_area =
+
+   12.9415
+
+
+true_vol =
+
+    4.2137
+
+Starting reparameterization
+
+psi_ =
+
+    0.2138
+
+
+tot_xdisp =
+
+    0.9680
+
+
+nts =
+
+   194
+
+
+after_center =
+
+    2.0000    2.0029    1.9971
+
+
+true_area =
+
+   12.9449
+
+
+true_vol =
+
+    4.2141
+
+Starting reparameterization
+
+psi_ =
+
+    0.2136
+
+
+tot_xdisp =
+
+    0.9730
+
+
+nts =
+
+   195
+
+
+after_center =
+
+    2.0000    2.0029    1.9971
+
+
+true_area =
+
+   12.9484
+
+
+true_vol =
+
+    4.2145
+
+Starting reparameterization
+
+psi_ =
+
+    0.2135
+
+
+tot_xdisp =
+
+    0.9781
+
+
+nts =
+
+   196
+
+
+after_center =
+
+    2.0000    2.0029    1.9971
+
+
+true_area =
+
+   12.9518
+
+
+true_vol =
+
+    4.2149
+
+Starting reparameterization
+
+psi_ =
+
+    0.2133
+
+
+tot_xdisp =
+
+    0.9831
+
+
+nts =
+
+   197
+
+
+after_center =
+
+    2.0000    2.0028    1.9972
+
+
+true_area =
+
+   12.9553
+
+
+true_vol =
+
+    4.2153
+
+Starting reparameterization
+
+psi_ =
+
+    0.2132
+
+
+tot_xdisp =
+
+    0.9882
+
+
+nts =
+
+   198
+
+
+after_center =
+
+    2.0000    2.0028    1.9972
+
+
+true_area =
+
+   12.9587
+
+
+true_vol =
+
+    4.2158
+
+Starting reparameterization
+
+psi_ =
+
+    0.2130
+
+
+tot_xdisp =
+
+    0.9933
+
+
+nts =
+
+   199
+
+
+after_center =
+
+    2.0000    2.0027    1.9973
+
+
+true_area =
+
+   12.9622
+
+
+true_vol =
+
+    4.2162
+
+Starting reparameterization
+
+psi_ =
+
+    0.2129
+
+
+tot_xdisp =
+
+    0.9984
+
+
+nts =
+
+   200
+
+
+after_center =
+
+    2.0000    2.0026    1.9973
+
+
+true_area =
+
+   12.9657
+
+
+true_vol =
+
+    4.2166
+
+Starting reparameterization
+
+psi_ =
+
+    0.2128
+
+
+tot_xdisp =
+
+    1.0035
+
+
+nts =
+
+   201
+
+
+after_center =
+
+    2.0000    2.0025    1.9974
+
+
+true_area =
+
+   12.9692
+
+
+true_vol =
+
+    4.2171
+
+Starting reparameterization
+
+psi_ =
+
+    0.2126
+
+
+tot_xdisp =
+
+    1.0086
+
+
+nts =
+
+   202
+
+
+after_center =
+
+    2.0000    2.0024    1.9974
+
+
+true_area =
+
+   12.9727
+
+
+true_vol =
+
+    4.2175
+
+Starting reparameterization
+
+psi_ =
+
+    0.2125
+
+
+tot_xdisp =
+
+    1.0137
+
+
+nts =
+
+   203
+
+
+after_center =
+
+    2.0000    2.0023    1.9975
+
+
+true_area =
+
+   12.9762
+
+
+true_vol =
+
+    4.2180
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2124
+
+
+tot_xdisp =
+
+    1.0188
+
+
+nts =
+
+   204
+
+
+after_center =
+
+    2.0000    2.0022    1.9976
+
+
+true_area =
+
+   12.9798
+
+
+true_vol =
+
+    4.2184
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2123
+
+
+tot_xdisp =
+
+    1.0239
+
+
+nts =
+
+   205
+
+
+after_center =
+
+    2.0000    2.0021    1.9976
+
+
+true_area =
+
+   12.9833
+
+
+true_vol =
+
+    4.2189
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2121
+
+
+tot_xdisp =
+
+    1.0291
+
+
+nts =
+
+   206
+
+
+after_center =
+
+    2.0000    2.0020    1.9977
+
+
+true_area =
+
+   12.9869
+
+
+true_vol =
+
+    4.2193
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2120
+
+
+tot_xdisp =
+
+    1.0342
+
+
+nts =
+
+   207
+
+
+after_center =
+
+    2.0000    2.0018    1.9978
+
+
+true_area =
+
+   12.9905
+
+
+true_vol =
+
+    4.2198
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2119
+
+
+tot_xdisp =
+
+    1.0393
+
+
+nts =
+
+   208
+
+
+after_center =
+
+    2.0000    2.0017    1.9979
+
+
+true_area =
+
+   12.9941
+
+
+true_vol =
+
+    4.2203
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2118
+
+
+tot_xdisp =
+
+    1.0445
+
+
+nts =
+
+   209
+
+
+after_center =
+
+    2.0000    2.0016    1.9980
+
+
+true_area =
+
+   12.9977
+
+
+true_vol =
+
+    4.2208
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2117
+
+
+tot_xdisp =
+
+    1.0496
+
+
+nts =
+
+   210
+
+
+after_center =
+
+    2.0000    2.0014    1.9981
+
+
+true_area =
+
+   13.0013
+
+
+true_vol =
+
+    4.2213
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2115
+
+
+tot_xdisp =
+
+    1.0547
+
+
+nts =
+
+   211
+
+
+after_center =
+
+    2.0000    2.0013    1.9981
+
+
+true_area =
+
+   13.0050
+
+
+true_vol =
+
+    4.2218
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2114
+
+
+tot_xdisp =
+
+    1.0599
+
+
+nts =
+
+   212
+
+
+after_center =
+
+    2.0000    2.0012    1.9982
+
+
+true_area =
+
+   13.0086
+
+
+true_vol =
+
+    4.2223
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2113
+
+
+tot_xdisp =
+
+    1.0650
+
+
+nts =
+
+   213
+
+
+after_center =
+
+    2.0000    2.0010    1.9983
+
+
+true_area =
+
+   13.0123
+
+
+true_vol =
+
+    4.2228
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2112
+
+
+tot_xdisp =
+
+    1.0702
+
+
+nts =
+
+   214
+
+
+after_center =
+
+    2.0000    2.0009    1.9984
+
+
+true_area =
+
+   13.0161
+
+
+true_vol =
+
+    4.2233
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2111
+
+
+tot_xdisp =
+
+    1.0753
+
+
+nts =
+
+   215
+
+
+after_center =
+
+    2.0000    2.0007    1.9985
+
+
+true_area =
+
+   13.0198
+
+
+true_vol =
+
+    4.2238
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2110
+
+
+tot_xdisp =
+
+    1.0805
+
+
+nts =
+
+   216
+
+
+after_center =
+
+    2.0000    2.0006    1.9986
+
+
+true_area =
+
+   13.0235
+
+
+true_vol =
+
+    4.2243
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2109
+
+
+tot_xdisp =
+
+    1.0857
+
+
+nts =
+
+   217
+
+
+after_center =
+
+    2.0000    2.0004    1.9986
+
+
+true_area =
+
+   13.0272
+
+
+true_vol =
+
+    4.2248
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2107
+
+
+tot_xdisp =
+
+    1.0910
+
+
+nts =
+
+   218
+
+
+after_center =
+
+    2.0000    2.0002    1.9987
+
+
+true_area =
+
+   13.0310
+
+
+true_vol =
+
+    4.2253
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2106
+
+
+tot_xdisp =
+
+    1.0963
+
+
+nts =
+
+   219
+
+
+after_center =
+
+    2.0000    2.0001    1.9988
+
+
+true_area =
+
+   13.0347
+
+
+true_vol =
+
+    4.2258
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2106
+
+
+tot_xdisp =
+
+    1.1016
+
+
+nts =
+
+   220
+
+
+after_center =
+
+    2.0000    1.9999    1.9988
+
+
+true_area =
+
+   13.0384
+
+
+true_vol =
+
+    4.2263
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2105
+
+
+tot_xdisp =
+
+    1.1069
+
+
+nts =
+
+   221
+
+
+after_center =
+
+    2.0000    1.9997    1.9989
+
+
+true_area =
+
+   13.0422
+
+
+true_vol =
+
+    4.2268
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2104
+
+
+tot_xdisp =
+
+    1.1123
+
+
+nts =
+
+   222
+
+
+after_center =
+
+    2.0000    1.9995    1.9990
+
+
+true_area =
+
+   13.0459
+
+
+true_vol =
+
+    4.2272
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2103
+
+
+tot_xdisp =
+
+    1.1177
+
+
+nts =
+
+   223
+
+
+after_center =
+
+    2.0000    1.9993    1.9990
+
+
+true_area =
+
+   13.0497
+
+
+true_vol =
+
+    4.2277
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2102
+
+
+tot_xdisp =
+
+    1.1231
+
+
+nts =
+
+   224
+
+
+after_center =
+
+    2.0000    1.9991    1.9991
+
+
+true_area =
+
+   13.0535
+
+
+true_vol =
+
+    4.2282
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2102
+
+
+tot_xdisp =
+
+    1.1286
+
+
+nts =
+
+   225
+
+
+after_center =
+
+    2.0000    1.9989    1.9993
+
+
+true_area =
+
+   13.0573
+
+
+true_vol =
+
+    4.2286
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2101
+
+
+tot_xdisp =
+
+    1.1341
+
+
+nts =
+
+   226
+
+
+after_center =
+
+    2.0000    1.9987    1.9994
+
+
+true_area =
+
+   13.0611
+
+
+true_vol =
+
+    4.2291
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2101
+
+
+tot_xdisp =
+
+    1.1397
+
+
+nts =
+
+   227
+
+
+after_center =
+
+    2.0000    1.9985    1.9995
+
+
+true_area =
+
+   13.0650
+
+
+true_vol =
+
+    4.2295
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2100
+
+
+tot_xdisp =
+
+    1.1453
+
+
+nts =
+
+   228
+
+
+after_center =
+
+    2.0000    1.9982    1.9997
+
+
+true_area =
+
+   13.0689
+
+
+true_vol =
+
+    4.2299
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2100
+
+
+tot_xdisp =
+
+    1.1510
+
+
+nts =
+
+   229
+
+
+after_center =
+
+    2.0000    1.9980    1.9999
+
+
+true_area =
+
+   13.0728
+
+
+true_vol =
+
+    4.2303
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2100
+
+
+tot_xdisp =
+
+    1.1568
+
+
+nts =
+
+   230
+
+
+after_center =
+
+    2.0000    1.9978    2.0001
+
+
+true_area =
+
+   13.0768
+
+
+true_vol =
+
+    4.2306
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2100
+
+
+tot_xdisp =
+
+    1.1625
+
+
+nts =
+
+   231
+
+
+after_center =
+
+    2.0000    1.9976    2.0004
+
+
+true_area =
+
+   13.0807
+
+
+true_vol =
+
+    4.2310
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2099
+
+
+tot_xdisp =
+
+    1.1680
+
+
+nts =
+
+   232
+
+
+after_center =
+
+    2.0000    1.9975    2.0006
+
+
+true_area =
+
+   13.0847
+
+
+true_vol =
+
+    4.2315
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2099
+
+
+tot_xdisp =
+
+    1.1736
+
+
+nts =
+
+   233
+
+
+after_center =
+
+    2.0000    1.9975    2.0008
+
+
+true_area =
+
+   13.0886
+
+
+true_vol =
+
+    4.2320
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2098
+
+
+tot_xdisp =
+
+    1.1794
+
+
+nts =
+
+   234
+
+
+after_center =
+
+    2.0000    1.9974    2.0011
+
+
+true_area =
+
+   13.0927
+
+
+true_vol =
+
+    4.2327
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2098
+
+
+tot_xdisp =
+
+    1.1852
+
+
+nts =
+
+   235
+
+
+after_center =
+
+    2.0000    1.9973    2.0015
+
+
+true_area =
+
+   13.0968
+
+
+true_vol =
+
+    4.2333
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2097
+
+
+tot_xdisp =
+
+    1.1912
+
+
+nts =
+
+   236
+
+
+after_center =
+
+    2.0000    1.9973    2.0018
+
+
+true_area =
+
+   13.1009
+
+
+true_vol =
+
+    4.2340
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2097
+
+
+tot_xdisp =
+
+    1.1972
+
+
+nts =
+
+   237
+
+
+after_center =
+
+    2.0000    1.9974    2.0023
+
+
+true_area =
+
+   13.1051
+
+
+true_vol =
+
+    4.2347
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2097
+
+
+tot_xdisp =
+
+    1.2033
+
+
+nts =
+
+   238
+
+
+after_center =
+
+    2.0000    1.9974    2.0028
+
+
+true_area =
+
+   13.1093
+
+
+true_vol =
+
+    4.2354
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2097
+
+
+tot_xdisp =
+
+    1.2095
+
+
+nts =
+
+   239
+
+
+after_center =
+
+    2.0000    1.9976    2.0033
+
+
+true_area =
+
+   13.1136
+
+
+true_vol =
+
+    4.2362
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2097
+
+
+tot_xdisp =
+
+    1.2156
+
+
+nts =
+
+   240
+
+
+after_center =
+
+    2.0000    1.9977    2.0040
+
+
+true_area =
+
+   13.1184
+
+
+true_vol =
+
+    4.2370
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2097
+
+
+tot_xdisp =
+
+    1.2219
+
+
+nts =
+
+   241
+
+
+after_center =
+
+    2.0000    1.9979    2.0048
+
+
+true_area =
+
+   13.1233
+
+
+true_vol =
+
+    4.2379
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2098
+
+
+tot_xdisp =
+
+    1.2286
+
+
+nts =
+
+   242
+
+
+after_center =
+
+    2.0000    1.9981    2.0057
+
+
+true_area =
+
+   13.1279
+
+
+true_vol =
+
+    4.2388
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2099
+
+
+tot_xdisp =
+
+    1.2355
+
+
+nts =
+
+   243
+
+
+after_center =
+
+    2.0000    1.9984    2.0067
+
+
+true_area =
+
+   13.1325
+
+
+true_vol =
+
+    4.2396
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2100
+
+
+tot_xdisp =
+
+    1.2427
+
+
+nts =
+
+   244
+
+
+after_center =
+
+    2.0000    1.9988    2.0079
+
+
+true_area =
+
+   13.1374
+
+
+true_vol =
+
+    4.2404
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2102
+
+
+tot_xdisp =
+
+    1.2503
+
+
+nts =
+
+   245
+
+
+after_center =
+
+    2.0000    1.9992    2.0092
+
+
+true_area =
+
+   13.1428
+
+
+true_vol =
+
+    4.2413
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2104
+
+
+tot_xdisp =
+
+    1.2583
+
+
+nts =
+
+   246
+
+
+after_center =
+
+    2.0000    1.9996    2.0106
+
+
+true_area =
+
+   13.1489
+
+
+true_vol =
+
+    4.2421
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2108
+
+
+tot_xdisp =
+
+    1.2670
+
+
+nts =
+
+   247
+
+
+after_center =
+
+    2.0000    1.9998    2.0122
+
+
+true_area =
+
+   13.1557
+
+
+true_vol =
+
+    4.2421
+
+Starting reparameterization
+GRAD DECAY COMPLETE
+
+psi_ =
+
+    0.2113
+
+
+tot_xdisp =
+
+    1.2766
+
+
+nts =
+
+   248
+
+
+after_center =
+
+    2.0000    2.0002    2.0147
+
+
+true_area =
+
+   13.1626
+
+
+true_vol =
+
+    4.2428
+
+Starting reparameterization
+
+psi_ =
+
+    0.2119
+
+
+tot_xdisp =
+
+    1.2864
+
+
+nts =
+
+   249
+
+
+after_center =
+
+    2.0000    2.0009    2.0178
+
+
+true_area =
+
+   13.1707
+
+
+true_vol =
+
+    4.2436
+
+Starting reparameterization
+
+psi_ =
+
+    0.2126
+
+
+tot_xdisp =
+
+    1.2974
+
+
+nts =
+
+   250
+
+
+after_center =
+
+    2.0000    2.0017    2.0214
+
+
+true_area =
+
+   13.1806
+
+
+true_vol =
+
+    4.2440
+
+Starting reparameterization
+
+psi_ =
+
+    0.2136
+
+
+tot_xdisp =
+
+    1.3102
+
+
+nts =
+
+   251
+
+
+after_center =
+
+    2.0000    2.0028    2.0257
+
+
+true_area =
+
+   13.1926
+
+
+true_vol =
+
+    4.2452
+
+Starting reparameterization
+
+psi_ =
+
+    0.2150
+
+
+tot_xdisp =
+
+    1.3264
+
+
+nts =
+
+   252
+
+
+after_center =
+
+    2.0000    2.0044    2.0325
+
+
+true_area =
+
+   13.2114
+
+
+true_vol =
+
+    4.2468
+
+Starting reparameterization
+
+psi_ =
+
+    0.2173
+
+
+tot_xdisp =
+
+    1.3500
+
+
+nts =
+
+   253
+
+
+after_center =
+
+    2.0000    2.0052    2.0421
+
+
+true_area =
+
+   13.2619
+
+
+true_vol =
+
+    4.2494
+
+Starting reparameterization
+
+psi_ =
+
+    0.2219
+
+
+tot_xdisp =
+
+    1.3740
+
+
+nts =
+
+   254
+
+
+after_center =
+
+    2.0000    1.9958    2.0486
+
+
+true_area =
+
+   13.4234
+
+
+true_vol =
+
+    4.2652
+
+Starting reparameterization
+
+psi_ =
+
+    0.2276
+
+
+tot_xdisp =
+
+    1.4010
+
+
+nts =
+
+   255
+
+
+after_center =
+
+    2.0000    2.6362    2.0151
+
+
+true_area =
+
+   22.7024
+
+
+true_vol =
+
+    6.8366
+
+Starting reparameterization
+
+psi_ =
+
+    0.3655
+
+
+tot_xdisp =
+
+    3.9734
+
+
+nts =
+
+   256
+
+
+after_center =
+
+    2.0000    5.0145  -11.9660
+
+
+true_area =
+
+   2.4092e+04
+
+
+true_vol =
+
+  -1.0116e+04
+
+Starting reparameterization
+
+psi_ =
+
+    0.3987
+
+
+tot_xdisp =
+
+   3.9204e+11
+
+
+nts =
+
+   257
+
+
+after_center =
+
+   1.0e+12 *
+
+    0.0000    1.2841   -0.0489
+
+
+true_area =
+
+   6.7685e+24
+
+
+true_vol =
+
+   1.0749e+35
+
+Starting reparameterization
+
+psi_ =
+
+    0.4777
+
+
+tot_xdisp =
+
+   3.4595e+73
+
+
+nts =
+
+   258
+
+
+after_center =
+
+   1.0e+73 *
+
+    0.0000   -1.3632   -1.6513
+
+
+true_area =
+
+  7.3964e+147
+
+
+true_vol =
+
+ -6.7643e+219
+
+Starting reparameterization
+>> 

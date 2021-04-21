@@ -1,0 +1,23 @@
+ function [] = EvolveSurface()
+ |
+{Error: Function definition not supported in this context. Create functions in
+code file.
+} 
+{Unrecognized function or variable 'getNonCompactFDmatrix2D'.
+
+Error in Patch (line 154)
+         [obj.Du, obj.Dv] = getNonCompactFDmatrix2D(obj.NU, obj.NV, obj.h_u,
+         obj.h_v, 1, obj.ooa);
+
+Error in standardSpherePatch (line 4)
+p = Patch(m, n, R, numPatch, []);
+} 
+{Index in position 2 exceeds array bounds.
+
+Error in bgshearFlow (line 4)
+    u_inf(:, 1) = shear_rate*x(:, 2);
+} 
+ end
+ |
+{Error: Illegal use of reserved keyword "end".
+} 

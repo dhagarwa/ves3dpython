@@ -1,0 +1,11 @@
+#!/bin/bash
+#SBATCH -J vesjob              # job name
+#SBATCH -e jobresults/vesjob4.err       # error file name 
+#SBATCH -o jobresults/vesjob4.out       # output file name 
+#SBATCH -N 1                      # request 1 node
+#SBATCH -n 1                    # request all 16 cores 
+#SBATCH -t 01:20:00               # designate max run time 
+#SBATCH -p rtx             # designate queue 
+#SBATCH -A CCR20001
+module load matlab
+matlab -nodesktop -nodisplay -nosplash < Run.m

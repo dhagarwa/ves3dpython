@@ -1,0 +1,12 @@
+{Error using eig
+Input matrix contains NaN or Inf.
+
+Error in Patch/shearForce (line 523)
+          [EV_ii, D_ii] = eig(V_ii);
+
+Error in Surface/interfacialForce (line 46)
+              f_ii = patch.shearForce(obj.Es, obj.Ed);
+
+Error in EvolveSurface (line 57)
+        S.interfacialForce();
+} 

@@ -1,0 +1,12 @@
+{Error using eigs>fullEig (line 1022)
+Input matrix is badly conditioned. It might contain Inf or NaN.
+
+Error in eigs (line 111)
+        [V, D] = fullEig(A, B, n, k, cholB, permB, scaleB, eigsSigma);
+
+Error in inclination (line 5)
+        [V,D] = eigs(J, 1, 'SM');
+
+Error in EvolveSurfaceReparam (line 73)
+        psi_ = inclination(S.getInertia())/pi
+} 

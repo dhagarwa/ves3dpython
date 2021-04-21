@@ -1,0 +1,991 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2020 The MathWorks, Inc.
+                  R2020a (9.8.0.1323502) 64-bit (glnxa64)
+                             February 25, 2020
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+>> >> >> 
+m =
+
+    15
+
+in sphere patch
+in sphere patch
+in sphere patch
+in sphere patch
+in sphere patch
+in sphere patch
+
+ini_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.0050
+
+
+nts =
+
+     1
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.0100
+
+
+nts =
+
+     2
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.0150
+
+
+nts =
+
+     3
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.0200
+
+
+nts =
+
+     4
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.0250
+
+
+nts =
+
+     5
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.0300
+
+
+nts =
+
+     6
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.0350
+
+
+nts =
+
+     7
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.0400
+
+
+nts =
+
+     8
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.0450
+
+
+nts =
+
+     9
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.0500
+
+
+nts =
+
+    10
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.0550
+
+
+nts =
+
+    11
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.0600
+
+
+nts =
+
+    12
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.0650
+
+
+nts =
+
+    13
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.0700
+
+
+nts =
+
+    14
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.0750
+
+
+nts =
+
+    15
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.0800
+
+
+nts =
+
+    16
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.0850
+
+
+nts =
+
+    17
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.0900
+
+
+nts =
+
+    18
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.0950
+
+
+nts =
+
+    19
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.1000
+
+
+nts =
+
+    20
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.1050
+
+
+nts =
+
+    21
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.1100
+
+
+nts =
+
+    22
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.1150
+
+
+nts =
+
+    23
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.1200
+
+
+nts =
+
+    24
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.1250
+
+
+nts =
+
+    25
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.1300
+
+
+nts =
+
+    26
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.1350
+
+
+nts =
+
+    27
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.1400
+
+
+nts =
+
+    28
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.1450
+
+
+nts =
+
+    29
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.1500
+
+
+nts =
+
+    30
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.1550
+
+
+nts =
+
+    31
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.1600
+
+
+nts =
+
+    32
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.1650
+
+
+nts =
+
+    33
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.1700
+
+
+nts =
+
+    34
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.1750
+
+
+nts =
+
+    35
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.1800
+
+
+nts =
+
+    36
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.1850
+
+
+nts =
+
+    37
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.1900
+
+
+nts =
+
+    38
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.1950
+
+
+nts =
+
+    39
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.2000
+
+
+nts =
+
+    40
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.2050
+
+
+nts =
+
+    41
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.2100
+
+
+nts =
+
+    42
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.2150
+
+
+nts =
+
+    43
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.2200
+
+
+nts =
+
+    44
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.2250
+
+
+nts =
+
+    45
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+tot_xdisp =
+
+    0.2300
+
+
+nts =
+
+    46
+
+
+after_center =
+
+    2.0000    1.9999    2.0000
+
+
+tot_xdisp =
+
+    0.2350
+
+
+nts =
+
+    47
+
+
+after_center =
+
+    2.0000    1.9999    2.0000
+
+
+tot_xdisp =
+
+    0.2400
+
+
+nts =
+
+    48
+
+
+after_center =
+
+    2.0000    1.9999    2.0000
+
+
+tot_xdisp =
+
+    0.2450
+
+
+nts =
+
+    49
+
+
+after_center =
+
+    2.0000    1.9999    2.0000
+
+
+tot_xdisp =
+
+    0.2499
+
+
+nts =
+
+    50
+
+
+after_center =
+
+    2.0000    1.9999    2.0000
+
+
+tot_xdisp =
+
+    0.2549
+
+
+nts =
+
+    51
+
+
+after_center =
+
+    2.0000    1.9998    2.0000
+
+
+tot_xdisp =
+
+    0.2598
+
+
+nts =
+
+    52
+
+
+after_center =
+
+    2.0000    1.9997    2.0000
+
+
+tot_xdisp =
+
+    0.2647
+
+
+nts =
+
+    53
+
+
+after_center =
+
+    2.0000    1.9996    2.0000
+
+
+tot_xdisp =
+
+    0.2696
+
+
+nts =
+
+    54
+
+
+after_center =
+
+    2.0000    1.9994    2.0001
+
+
+tot_xdisp =
+
+    0.2743
+
+
+nts =
+
+    55
+
+
+after_center =
+
+    2.0000    1.9992    2.0002
+
+
+tot_xdisp =
+
+    0.2788
+
+
+nts =
+
+    56
+
+
+after_center =
+
+    2.0000    1.9987    2.0004
+
+
+tot_xdisp =
+
+    0.2823
+
+
+nts =
+
+    57
+
+
+after_center =
+
+    2.0000    1.9973    2.0009
+
+
+tot_xdisp =
+
+    0.2827
+
+
+nts =
+
+    58
+
+
+after_center =
+
+    2.0000    1.9925    2.0018
+
+
+tot_xdisp =
+
+    0.2955
+
+
+nts =
+
+    59
+
+
+after_center =
+
+    2.0000    1.9793    2.0201
+
+
+tot_xdisp =
+
+    0.3100
+
+
+nts =
+
+    60
+
+
+after_center =
+
+    2.0000    1.9646    2.0419
+
+
+tot_xdisp =
+
+    0.4601
+
+
+nts =
+
+    61
+
+
+after_center =
+
+    2.0000    7.3181    3.3469
+
+
+tot_xdisp =
+
+   4.4293e+08
+
+
+nts =
+
+    62
+
+
+after_center =
+
+   1.0e+08 *
+
+    0.0000    2.4795   -9.8950
+
+
+tot_xdisp =
+
+   8.3946e+54
+
+
+nts =
+
+    63
+
+
+after_center =
+
+   1.0e+54 *
+
+   -0.0000    8.3579    5.1342
+
+
+tot_xdisp =
+
+   NaN
+
+
+nts =
+
+    64
+
+
+after_center =
+
+   NaN   NaN   NaN
+
+>> 

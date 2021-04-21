@@ -154,7 +154,7 @@ classdef Surface < handle
                   if kk ~= patch.numPatch
                      %find out u-v coordinates in patch p 
                      
-                      node = patchParameteriseSymm(r0, patch, p);
+                      node = patchParameterise(r0, patch, p);
                       patch.links(jj, 2*(kk-1) + 1:2*kk) = node;
                   end
                end
@@ -174,7 +174,7 @@ classdef Surface < handle
                   if kk ~= patch.numPatch
                      %find out u-v coordinates in patch p 
                      
-                      node = patchParameteriseSymm(r0, patch, p);
+                      node = patchParameterise(r0, patch, p);
                       patch.links_(jj, 2*(kk-1) + 1:2*kk) = node;
                   end
                end
@@ -196,7 +196,7 @@ classdef Surface < handle
                   p = obj.patches(kk);
                   
                   %find out u-v coordinates in patch p 
-                  node = p2pmapSymm(r0, patch, p);
+                  node = p2pmap(r0, patch, p);
                   patch.cl_links(jj, 2*(kk-1) + 1:2*kk) = node;
                   
                end
@@ -849,12 +849,12 @@ classdef Surface < handle
       function I = getInertia(obj)
           I = zeros(3,3);
           patch = obj.patches;
-          
+          center = obj.getCenter(); 
           x = [patch(1).r(:,1) patch(2).r(:,1) patch(3).r(:,1) patch(4).r(:,1) patch(5).r(:,1) patch(6).r(:,1)];
           y = [patch(1).r(:,2) patch(2).r(:,2) patch(3).r(:,2) patch(4).r(:,2) patch(5).r(:,2) patch(6).r(:,2)];
           z = [patch(1).r(:,3) patch(2).r(:,3) patch(3).r(:,3) patch(4).r(:,3) patch(5).r(:,3) patch(6).r(:,3)];
                     
-          x = x(:); y = y(:); z = z(:);
+          x = x(:)-center(1); y = y(:)-center(2); z = z(:)-center(3);
           f_xx = zeros(size(x, 1), 3);
           f_xy = zeros(size(x, 1), 3);
           f_xz = zeros(size(x, 1), 3);

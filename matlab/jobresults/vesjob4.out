@@ -1,0 +1,858 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2020 The MathWorks, Inc.
+                  R2020a (9.8.0.1323502) 64-bit (glnxa64)
+                             February 25, 2020
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+>> >> >> 
+m =
+
+    31
+
+in sphere patch
+in sphere patch
+in sphere patch
+in sphere patch
+in sphere patch
+in sphere patch
+
+ini_center =
+
+    2.0000    2.0000    2.0000
+
+
+dt =
+
+    0.0025
+
+
+nongpuSL =
+
+  131.0895
+
+
+tot_xdisp =
+
+    0.0050
+
+
+nts =
+
+     1
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   86.2282
+
+
+tot_xdisp =
+
+    0.0100
+
+
+nts =
+
+     2
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   84.8058
+
+
+tot_xdisp =
+
+    0.0150
+
+
+nts =
+
+     3
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   90.0358
+
+
+tot_xdisp =
+
+    0.0200
+
+
+nts =
+
+     4
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   87.1846
+
+
+tot_xdisp =
+
+    0.0250
+
+
+nts =
+
+     5
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   79.6701
+
+
+tot_xdisp =
+
+    0.0300
+
+
+nts =
+
+     6
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   94.3067
+
+
+tot_xdisp =
+
+    0.0350
+
+
+nts =
+
+     7
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   83.6990
+
+
+tot_xdisp =
+
+    0.0400
+
+
+nts =
+
+     8
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   83.0609
+
+
+tot_xdisp =
+
+    0.0450
+
+
+nts =
+
+     9
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   81.4072
+
+
+tot_xdisp =
+
+    0.0500
+
+
+nts =
+
+    10
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   87.3254
+
+
+tot_xdisp =
+
+    0.0550
+
+
+nts =
+
+    11
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   90.5481
+
+
+tot_xdisp =
+
+    0.0600
+
+
+nts =
+
+    12
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   86.9502
+
+
+tot_xdisp =
+
+    0.0650
+
+
+nts =
+
+    13
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   88.5014
+
+
+tot_xdisp =
+
+    0.0700
+
+
+nts =
+
+    14
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   77.8973
+
+
+tot_xdisp =
+
+    0.0750
+
+
+nts =
+
+    15
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   78.6831
+
+
+tot_xdisp =
+
+    0.0800
+
+
+nts =
+
+    16
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   77.5812
+
+
+tot_xdisp =
+
+    0.0850
+
+
+nts =
+
+    17
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   76.7228
+
+
+tot_xdisp =
+
+    0.0900
+
+
+nts =
+
+    18
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   76.8950
+
+
+tot_xdisp =
+
+    0.0950
+
+
+nts =
+
+    19
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   81.9716
+
+
+tot_xdisp =
+
+    0.1000
+
+
+nts =
+
+    20
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   79.6242
+
+
+tot_xdisp =
+
+    0.1050
+
+
+nts =
+
+    21
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   77.4471
+
+
+tot_xdisp =
+
+    0.1100
+
+
+nts =
+
+    22
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   73.6729
+
+
+tot_xdisp =
+
+    0.1150
+
+
+nts =
+
+    23
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   75.4075
+
+
+tot_xdisp =
+
+    0.1200
+
+
+nts =
+
+    24
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   73.7428
+
+
+tot_xdisp =
+
+    0.1250
+
+
+nts =
+
+    25
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   77.6168
+
+
+tot_xdisp =
+
+    0.1300
+
+
+nts =
+
+    26
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   77.2415
+
+
+tot_xdisp =
+
+    0.1350
+
+
+nts =
+
+    27
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   75.9336
+
+
+tot_xdisp =
+
+    0.1400
+
+
+nts =
+
+    28
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   75.1946
+
+
+tot_xdisp =
+
+    0.1450
+
+
+nts =
+
+    29
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   82.0271
+
+
+tot_xdisp =
+
+    0.1500
+
+
+nts =
+
+    30
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   80.1151
+
+
+tot_xdisp =
+
+    0.1550
+
+
+nts =
+
+    31
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   78.9472
+
+
+tot_xdisp =
+
+    0.1600
+
+
+nts =
+
+    32
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   83.0821
+
+
+tot_xdisp =
+
+    0.1650
+
+
+nts =
+
+    33
+
+
+after_center =
+
+    2.0000    2.0000    2.0000
+
+
+nongpuSL =
+
+   83.6704
+
+
+tot_xdisp =
+
+    0.1700
+
+
+nts =
+
+    34
+
+
+after_center =
+
+    2.0000    2.0000    2.0001
+
+
+nongpuSL =
+
+   81.5362
+
+
+tot_xdisp =
+
+    0.1750
+
+
+nts =
+
+    35
+
+
+after_center =
+
+    2.0000    2.0000    2.0001
+
+
+nongpuSL =
+
+   79.6579
+
+
+tot_xdisp =
+
+    0.1798
+
+
+nts =
+
+    36
+
+
+after_center =
+
+    2.0000    2.0002    2.0006
+
+
+nongpuSL =
+
+   81.4409
+
+
+tot_xdisp =
+
+    0.3111
+
+
+nts =
+
+    37
+
+
+after_center =
+
+    2.0000    1.8864    2.0369
+
+
+nongpuSL =
+
+   83.6224
+
+
+tot_xdisp =
+
+   3.0729e+03
+
+
+nts =
+
+    38
+
+
+after_center =
+
+   1.0e+03 *
+
+    0.0020   -1.7799    3.2323
+
+
+nongpuSL =
+
+   80.4704
+
+
+tot_xdisp =
+
+   1.2745e+23
+
+
+nts =
+
+    39
+
+
+after_center =
+
+   1.0e+23 *
+
+   -0.0000   -1.0828    0.2042
+
+
+nongpuSL =
+
+   79.4382
+
+
+tot_xdisp =
+
+  5.2380e+139
+
+
+nts =
+
+    40
+
+
+after_center =
+
+  1.0e+139 *
+
+   -0.0000   -1.8844    9.0315
+
+
+nongpuSL =
+
+   80.2172
+
+
+tot_xdisp =
+
+   NaN
+
+
+nts =
+
+    41
+
+
+after_center =
+
+   NaN   NaN   NaN
+
+>> 
